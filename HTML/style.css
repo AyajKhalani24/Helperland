@@ -19,13 +19,13 @@ html{
 }
 .nav{
     text-decoration: none;
-    padding:5px 20px;
-    margin: 0px 2px;
+    padding:5px 20px !important;
+    margin: 0px 2px !important;
     font-size: 15px;
-    color: white;
+    color: white !important;
 }
 .logo{   
-    margin: 10px;
+    margin: 10px 10px 0px 10px;
     display: inline-block;
 }
 #r{
@@ -282,6 +282,8 @@ html{
 }
 #getonscontent{
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     margin: 20px 30%;
 }
@@ -293,6 +295,7 @@ html{
     font-size: 17px;
     color: #353548;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 #email{
     height: 40px;
@@ -313,17 +316,14 @@ html{
     color: white;
 }
 .footer{
-    background-color: black;
+    background-color: #111111;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 120px;
 
 }
 .footerlogo{
-    width: 120px;
-    height: 92px;
-    padding: 20px 0px 20px 0px;
+    padding: 20px 0px;
 }
 #navbottomflex{
     display: flex;
@@ -333,7 +333,7 @@ html{
 }
 .navb{
     text-decoration: none;
-    color: #f1f1f1;
+    color: #f1f1f1 !important;
     font-size: 13px;
     padding:0px 15px;
 }
@@ -368,4 +368,141 @@ html{
     padding: 10px 37px;
     border-radius: 20px;
     border: 0px;
+}
+.terms{
+    font-size: 14px;
+    color: #9ba0a3;
+    background-color: #111111;
+    border-top:1px solid#424242;
+    padding: 22px 0px;
+    text-align: center;
+}
+.text-decoration{
+    text-decoration: none;
+}
+.a-color{
+    color: #9ba0a3;
+    
+}
+.navfacq{
+    background-color: #525252;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#facqlogo{
+    display: inline-block;
+}
+.facqnavitem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.facqnav{
+    margin:12px 10px;
+    padding: 9px 18px;
+    text-decoration: none;
+    color: #ffffff !important;
+    font-size: 17px;
+}
+.rf{
+    border: 1px solid #ffffff;
+    background-color: #29626d;
+    border-radius: 50px;
+}
+.nf{
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+}
+.facqimg{
+    width: 100%;
+}
+.facqheader{
+    text-align: center;
+    font-size: 35px;
+    color:#4f4f4f;
+    margin: 32px 0px 9px 0px;
+}
+.faHeaderDecoration{
+text-align: center;
+}
+.facqHeaderText{
+    text-align: center;
+    margin: 20px 500px;
+}
+
+.line{
+    display: inline-block;
+    width:62px;
+    height:1px;
+    margin:0px 8px;
+    background:#cccccc;
+}
+
+.whoseFor {
+	margin-bottom: 48px;
+}
+
+.whoseFor .row {
+	padding: 0 0.75rem;
+	max-width: 946px;
+	margin: auto;
+}
+
+.forCustomer,
+.forServiceProvider {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background: #f6f6f6;
+	color: #646464;
+	border-bottom: 4px solid #1d7a8c;
+	font-size: 24px;
+}
+
+.forCustomer.active,
+.forServiceProvider.active {
+	background: #1d7a8c !important;
+	color: #fff !important;
+}
+
+.accordion-item {
+	border: 0 !important;
+}
+
+.accordion-btn {
+	font-size: 16px;
+	font-weight: bold;
+	color: #646464;
+}
+
+.accordion-btn.collapsed img {
+	transform: rotate(0);
+}
+
+.question {
+	display: inline;
+	margin-left: 15px;
+}
+.accordion-btn img {
+	transform: rotate(90deg);
+	transition: transform 0.4s;
+}
+
+.accordion-body {
+    text-align: left;
+    margin: 0px 20%;
+	padding: 18px 0px;
+	padding-left: 37px;
+	font-size: 16px;
+	color: #646464;
+}
+
+.accordion-item {
+	margin-bottom: 40px;
+}
+.faqcontent{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }

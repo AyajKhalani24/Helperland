@@ -297,6 +297,8 @@ html{
 #getonscontent{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin: 20px 30%;
 }
 #getonstime{
@@ -307,6 +309,7 @@ html{
     font-size: 17px;
     color: #353548;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 #email{
     height: 40px;
@@ -337,8 +340,6 @@ html{
 
 }
 .footerlogo{
-    width: 120px;
-    height: 92px;
     padding-top: 50px;
 }
 #navbottomflex{
@@ -386,4 +387,142 @@ html{
     padding: 10px 37px;
     border-radius: 20px;
     border: 0px;
+}
+.terms{
+    font-size: 14px;
+    color: #9ba0a3;
+    background-color: #111111;
+    padding: 22px 0px;
+    text-align: center;
+}
+.text-decoration{
+    text-decoration: none;
+}
+.a-color{
+    color: #9ba0a3;
+    
+}
+.navfacq{
+    background-color: #525252;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+#facqlogo{
+    display: block;
+}
+.facqnavitem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.facqnav{
+    margin: 11px 10px 15px 10px;
+    padding: 9px 15px;
+    text-decoration: none;
+    color: #ffffff !important;
+    font-size: 17px;
+}
+.rf{
+    border: 1px solid #ffffff;
+    background-color: #29626d;
+    border-radius: 50px;
+}
+.nf{
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+}
+.facqimg{
+    width: 100%;
+}
+.facqheader{
+    text-align: center;
+    font-size: 35px;
+    color:#4f4f4f;
+    margin: 32px 0px 9px 0px;
+}
+.faHeaderDecoration{
+text-align: center;
+}
+.facqHeaderText{
+    text-align: center;
+    margin: 20px;
+}
+
+.line{
+    display: inline-block;
+    width:62px;
+    height:1px;
+    margin:0px 8px;
+    background:#cccccc;
+}
+.whoseFor {
+	margin-bottom: 48px;
+}
+
+.whoseFor .row {
+	padding: 0 0.75rem;
+	max-width: 946px;
+	margin: auto;
+}
+
+.forCustomer,
+.forServiceProvider {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background: #f6f6f6;
+	color: #646464;
+	border-bottom: 4px solid #1d7a8c;
+	font-size: 24px;
+	cursor: pointer;
+	transition: background 0.3s, color 0.3s;
+}
+
+.forCustomer.active,
+.forServiceProvider.active {
+	background: #1d7a8c !important;
+	color: #fff !important;
+}
+
+.accordion-item {
+	border: 0 !important;
+}
+
+.accordion-btn {
+	font-size: 16px;
+	font-weight: bold;
+	color: #646464;
+}
+
+.accordion-btn.collapsed img {
+	transform: rotate(0);
+}
+
+.question {
+	display: inline;
+	margin-left: 15px;
+}
+.accordion-btn img {
+	transform: rotate(90deg);
+	transition: transform 0.4s;
+}
+
+.accordion-body {
+    text-align: left;
+    margin: 0px 10%;
+	padding: 18px 0;
+	padding-left: 37px;
+	font-size: 16px;
+	color: #646464;
+}
+
+.accordion-item {
+	margin-bottom: 40px;
+}
+.faqcontent{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
