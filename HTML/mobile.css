@@ -45,15 +45,15 @@ html{
     width: 40px;
     transform: translateY(0px) rotate(315deg);
 }
-span:nth-child(1) {
+.hamburger span:nth-child(1) {
     transform: translate(0px, -15px);
     width: 40px;
-    /* transition-delay:0.1s; */
+    transition-delay:0.1s;
 }
-span:nth-child(3){
+.hamburger span:nth-child(3){
     transform: translate(0px, 15px);
     width: 40px;
-    /* transition-delay:0.1s; */
+    transition-delay:0.1s;
 
 }
 
@@ -492,7 +492,9 @@ span:nth-child(3){
     margin: 32px 0px 9px 0px;
 }
 .faHeaderDecoration{
-text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .facqHeaderText{
     text-align: center;
@@ -536,7 +538,7 @@ text-align: center;
 	border-bottom: 4px solid #1d7a8c;
 	font-size: 24px;
 	cursor: pointer;
-	transition: background 0.3s, color 0.3s;
+	transition: background 0.5s, color 0.5s;
 }
 
 .forCustomer.active,
@@ -553,6 +555,8 @@ text-align: center;
 	font-size: 16px;
 	font-weight: bold;
 	color: #646464;
+    text-align: left;
+    padding-left: 15px;
 }
 
 .accordion-btn.collapsed img {

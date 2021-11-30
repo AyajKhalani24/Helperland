@@ -424,7 +424,9 @@ html{
     margin: 32px 0px 9px 0px;
 }
 .faHeaderDecoration{
-text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .facqHeaderText{
     text-align: center;
@@ -457,6 +459,8 @@ text-align: center;
 	color: #646464;
 	border-bottom: 4px solid #1d7a8c;
 	font-size: 24px;
+    cursor: pointer;
+    transition: color 0.5s, background 0.5s;
 }
 
 .forCustomer.active,
@@ -488,9 +492,10 @@ text-align: center;
 	transition: transform 0.4s;
 }
 
+
 .accordion-body {
     text-align: left;
-    margin: 0px 20%;
+    /* margin: 0px 20%; */
 	padding: 18px 0px;
 	padding-left: 37px;
 	font-size: 16px;
@@ -501,6 +506,8 @@ text-align: center;
 	margin-bottom: 40px;
 }
 .faqcontent{
+    max-width: 946px;
+    margin: auto;
     display: flex;
     justify-content: center;
     text-align: center;
