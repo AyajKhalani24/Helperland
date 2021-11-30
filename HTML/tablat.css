@@ -284,7 +284,7 @@ html{
 #getons{
     display: flex;
     flex-wrap: wrap;
-    text-align: center;
+    align-items: center;
     justify-content: center;
 }
 #uparrow{
@@ -529,4 +529,168 @@ html{
     justify-content: center;
     text-align: center;
     align-items: center;
+}
+
+
+.pricedisc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pdh{
+    font-size: 28px;
+    text-align: center;
+    padding: 12px 0px;
+    background-color:#1d7a8c;
+    color: #ffffff;
+    font-weight: bold;
+    width: 530px;
+    max-width: 530px;
+    margin-top: 50px;
+}
+.euro{
+    display: inline-block;
+    font-size: 45px;
+    color: #646464;
+}
+.ph{
+    display: inline-block;
+    font-size: 30px;
+    color: #646464;
+}
+.pricediscmain{
+    display: inline-block;
+}
+.actualprice{
+    text-align: center;
+    width: 530px;
+    max-width: 530px;
+    border-left:1px solid #1d7a8c;
+    border-right:1px solid #1d7a8c;
+}
+.acdisc{
+    color: #646464;;
+    font-size: 16px;
+    text-align: left;
+    width: 530px;
+    max-width: 530px;
+    border-left:1px solid #1d7a8c;
+    border-right:1px solid #1d7a8c;
+    border-bottom: 1px solid #1d7a8c;;
+}
+.acdiscimg{
+    padding-left: 20%;
+}
+
+.hrline{
+    margin-top:50px;
+    display: inline-block;
+    height: 1px;
+    width:80%;
+    background: #dcdcdc;
+}
+.extraservice{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 39px 0px;
+}
+.esimg{
+    border:1px solid #B0C9CE;
+    height: 108px;
+    width: 108px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 54px;
+    margin:0px 50px
+}
+.esdisc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.esdiscmain{
+    margin:10px 0px 0px 0px;
+    font-size: 16px;
+    color: #646464;
+}
+.estime{
+    font-size: 18px;
+    font-weight: bold;
+    color: #1d7a8c;
+}
+.wwiic{
+    background-color: #f6f6f6;
+}
+.wwiicheader{
+    padding-top:73px ;
+}
+.cardmain{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    border:0px;
+    margin: 30px 15px 30px 15px;
+    background-color: #f6f6f6 ;
+}
+.carddisc{
+    display: inline-block;
+    color: #4f4f4f;
+    font-size: 16px;
+    padding-left: 9px;
+}
+.cardheader{
+    margin: 8px 0px;
+    color: #4f4f4f;
+    font-weight: bold;
+    font-size: 20px;
+}
+.whlheader{
+    margin-top: 71px;
+}
+.whl{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.whlright{
+    /* max-height: 241px; */
+    padding-left: 22px;
+    max-width:360px ;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    text-align: right;
+}
+.whlleft{
+    padding-right: 22px;
+    max-width:337px ;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    text-align: left;
+}
+.whyhelperlandreasonleft{
+    font-size: 20px;
+    text-align: left;
+    color: #646464;
+    font-weight: bold;
+}
+.whyhelperlandreasonright{
+    font-size: 20px;
+    text-align: right;
+    color: #646464;
+    font-weight: bold;
+}
+.whldiscmain{
+    color: #646464;
+    font-size: 14px;
+    padding-bottom: 50px;
 }
