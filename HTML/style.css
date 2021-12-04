@@ -23,10 +23,12 @@ html{
     margin: 0px 2px !important;
     font-size: 15px;
     color: white !important;
+    /* position: fixed; */
 }
 .logo{   
     margin: 10px 10px 0px 10px;
     display: inline-block;
+    /* position: fixed; */
 }
 #r{
     border: 1px solid white;
@@ -124,8 +126,7 @@ html{
     color: #565656;
     font-size: 15px; 
 }
-.container{
-    /* width: 50%; */
+.cont{
     margin: 160px 200px 0px 200px;
     display: flex;
     justify-content: center;
@@ -144,35 +145,9 @@ html{
     /* flex-grow: 1; */
 }
 .container2{
-    position: relative;
-    /* flex-grow: 1; */
-    height: 336px;
     width: 403px;
     max-width: 403px;
-    overflow: hidden;
     margin-left: 97px;
-}
-#contimg1{
-    border-radius: 100px;
-    position: absolute;
-    bottom: 0;
-	left: 202px;
-	z-index: -1;
-    
-}
-#contimg2{
-    border-radius: 75px;
-    position: absolute;
-    top: 0;
-	left: 216px;
-	z-index: 0
-}
-#contimg3{
-    border-radius: 120px;
-    position: absolute;
-    top: 44px;
-	left: 0;
-	z-index: 0
 }
 .obmaintitle{
     text-align: center;
@@ -298,7 +273,7 @@ html{
     margin-bottom: 5px;
     font-weight: bold;
 }
-#email{
+#getonsemail{
     height: 40px;
     width:230px;
     border: 1px solid gray;
@@ -420,8 +395,8 @@ html{
 }
 .facqheader{
     text-align: center;
-    font-size: 35px;
-    color:#4f4f4f;
+    font-size: 35px !important;
+    color:#4f4f4f !important;
     margin: 32px 0px 9px 0px;
 }
 .faHeaderDecoration{
@@ -675,4 +650,122 @@ html{
     color: #646464;
     font-size: 14px;
     padding-bottom: 50px;
+}
+.aboutuscontainer{
+    color: #646464;
+    font-size: 16px;
+    margin: 40px 280px 75px 280px;
+    text-align: center;
+}
+.contactus{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.contactus p{
+    font-size: 16px;
+    color: #4f4f4f;
+    padding: 10px;
+}
+.contactusdisc{
+    padding: 50px 70px 10px 70px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#infomail{
+    padding-top: 21px;
+}
+#infoadd{
+    padding: 50px 48px 10px 48px!important;
+}
+.centerhr{
+    display: flex;
+    justify-content: center;
+}
+.gitwuheader{
+    margin: 70px 0px 23px 0px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #4f4f4f;
+}
+.gitwu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.formdecoration{
+    margin:0px 14px 14px 0px;
+    padding: 14px 15px !important;
+    font-size: 16px;
+    color:#a0a0a0;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    height: 46px;
+    width:614px
+}
+#firstname{
+    width: 300px;
+}
+#lastname{
+    width: 300px;
+}
+#countrycode{
+    width: 57px;
+    margin-right: 0px !important;
+    border-radius: 4px 0px 0px 4px;
+    background-color:#f6f6f6 ;
+}
+#mono{
+    border: 1px 1px 1px 0px solid #c8c8c8;
+    border-radius: 0px 4px 4px 0px;
+    margin-left: 0px !important;
+    width:243px;
+}
+#email{
+    height: 46px;
+    width: 300px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px !important;
+    background-color: #ffffff;
+}
+#msg{
+    height: 146px;
+}
+.submit #submitbutton{
+    padding: 10px 50px !important;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:163px;
+    color:white;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #1d7a8c;
+    border: 0px;
+    border-radius: 23px;
+    margin-bottom: 80px;
+}
+.mapimg{
+    position: absolute;
+    top:182px;
+    left:45%;
+}
+#contactushrline{
+    margin-top: 40px;
+}
+.map{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url("./images/map.png") no-repeat center center/cover;
+}
+.contactusgetons{
+    margin: 43px 0px 53px 0px !important;
 }
