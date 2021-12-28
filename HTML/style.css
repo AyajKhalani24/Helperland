@@ -837,7 +837,7 @@ html{
     color: #1fb6ff !important;
 }
 #becomeaprovider{
-    height: 100%;
+    height: 950px;
     background: url("images/group-18\ \(3\).png") no-repeat center center/cover;
 }
 .becomeprosubmit{
@@ -881,13 +881,24 @@ html{
     text-decoration: none;
     cursor: pointer;
 }
-.prosedure{
+#prosedure{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 .child22{
     width: 350px;
     margin: 20px 0px 20px 150px;
+}
+.blogleft{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.blogright{
+    position: absolute;
+    top: 0;
+    right: 0;
 }
