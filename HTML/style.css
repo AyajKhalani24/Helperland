@@ -769,3 +769,125 @@ html{
 .contactusgetons{
     margin: 43px 0px 53px 0px !important;
 }
+.becomepro{
+    background-color: #ffffff;
+    box-shadow: 0px 0px 16px #00000026;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    text-align: left;
+    width: 430px;
+    margin: auto;
+}
+.becomeprodecoration{
+    /* height: 46px; */
+    width:359px;
+    padding: 13px 15px;
+    margin: 7.5px 35px;
+    border: 1px solid #C8C8C8;
+    border-radius: 2px;
+    color: #A0A0A0;
+    font-size: 16px;
+}
+.register{
+    margin: 19px ;
+    color: #4f4f4f;
+}
+.bpccmono{
+    display: flex;
+    width: 91%;
+}
+#ccbecomepro{
+    width: 10%;
+    color: #4f4f4f;
+    font-size: 16px;
+    margin-right: 0px;
+    padding: 15px 8px 12px 11px;
+    margin: 7.5px 0px;
+    border: 1px solid #C8C8C8 !important;
+    border-radius: 4px 0px 0px 4px;
+    background-color:#f6f6f6 ;
+}
+#monobecomepro{
+    width: 90%;
+    color: #4f4f4f;
+    font-size: 16px;
+    padding: 13px 15px;
+    margin: 7.5px 0px;
+    border: 1px solid #C8C8C8 !important;
+    border-radius: 0px 2px 2px 0px;
+}
+.checkboxes{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   
+}
+.check{
+    display: flex;
+    margin: 7.5px 0px ;
+    columns: #4f4f4f;
+    font-size: 16px;
+}
+.checkbox{
+    height: 20px;
+    width: 20px;
+}
+.blue{
+    color: #1fb6ff !important;
+}
+#becomeaprovider{
+    height: 100%;
+    background: url("images/group-18\ \(3\).png") no-repeat center center/cover;
+}
+.becomeprosubmit{
+    background-color: #1d7a8c;
+    border-radius: 23px;
+    font-size: 16px;
+    border: 0px;
+    color: #ffffff;
+    padding: 13px 27px;
+    margin:19px;
+}
+#prosedure h2{
+    font-size: 30px;
+    margin: 20px;
+    text-align: center;
+    color: #4f4f4f;
+}
+.child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.child11{
+    width: 350px;
+    margin: 20px 150px 20px 0px;
+}
+.proceheader{
+    color: #4f4f4f;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.procedisc{
+    color: #646464;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+.readmorebecomeprovider{
+    color: #646464;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.prosedure{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.child22{
+    width: 350px;
+    margin: 20px 0px 20px 150px;
+}
