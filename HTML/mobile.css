@@ -912,7 +912,7 @@ html{
     color: #1fb6ff !important;
 }
 #becomeaprovider{
-    height: 1000px;
+    height: 100%;
     background: url("images/group-18\ \(3\).png") no-repeat center center/cover;
 }
 .becomeprosubmit{
@@ -933,7 +933,7 @@ html{
     text-align: center;
     color: #4f4f4f;
 }
-.child{
+#prosedure .child{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -986,4 +986,207 @@ html{
 }
 .blogright{
    display: none;
+}
+.usnavmobile img{
+    padding: 10px;
+}
+.usnavmobile{
+    background-color: #525252;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.usnav2{
+    display: flex;
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    min-height: 100vh;
+    z-index: 1000;
+    left: 100vw;
+    transition: left 0.35s;
+}
+.closebutton{
+    width:50vw;
+    height:100vh;
+    background: rgba(0,0, 0,0.50);
+}
+.opennav{
+    width:50vw;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    z-index: 1000;
+}
+.usnav2.open{
+    left: 0;
+}
+#usnavicon{
+    border-left: 1px solid #e1e1e1;
+    border-right: 1px solid #e1e1e1;
+    padding: 10px 20px 10px 20px;
+}
+.navuscont{
+    color: #ffffff !important;
+    font-size: 17px;
+    /* font-weight: 300; */
+    padding: 10px;
+    text-decoration: none;
+}
+
+.welcometext{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f4f4f;
+    font-size: 30px;
+    background-color: #f9f9f9;
+    border-bottom:1px solid #e1e1e1 ;
+    height: 119px;
+}
+#ustable {
+	border-collapse: collapse !important;
+	max-width: 100% !important;
+	width: 100% !important;
+}
+.upcomingservicestable{
+    max-width: 100%;
+    flex: 1;
+    min-width: 0;
+    padding:10px 20px 10px 20px;
+}
+#ustable thead tr {
+	background: rgb(224, 224, 224, 0.5) !important;
+	border: 1px solid #e1e1e1 !important;
+}
+#ustable tbody tr {
+	border: 1px solid #e1e1e1 !important;
+}
+.dataTables_wrapper {
+	max-width: 861px !important;
+}
+.usnav2.toggle{
+    height: 350px;
+    border: 1px solid #ffffff;
+    /* width:50% */
+    float: right;
+}
+.vertnav{
+    display: none;
+}
+.usnavstyle{
+    display: none;
+}
+.navjustify{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+}
+.usnav2{
+    color:#ffffff;
+}
+.uscol{
+    color: #646464;
+    font-size: 16px;
+}
+.uscolbutton{
+    color: #ffffff;
+    background-color: #FF6B6B;
+    padding:7px 15px;
+    border-radius: 20px;
+    text-align: center;
+}
+.vertnavcont{
+    color: #646464;
+    background-color: white;
+}
+.hamburger2 img{
+    height: 74px;
+    filter: invert(1);
+    cursor: pointer;
+}
+.navshextra{
+    padding: 7px 10px;
+    color: #ffffff !important;
+    text-decoration:none;
+    background-color: #29626D;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+}
+.shcol{
+    color: #646464;
+    font-size: 14px;
+}
+.lumwat{
+    display: flex;
+}
+.capimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:50px;
+    width: 50px;
+    border: 1px solid #d8d8d8;
+    border-radius: 50%;
+    margin: 0px 10px 0px 0px;
+}
+.shcol3{
+    color: #1d7a8c;
+    font-size: 24px;
+}
+.odd1{
+    color: #ffffff;
+    background-color: #67b644;
+    font-size: 14px;
+    border-radius: 2px;
+    text-align: center;
+    padding:3px 7px;
+    max-width: 100px;
+}
+.odd2{
+    color: #ffffff;
+    background-color: #ff6b6b;
+    font-size: 14px;
+    border-radius: 2px;
+    padding:3px 7px;
+    text-align: center;
+    max-width: 100px;
+}
+.ratesp{
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 17px;
+    padding: 8px 12px;
+    background-color: #6DA9B5;
+    text-align: center;
+    max-width: 80px;
+}
+.welcomesp{
+    color: #646464;
+    font-size: 30px;
+    padding: 0px;
+    margin: 0px 10px 0px 10px;
+}
+.usernamee{
+    color: #646464;
+    font-size: 30px;
+    padding: 0px;
+    margin: 0px 10px 0px 10px;
+}
+.opennav span{
+    height: 1px;
+    width: 100%;
+    background: #646464;
+}
+.vertnavcont{
+    font-size: 25px;
+    text-decoration: none;
+    color: #646464;
+    margin: 10px 3px 10px 3px;
+}
+.vertnavcont:hover{
+    color: #1D7A8c;
+    font-size: 30px;
+    margin: 0px;
 }
