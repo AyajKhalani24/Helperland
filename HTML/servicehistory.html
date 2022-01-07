@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" />
 
 
-    <title>Upcoming Services| Helperland</title>
+    <title>Service History| Helperland</title>
 </head>
 
 <body>
@@ -56,11 +56,11 @@
 
             </div>
             <div class="opennav">
-                <p class="welcomesp">Welcome</p>
-                <p class="usernamee"><b>Sandip Patel</b></p>
+                <p class="welcomesp">Welcome!</p>
+                <p class="welcomesp"><b>Gaurang Patel</b></p>
                 <span></span>
                 <a href="#" class="vertnavcont">Dashbord</a>
-                <a href="#" class="vertnavcont current">Service History</a>
+                <a href="#" class="vertnavcont">Service History</a>
                 <a href="#" class="vertnavcont">Service Schedule</a>
                 <a href="#" class="vertnavcont">Favourite Pros</a>
                 <a href="#" class="vertnavcont">Invoices</a>
@@ -71,12 +71,17 @@
                 <a href="#" class="vertnavcont">Warrenty</a>
                 <a href="#" class="vertnavcont">Blog</a>
                 <a href="#" class="vertnavcont">Contact</a>
+                <span></span>
+                <div>
+                    <a href="https:/www.instagram.com"><img src="./images/Forma 1_3.png" alt="" style="filter: invert(1);"></a>
+                    <a href="https:/www.facebook.com"><img src="./images/Forma 1_5.png" alt="" style="filter: invert(1);"></a>
+                </div>
             </div>
         </div>
     </section>
 
     <div class="welcometext">
-        <p>Welcome, <b>Sandip!</b></p>
+        <p>Welcome, <b>Gaurang!</b></p>
     </div>
 
 
@@ -88,10 +93,11 @@
             <a href="#" class="vertnavcont">Favourite Pros</a>
             <a href="#" class="vertnavcont">Invoices</a>
             <a href="#" class="vertnavcont">Notification</a>
-            <a href="#" class="extra vertnavcont"></a>
         </div>
         <div class="upcomingservicestable">
+            
             <table id="ustable">
+                <p class="servicehistorytag"><b>Service History</b></p>
                 <thead>
                     <tr>
                         <th>Service Details</th>
@@ -106,80 +112,93 @@
                         <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
                         <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
                         <td class="shcol3"><b>&euro;63</b></td>
-                        <td><p class="odd1">Completed</p></td>
+                        <td><p class="redgreen" id="green">Completed</p></td>
                         <td><p class="ratesp">Rate SP</p></td>
                     </tr>
                     <tr>
                         <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
                         <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
                         <td class="shcol3"><b>&euro;63</b></td>
-                        <td><p class="odd2">Cancelled</p></td>
+                        <td><p class="redgreen" id="red">Cancelled</p></td>
                         <td><p class="ratesp">Rate SP</p></td>
                     </tr>
                     <tr>
                         <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
                         <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
                         <td class="shcol3"><b>&euro;63</b></td>
-                        <td><p class="odd1">Completed</p></td>
+                        <td><p class="redgreen" id="green">Completed</p></td>
                         <td><p class="ratesp">Rate SP</p></td>
                     </tr>
                     <tr>
                         <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
                         <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
                         <td class="shcol3"><b>&euro;63</b></td>
-                        <td><p class="odd2">Cancelled</p></td>
+                        <td><p class="redgreen" id="red">Cancelled</p></td>
                         <td><p class="ratesp">Rate SP</p></td>
                     </tr><tr>
                         <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
                         <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
                         <td class="shcol3"><b>&euro;63</b></td>
-                        <td><p class="odd1">Completed</p></td>
+                        <td><p class="redgreen" id="green">Completed</p></td>
                         <td><p class="ratesp">Rate SP</p></td>
                     </tr>
                     <tr>
                         <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
                         <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
                         <td class="shcol3"><b>&euro;63</b></td>
-                        <td><p class="odd2">Cancelled</p></td>
+                        <td><p class="redgreen" id="red">Cancelled</p></td>
                         <td><p class="ratesp">Rate SP</p></td>
                     </tr><tr>
                         <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
                         <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
                         <td class="shcol3"><b>&euro;63</b></td>
-                        <td><p class="odd1">Completed</p></td>
+                        <td><p class="redgreen" id="green">Completed</p></td>
                         <td><p class="ratesp">Rate SP</p></td>
                     </tr>
                     <tr>
                         <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
                         <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
                         <td class="shcol3"><b>&euro;63</b></td>
-                        <td><p class="odd2">Cancelled</p></td>
+                        <td><p class="redgreen" id="red">Cancelled</p></td>
                         <td><p class="ratesp">Rate SP</p></td>
                     </tr><tr>
                         <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
                         <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
                         <td class="shcol3"><b>&euro;63</b></td>
-                        <td><p class="odd1">Completed</p></td>
+                        <td><p class="redgreen" id="green">Completed</p></td>
                         <td><p class="ratesp">Rate SP</p></td>
                     </tr>
                     <tr>
                         <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
                         <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
                         <td class="shcol3"><b>&euro;63</b></td>
-                        <td><p class="odd2">Cancelled</p></td>
+                        <td><p class="redgreen" id="red">Cancelled</p></td>
                         <td><p class="ratesp">Rate SP</p></td>
                     </tr><tr>
                         <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
                         <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
                         <td class="shcol3"><b>&euro;63</b></td>
-                        <td><p class="odd1">Completed</p></td>
+                        <td><p class="redgreen" id="green">Completed</p></td>
                         <td><p class="ratesp">Rate SP</p></td>
                     </tr>
                     <tr>
                         <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
                         <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
                         <td class="shcol3"><b>&euro;63</b></td>
-                        <td><p class="odd2">Cancelled</p></td>
+                        <td><p class="redgreen" id="red">Cancelled</p></td>
+                        <td><p class="ratesp">Rate SP</p></td>
+                    </tr><tr>
+                        <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
+                        <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
+                        <td class="shcol3"><b>&euro;63</b></td>
+                        <td><p class="redgreen" id="green">Completed</p></td>
+                        <td><p class="ratesp">Rate SP</p></td>
+                    </tr>
+                    <tr>
+                        <td class="shcol"><div><img src="./images/calender.png" alt=""><b>31/03/2018</b></div><div>12:00-18:00</div></td>
+                        <td class="shcol"><div class="lumwat"><div class="capimg"><img src="./images/cap.png" alt=""></div><div>Lyum Watson <div><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/star.svg" alt=""><img src="./images/starblank.svg" alt="">4</div></div> </div></td>
+                        <td class="shcol3"><b>&euro;63</b></td>
+                        <td><p class="redgreen" id="red">Cancelled</p></td>
                         <td><p class="ratesp">Rate SP</p></td>
                     </tr>
                 </tbody>
@@ -222,7 +241,7 @@
     <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="./Asset/upcomingservices.js"></script>
+    <script src="./Asset/servicehistory.js"></script>
 
 </body>
 

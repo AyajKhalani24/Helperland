@@ -896,11 +896,13 @@ html{
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
 }
 .blogright{
     position: absolute;
     top: 0;
     right: 0;
+    z-index: -1;
 }
 .usnavstyle{
     display: flex;
@@ -912,8 +914,6 @@ html{
     padding: 6px 0px 4px 15px;
 }
 #usnavicon{
-    /* box-sizing: 0px 1px 0px 1px;
-    border-color: #e1e1e1; */
     border-left: 1px solid #e1e1e1;
     border-right: 1px solid #e1e1e1;
     padding: 5px 20px 5px 20px;
@@ -921,7 +921,6 @@ html{
 .navuscont{
     color: #ffffff !important;
     font-size: 17px;
-    /* font-weight: 300; */
     padding: 21px;
     text-decoration: none;
 }
@@ -948,20 +947,18 @@ html{
     display: flex;
     flex-direction: column;
     margin: 30px 14px;
+    height:630px;
+    background-color: #1D7A8C;
 }
 .vertnavcont{
     display: flex;
     align-items: center;
-    background-color: #1D7A8C;
     color:#ffffff !important;
     border-bottom: 1px solid #3f99ac;
     font-size: 17px;
     padding: 15px;
     width: 260px;
     text-decoration: none;
-}
-.extra{
-    height: 200px;
 }
 .current{
     background-color: #146371;
@@ -975,7 +972,7 @@ html{
     max-width: 861px;
     flex: 1;
     min-width: 0;
-    padding:30px 0px;
+    padding:30px 20px 30px 0px;
 }
 #ustable thead tr {
 	background: rgb(224, 224, 224, 0.5) !important;
@@ -1113,23 +1110,19 @@ table.dataTable tbody td {
     color: #1d7a8c;
     font-size: 24px;
 }
-.odd1{
-    color: #ffffff;
-    background-color: #67b644;
+.redgreen{
+    color: #ffffff; 
     font-size: 14px;
     border-radius: 2px;
     text-align: center;
     padding:3px 7px;
     max-width: 100px;
 }
-.odd2{
-    color: #ffffff;
-    background-color: #ff6b6b;
-    font-size: 14px;
-    border-radius: 2px;
-    padding:3px 7px;
-    text-align: center;
-    max-width: 100px;
+#green{
+    background-color: #67b644;
+}
+#red{
+    background-color: #FF6B6B;
 }
 .ratesp{
     color: #ffffff;
@@ -1139,4 +1132,22 @@ table.dataTable tbody td {
     background-color: #6DA9B5;
     text-align: center;
     max-width: 80px;
+}
+.servicehistorytag{
+    position: absolute;
+    color: #646464;
+    font-size: 22px;
+}
+.dataTables_wrapper .dt-button{
+    color: #ffffff;
+    background-color: #146371;
+    font-size: 14px;
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 9px 15px;
+    margin-bottom: 10px;
+    float: right;
+}
+.leftrightimg{
+    position: relative;
 }

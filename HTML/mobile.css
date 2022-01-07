@@ -1026,11 +1026,11 @@ html{
     border-left: 1px solid #e1e1e1;
     border-right: 1px solid #e1e1e1;
     padding: 10px 20px 10px 20px;
+    margin-top: 10px;
 }
 .navuscont{
     color: #ffffff !important;
     font-size: 17px;
-    /* font-weight: 300; */
     padding: 10px;
     text-decoration: none;
 }
@@ -1069,7 +1069,6 @@ html{
 .usnav2.toggle{
     height: 350px;
     border: 1px solid #ffffff;
-    /* width:50% */
     float: right;
 }
 .vertnav{
@@ -1106,14 +1105,6 @@ html{
     filter: invert(1);
     cursor: pointer;
 }
-.navshextra{
-    padding: 7px 10px;
-    color: #ffffff !important;
-    text-decoration:none;
-    background-color: #29626D;
-    border: 1px solid #ffffff;
-    border-radius: 20px;
-}
 .shcol{
     color: #646464;
     font-size: 14px;
@@ -1135,23 +1126,19 @@ html{
     color: #1d7a8c;
     font-size: 24px;
 }
-.odd1{
-    color: #ffffff;
-    background-color: #67b644;
+.redgreen{
+    color: #ffffff; 
     font-size: 14px;
     border-radius: 2px;
     text-align: center;
     padding:3px 7px;
     max-width: 100px;
 }
-.odd2{
-    color: #ffffff;
-    background-color: #ff6b6b;
-    font-size: 14px;
-    border-radius: 2px;
-    padding:3px 7px;
-    text-align: center;
-    max-width: 100px;
+#green{
+    background-color: #67b644;
+}
+#red{
+    background-color: #FF6B6B;
 }
 .ratesp{
     color: #ffffff;
@@ -1168,25 +1155,116 @@ html{
     padding: 0px;
     margin: 0px 10px 0px 10px;
 }
-.usernamee{
-    color: #646464;
-    font-size: 30px;
-    padding: 0px;
-    margin: 0px 10px 0px 10px;
-}
 .opennav span{
     height: 1px;
     width: 100%;
     background: #646464;
 }
 .vertnavcont{
-    font-size: 25px;
+    font-size: 20px;
     text-decoration: none;
     color: #646464;
     margin: 10px 3px 10px 3px;
 }
 .vertnavcont:hover{
     color: #1D7A8c;
-    font-size: 30px;
+    font-size: 25px;
     margin: 0px;
+}
+div.dataTables_info {
+	padding-top: 15px !important;
+	padding-left: 8px !important;
+}
+
+div.dataTables_length,
+div.dataTables_paginate {
+	padding-top: 10px !important;
+}
+
+.dataTables_wrapper div.dataTables_info,.dataTables_wrapper div.dataTables_length {
+	clear: right !important;
+	font-size: 14px !important;
+	color: #646464 !important;
+}
+
+.dataTables_wrapper .dataTables_length select {
+	margin: 0 10px !important;
+	font-size: 14px !important;
+	color: #646464 !important;
+	border: 1px solid #e1e1e1 !important;
+	border-radius: 4px !important;
+	outline: none !important;
+}
+table.dataTable thead th.sorting_asc {
+	background-image: url("./images/sort1.png") !important;
+}
+table.dataTable thead th.sorting_desc {
+	background-image: url("./images/sort2.png") !important;
+}
+table.dataTable thead .sorting {
+	background-image: url("./images/sort.png") !important;
+	background-position: right 4px top 50% !important;
+}
+table.dataTable thead th,
+table.dataTable tbody td {
+	border: none !important;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.current,
+.dataTables_wrapper .dataTables_paginate a.paginate_button.current:hover,
+.dataTables_wrapper .dataTables_paginate a.paginate_button:hover {
+	border: 1px solid #1d7a8c !important;
+	background: #1d7a8c !important;
+	color: #fff !important;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.disabled:hover {
+	cursor: not-allowed !important;
+	background: transparent !important;
+	border: 1px solid #e1e1e1 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button.next:hover,
+.dataTables_wrapper .dataTables_paginate a.paginate_button.previous:hover,
+.dataTables_wrapper .dataTables_paginate a.paginate_button.first:hover,
+.dataTables_wrapper .dataTables_paginate a.paginate_button.last:hover {
+	background: transparent !important;
+	border: 1px solid #e1e1e1 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate,
+.dataTables_wrapper .dataTables_paginate span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3px;
+	flex-wrap: wrap;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+	border: 1px solid #e1e1e1 !important;
+	border-radius: 50% !important;
+	color: #777777 !important;
+	padding: 0 !important;
+	height: 38px !important;
+	width: 38px !important;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	transition: background 0.3s, color 0.3s;
+}
+.servicehistorytag{
+    position: absolute;
+    color: #646464;
+    font-size: 22px;
+}
+.dataTables_wrapper .dt-button{
+    color: #ffffff;
+    background-color: #146371;
+    font-size: 14px;
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 9px 15px;
+    margin-bottom: 10px;
+    float: right;
 }

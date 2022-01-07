@@ -77,7 +77,11 @@
         </div>
     </div>
 
-<div class="cont">
+<div class="leftrightimg">
+    <img class="blogleft" src="./images/blog-left-bg.png" alt="">
+    <img class="blogright" src="./images/blog-right-bg.png" alt="">
+
+    <div class="cont">
     <div class="container1">
         <p class="conttitle"><b> Lorem ipsum dolor sit amet,<br> consectetur.</b></p><br>
         <p class="contdisc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quaerat rem aut sunt tempora magni. <br><br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores amet libero rerum odit aliquam distinctio veniam. Asperiores assumenda ipsam architecto doloremque accusamus nostrum vel itaque <br><br>Lorem ipsum dolor sit amet consectetur.</p>
@@ -116,7 +120,7 @@
         <img src="./images/Shape 2.png" alt="">
     </div>
 </div>
-
+</div>
 
 <div class="wocs">
     <p id="wocstitle"> <b> What Our Customer Say</b></p>
@@ -201,6 +205,10 @@
 $('.hamburger').click(()=>{
     $('.hamburger').toggleClass('toggle');
     $('#navm').toggleClass('toggle');
+})
+const closingbutton=document.querySelector('.okbutton')
+document.querySelector('#button').addEventListener('click',()=>{
+    closingbutton.style.display="none"
 })
 
 </script>

@@ -16,7 +16,7 @@ closebutton.addEventListener('click',()=>{
 })
 
 const dt = new DataTable("#ustable", {
-    dom: "Rtlip",
+    dom: "Brtlip",
     responsive: true,
     pagingType: "full_numbers",
     language: {
