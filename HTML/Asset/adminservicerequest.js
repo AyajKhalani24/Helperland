@@ -63,5 +63,5 @@ const dt = new DataTable("#ustable", {
         lengthMenu: "Show_MENU_Entries",
     },
     buttons: ["excel"],
-    columnDefs: [{ orderable: false, targets: 4 },{ orderable: false, targets: 1 },{ orderable: false, targets: 2 },{ orderable: false, targets: 7}],
+    columnDefs: [{ orderable: false, targets: 5 }],
 });

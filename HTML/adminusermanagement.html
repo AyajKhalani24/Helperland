@@ -19,7 +19,7 @@
 <body>
 
   <section class="adminnav">
-    <p class="adminnavheader"><b>helperland</b></p>
+    <p class="adminnavheader">helperland</p>
     <div class="adminnnavdiv">
       <img src="./images/self.png" alt="">
       <p class="adminnavname">James Smith</p>
@@ -29,14 +29,13 @@
 
   <section class="admincont">
 
-
     <div class="adminvertnav">
       <a href="#" class="adminnavvertcont">Service Management</a>
       <a href="#" class="adminnavvertcont">Role Management</a>
       <p href="#" class="adminnavvertcont adminnavvertcontent1">Coupon Code Management <img src="./images/selfside.png"
           alt="" class="imgss"></p>
       <div class="admininsidevertnav1 adminnavvertcont">
-        <p class="ccm1">Coupon Code Management</p>
+        <p class="ccm1">Coupon Code Management <img src="./images/selfside.png" alt="" style="filter: invert(1)"></p>
         <a href="#" class="admininsidevertnavcont">Coupon Code</a>
         <a href="#" class="admininsidevertnavcont">Usage History</a>
       </div>
@@ -47,7 +46,7 @@
       <p href="#" class="adminnavvertcont adminnavvertcontent2">Finance Module <img src="./images/selfside.png" alt=""
           class="imgss"></p>
       <div class="admininsidevertnav2 adminnavvertcont">
-        <p class="ccm2">Finance Module</p>
+        <p class="ccm2">Finance Module <img src="./images/selfside.png" alt="" style="filter: invert(1)"></p>
         <a href="#" class="admininsidevertnavcont">All Transaction</a>
         <a href="#" class="admininsidevertnavcont">Generate Payment</a>
         <a href="#" class="admininsidevertnavcont">Customer Invoices</a>
@@ -59,7 +58,7 @@
       <p href="#" class="adminnavvertcont adminnavvertcontent3">Content Management<img src="./images/selfside.png"
           alt="" class="imgss"></p>
       <div class="admininsidevertnav3 adminnavvertcont">
-        <p class="ccm3">Content Management</p>
+        <p class="ccm3">Content Management <img src="./images/selfside.png" alt="" style="filter: invert(1)"></p>
         <a href="#" class="admininsidevertnavcont">Blog</a>
         <a href="#" class="admininsidevertnavcont">FACQs</a>
       </div>
@@ -70,195 +69,227 @@
 
       <div class="top1">
         <p class="usermanagementheader"><b>User Management</b></p>
-        <a href="#" class="addnewuser"><p class="plus">+</p>Add New User</a>
+        <a href="#" class="addnewuser">
+          <p class="plus">+</p>Add New User
+        </a>
       </div>
 
       <form action="">
-      <div class="top2">
-        <input type="text" name="" id="adminusername" placeholder="Username" class="adminpanelform">
-        <select name="" id="User-Role" aria-placeholder="User-Role" class="adminpanelform" >
-          <option value="1">Call Center</option>
-          <option value="2">Service Provider</option>
-          <option value="3">Call Center</option>
-        </select>
-        <div class="adminccmono">
-          <select name="" id="admincc" class="adminpanelform">
-            <option value="1">+49</option>
-            <option value="2">+91</option>
-            <option value="3">+1</option>
+        <div class="top2">
+          <input type="text" name="" id="adminusername" placeholder="Username" class="adminpanelform">
+          <select name="" id="User-Role" aria-placeholder="User-Role" class="adminpanelform">
+            <option value="1">Call Center</option>
+            <option value="2">Service Provider</option>
+            <option value="3">Call Center</option>
           </select>
-          <input type="text" id="adminmono" placeholder="Phone Number" class="adminpanelform">
+          <div class="adminccmono">
+            <select name="" id="admincc" class="adminpanelform">
+              <option value="1">+49</option>
+              <option value="2">+91</option>
+              <option value="3">+1</option>
+            </select>
+            <input type="text" id="adminmono" placeholder="Phone Number" class="adminpanelform">
+          </div>
+
+          <input type="text" id="adminzipcode" placeholder="zipcode" class="adminpanelform">
+          <input type="submit" id="adminsubmit" placeholder="Search" class="adminpanelform">
+          <input type="reset" id="adminreset" placeholder="reset" class="adminpanelform">
         </div>
+      </form>
 
-        <input type="text" id="adminzipcode" placeholder="zipcode" class="adminpanelform">
-        <input type="submit" id="adminsubmit" placeholder="Search" class="adminpanelform">
-        <input type="reset" id="adminreset" placeholder="reset" class="adminpanelform">
+      <div class="top3">
+        <table id="ustable">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>User Type</th>
+              <th>Role</th>
+              <th>Postal Code</th>
+              <th>City</th>
+              <th>Radious</th>
+              <th>User Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="green">Active</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="red">Inactive</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="green">Active</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="red">Inactive</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="green">Active</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="red">Inactive</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="green">Active</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="red">Inactive</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="green">Active</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="red">Inactive</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="green">Active</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="red">Inactive</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="green">Active</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+            <tr>
+              <td class="admindatatabledata">Lyum Watson</td>
+              <td class="admindatatabledata">Call Center</td>
+              <td class="admindatatabledata">Inquiry Manager</td>
+              <td class="admindatatabledata">123456</td>
+              <td class="admindatatabledata">Berlin</td>
+              <td class="admindatatabledata">10 Km</td>
+              <td class="admindatatabledata">
+                <p class="adminredgreen" id="red">Inactive</p>
+              </td>
+              <td class="admindatatabledata actioncenter"><button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Edit</a><a href='#' class='textnone'>Deactivate</a><a href='#' class='textnone'>Service History</a></div>" data-bs-html="true" data-bs-placement="bottom"><img src="./images/threedot.png" alt=""></button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </form>
 
-    <div class="top3">
-      <table id="ustable">
-        <thead>
-          <tr>
-            <th>Username</th>
-            <th>User Type</th>
-            <th>Role</th>
-            <th>Postal Code</th>
-            <th>City</th>
-            <th>Radious</th>
-            <th>User Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="green">Active</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="red">Inactive</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="green">Active</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="red">Inactive</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="green">Active</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="red">Inactive</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="green">Active</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="red">Inactive</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="green">Active</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="red">Inactive</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="green">Active</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="red">Inactive</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="green">Active</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-          <tr>
-            <td class="admindatatabledata">Lyum Watson</td>
-            <td class="admindatatabledata">Call Center</td>
-            <td class="admindatatabledata">Inquiry Manager</td>
-            <td class="admindatatabledata">123456</td>
-            <td class="admindatatabledata">Berlin</td>
-            <td class="admindatatabledata">10 Km</td>
-            <td class="admindatatabledata"> <p class="adminredgreen" id="red">Inactive</p> </td>
-            <td class="admindatatabledata actioncenter">:</td>
-          </tr>
-         
-        </tbody>
-      </table>
+      <div class="top4">
+        <p>©2018 Helperland. All rights reserved.</p>
     </div>
-    </div>
-
-
     
+    </div>
+
 
   </section>
 
@@ -266,12 +297,16 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
+  
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 
   <script src="./Asset/usermanagement.js"></script>
 </body>

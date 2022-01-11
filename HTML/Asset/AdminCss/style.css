@@ -1,13 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+	font-family: "Switzera ADF";
+	font-style: normal;
+	font-weight: bold;
+	src: local("Switzera ADF Bold"), url("SwitzeraADF-Bold.woff") format("woff");
+}
+@font-face {
+	font-family: "Switzera ADF";
+	font-style: normal;
+	font-weight: normal;
+	src: local("Switzera ADF"), url("SwitzeraADF-Regular.woff") format("woff");
+}
+*{
+    margin: 0px;
+    padding:0px;
+    font-family: 'Roboto', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
 .adminnav{
     background-color: #1FB6FF;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 60px;
 }
 .adminnavheader{
+    font-family: "Switzera ADF", "Roboto", sans-serif !important;
     color: #ffffff;
     font-size: 37.5px;
-    margin-left: 15px;
+    margin: 13px 0px 8px 15px;
+   
 }
 .adminnavimg{
     height: 70px;
@@ -34,7 +59,7 @@
     border: 1px solid #E5E5E5;
 }
 .adminnavvertcont:hover{
-    color:black;
+    color: #1FB6FF;
 }
 .adminvertnav{
     width:273px;
@@ -49,8 +74,14 @@
 .adminvertnav p{
     margin-bottom: 0px;
 }
+.ccm2 , .ccm1 , .ccm3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .imgss{
     filter: invert(1);
+    transform: rotate(-90deg);
 }
 .admininsidevertnav1, .admininsidevertnav2 , .admininsidevertnav3{
     display: none;
@@ -68,6 +99,7 @@
 }
 .adminpanel{
     background-color: #F2f4f5;
+    overflow-x: hidden;
 }
 .top1{
     display: flex;
@@ -76,25 +108,33 @@
     width:82vw;
 }
 .plus{
-    border: 1px solid #ffffff;
+    height: 20px ;
+    width: 20px;
     display: inline-block;
-    border-radius: 50%;
-    padding: 2px;
+    border: 1px solid #ffffff;
     margin: 0px 5px 0px 0px;
+    border-radius: 50%;
+    padding: auto;
+    align-items: center;
+    display: flex;
+    padding-left: 5px !important;
+
 }
 .addnewuser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 14px;
     color: #ffffff !important;
     text-decoration: none;
     background-color: #1FB6FF;
     padding: 10px;
     border:1px solid #F9F9F9;
-    margin: 20px 20px 14px 20px;
+    margin: 20px 30px 14px 20px;
     border-radius: 4px;
 }
 .admincont{
     display: flex;
-    /* flex-direction: column; */
 }
 .usermanagementheader{
     color:#646464;
@@ -107,24 +147,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 86px;
+    flex-wrap: wrap;
     margin:0px 20px 20px 20px;
 }
 .adminpanelform{
     height:46px;
     color: #A0A0A0;
     border-radius: 4px;
-    border: 1px solid #DEDDDD;
-    margin:15px;
+    border: 1px solid #DEDDDD !important;
+    margin:20px 7.5px;
     padding-left: 10px;
 }
+
 .adminccmono{
     display: flex;
 }
 #adminmono{
     margin-left: 0px;
     border-radius: 0px 4px 4px 0px !important;
-    width: 162px;
+    width: 200px;
 }
 #admincc{
     background-color: #f9f9f9;
@@ -148,32 +189,29 @@
     background-color: #ffffff;
     color: #646464;
     width: 84px;
-    margin-left: 0px !important;
     padding: 0px 15px;
 }
 #adminusername{
-    width: 205px;
+    width: 240px;
 }
 #User-Role{
-    width: 215px;
+    width: 240px;
 }
 #adminzipcode{
-    width: 140px;
-}
-.top3{
-    margin: 0px 10px 10px 10px;
+    width: 200px;
 }
 .admindatatabledata{
     color: #646464;
     font-size: 16px;
-    /* text-align: center; */
-    /* margin: 20px; */
 }
 .adminredgreen{
     padding:5px;
     text-align: center;
     color: #ffffff !important;
     margin: 0px;
+    width: 58px;
+    border-radius: 2px;
+    font-size: 13px;
 }
 #green{
     background-color: #67b644;
@@ -185,18 +223,15 @@ div.dataTables_info {
 	padding-top: 15px !important;
 	padding-left: 8px !important;
 }
-
 div.dataTables_length,
 div.dataTables_paginate {
 	padding-top: 10px !important;
 }
-
 .dataTables_wrapper div.dataTables_info,.dataTables_wrapper div.dataTables_length {
 	clear: right !important;
 	font-size: 14px !important;
 	color: #646464 !important;
 }
-
 .dataTables_wrapper .dataTables_length select {
 	margin: 0 10px !important;
 	font-size: 14px !important;
@@ -206,56 +241,69 @@ div.dataTables_paginate {
 	outline: none !important;
 }
 table.dataTable thead th.sorting_asc {
-	background-image: url("./images/sort.png") !important;
+	background-image: url("../../images/sort.png") !important;
 }
 table.dataTable thead th.sorting_desc {
-	background-image: url("./images/sort.png") !important;
+	background-image: url("../../images/sort.png") !important;
 }
 table.dataTable thead .sorting {
-	background-image: url("./images/sort.png") !important;
+	background-image: url("../../images/sort.png") !important;
 	background-position: right 4px top 50% !important;
 }
 table.dataTable thead th,
 table.dataTable tbody td {
 	border: none !important;
 }
-
-.dataTables_wrapper .dataTables_paginate a.paginate_button.current,
+table.dataTable thead tr{
+    border: none !important;
+}
+table.dataTable tbody tr{
+    border-left:none !important;
+    border-right: none !important;
+}
 .dataTables_wrapper .dataTables_paginate a.paginate_button.current:hover,
 .dataTables_wrapper .dataTables_paginate a.paginate_button:hover {
-	border: 1px solid #1d7a8c !important;
-	background: #1d7a8c !important;
+	border: 1px solid #ffffff ;
+	background: #565656 !important;
 	color: #fff !important;
 }
-
+.dataTables_wrapper .dataTables_paginate a.paginate_button.current
+{
+	border: 1px solid #565656 !important;
+	background: #565656 !important;
+	color: #fff !important;
+}
 .dataTables_wrapper .dataTables_paginate a.paginate_button.disabled:hover {
 	cursor: not-allowed !important;
 	background: transparent !important;
 	border: 1px solid #e1e1e1 !important;
 }
-
-.dataTables_wrapper .dataTables_paginate a.paginate_button.next:hover,
-.dataTables_wrapper .dataTables_paginate a.paginate_button.previous:hover,
 .dataTables_wrapper .dataTables_paginate a.paginate_button.first:hover,
 .dataTables_wrapper .dataTables_paginate a.paginate_button.last:hover {
 	background: transparent !important;
 	border: 1px solid #e1e1e1 !important;
 }
-
 .dataTables_wrapper .dataTables_paginate,
 .dataTables_wrapper .dataTables_paginate span {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 3px;
 	flex-wrap: wrap;
 }
-
+.dataTables_wrapper{
+    background-color: #ffffff;
+}
+.dataTables_wrapper .dataTables_paginate {
+    margin-right: 15px;
+}
+.dataTables_wrapper .dataTables_length{
+    margin-left: 15px;
+}
 .dataTables_wrapper .dataTables_paginate .paginate_button {
-	border: 1px solid #e1e1e1 !important;
-	border-radius: 50% !important;
+	border: 1px solid #D6D6D6 !important;
 	color: #777777 !important;
 	padding: 0 !important;
+    margin: 0px 0px 10px 0px !important;
 	height: 38px !important;
 	width: 38px !important;
 	display: flex !important;
@@ -267,6 +315,8 @@ table.dataTable tbody td {
 	border-collapse: collapse !important;
 	max-width: 100% !important;
 	width: 100% !important;
+    padding: 0px !important;
+    margin: 0px !important;
 }
 .upcomingservicestable{
     max-width: 100%;
@@ -276,11 +326,10 @@ table.dataTable tbody td {
 }
 #ustable thead tr {
 	background: rgb(224, 224, 224, 0.5) !important;
-	border: 1px solid #e1e1e1 !important;
 }
 
 #ustable tbody tr {
-	border: 1px solid #e1e1e1 !important;
+	border: 1px solid #e1e1e1;
 }
 .dataTables_wrapper {
 	max-width: 100% !important;
@@ -289,8 +338,120 @@ table.dataTable tbody td {
     max-width: 100%;
     flex: 1;
     min-width: 0;
-    padding:0px 10px 30px 10px;
+    padding:0px 20px 0px 20px;
 }
 .actioncenter{
+    /* display: inline-block; */
+    margin-left: 30px;
+}
+#btnpopover{
+    background: transparent;
+    border-radius: 50%;
+    width: 42px;
+}
+#btnpopover:hover{
+    background-color: #f4f4f4;   
+    border: 0px !important;
+}
+.adminactionbutton{
+    display: flex;
+    flex-direction: column;
+    color: #646464;
+    font-size: 16px;
+    text-decoration: none;
+}
+.adminactionbutton:hover{
+    color: #1FB6FF ;
+}
+.textnone{
+    color: #646464;
+    font-size: 16px;
+    text-decoration: none;
+}
+.uscol{
+    color: #646464;
+    font-size: 16px;
+}
+.shcol{
+    color: #646464;
+    font-size: 14px;
+}
+.lumwat{
+    display: flex;
+}
+.capimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:50px;
+    width: 50px;
+    border: 1px solid #d8d8d8;
+    border-radius: 50%;
+    margin: 0px 10px 0px 0px;
+}
+.npcc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
     text-align: center;
+}
+#newservice{
+    padding: 5px 9px;
+    background-color: #F2BB37;
+    color: #ffffff;
+    width:45px;
+    border-radius: 2px;
+}
+#pendingservice{
+    padding: 5px 9px;
+    background-color: #1FB6FF;
+    color: #ffffff;
+    width:62px;
+    border-radius: 2px;
+}
+#completedservice{
+    padding: 5px 9px;
+    background-color: #67B644;
+    color: #ffffff;
+    width:78px;
+    border-radius: 2px;
+}
+#cancelledservice{
+    padding: 5px 9px;
+    background-color: #FF6B6B;
+    color: #ffffff;
+    width:72px;
+    border-radius: 2px;
+}
+#ustable_wrapper{
+    margin: 0px !important;
+    border: 1px solid #E1E1E1;
+}
+.dataTables_wrapper .no-footer{
+    margin: 0px !important;
+}
+#adminserviceid{
+    width:130px;
+}
+#customer{
+    width: 147px;
+}
+#ServiceProvider{
+    width: 172px;
+}
+#adminstatus{
+    width: 140px;
+}
+#fromdate , #todate{
+    width: 155px;
+}
+.top4{
+    color: #A2A6A8;
+    font-size: 14px;
+    margin: 20px;
+}
+#todate , #fromdate{
+    background: url("../../images/bluecalender.png") no-repeat center left 0.80rem;
+    padding-left: 40px;
 }
