@@ -56,26 +56,38 @@ html{
     transition-delay:0.1s;
 
 }
-
 #navm{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 43px;
     height: 0px;
     overflow: hidden;
     transition: height 0.5s;
+    margin-bottom: 10px;
 }
 #navm.toggle{
-    height: 233px;
+    height: 300px;
+}
+.england{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    width:40px;
+    margin-top: 10px;
 }
 .nav{
     text-decoration: none;
-    padding:5px 20px;
+    padding:8px 20px;
     margin: 2px 2px;
     font-size: 15px;
     color: white;
+    border-radius: 20px;
+}
+.nav:hover{
+    color: #006072 !important;
+    background-color:#ffffff;
 }
 .logo{   
     padding: 20px 20px 20px 20px;
@@ -85,7 +97,6 @@ html{
 }
 #r{
     border: 1px solid white;
-    border-radius: 20px;
 }
 #disc{
     margin:50px 55px 0px 55px;
@@ -224,6 +235,9 @@ html{
     box-shadow: 0px 0px 30px #E4EBF0;
     border-radius: 4px;
 }
+.ob:hover{
+    box-shadow: 0px 0px 30px #869aaa;
+}
 #ourblog{
     display: flex;
     flex-wrap: wrap;
@@ -273,6 +287,9 @@ html{
     background-color: white;
     border-left: 3px solid #1d7a8c ;
     margin-bottom: 40px;
+}
+.wocscontent:hover{
+    box-shadow:0px 0px 30px #869aaa;
 }
 .wocsimg{
     padding: 25px 0px 5px 15px;
@@ -438,7 +455,6 @@ html{
     overflow-x: hidden;
 }
 .facqnavitem{
-    /* float: right; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -447,13 +463,17 @@ html{
     margin: 4px;
     padding: 9px 15px 9px 15px;
     text-decoration: none;
-    color: #ffffff;
+    color: #ffffff ;
     font-size: 17px;
+    border-radius: 50px;
+}
+.facqnav:hover{
+    color:#29626d;
+    background-color: #ffffff;
 }
 .rf{
     border: 1px solid #ffffff;
     background-color: #29626d;
-    border-radius: 50px;
 }
 .nf{
     border: 1px solid #ffffff;
@@ -506,7 +526,6 @@ html{
 	max-width: 946px;
 	margin: auto;
 }
-
 .forCustomer,
 .forServiceProvider {
 	padding-top: 25px;

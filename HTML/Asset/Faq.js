@@ -24,7 +24,7 @@ const fetchFaqs = (forWhose) => {
 						>
 							<img src="./images/vector-smart-object-copy.png" alt="expandImage" />
 							<span class="question">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non
+								Lorem ipsum dolor sit amet,anticipate adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non
 								imperdiet velit?
 							</span>
 						</div>

@@ -8,39 +8,63 @@ html{
     scroll-behavior: smooth;
 }
 #home{
-    /* width: 100%; */
     height: 100vh;
     background: url("images/Group\ 35.png") no-repeat center center/cover;
 }
 #navm{
     margin-top: 43px;
     margin-right: 15px;
-    float:right;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
 }
 .nav{
     text-decoration: none;
-    padding:5px 20px !important;
+    padding:8px 20px !important;
     margin: 0px 2px !important;
-    font-size: 15px;
-    color: white !important;
-    /* position: fixed; */
+    font-size: 16px;
+    height: 21px;
+    color: white;
+    border-radius: 20px !important;
+}
+.nav:hover{
+    color: #006072 !important;
+    background-color:#ffffff;
+}
+.england{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    width:40px;
+    margin-left: 10px;
 }
 .logo{   
     margin: 10px 10px 0px 10px;
     display: inline-block;
-    /* position: fixed; */
 }
 #r{
     border: 1px solid white;
     border-radius: 20px;
 }
 #disc{
-    margin:150px 55px 0px 55px;
+    margin:130px 55px 0px 55px;
     color:white;
     font-size: 15px;
 }
 .disc1{
     padding: 2px;
+}
+.disc12{
+    padding: 5px 2px;
+}
+.righttick{
+    margin-right: 10px;
 }
 #discmain{
     font-size: 50px;
@@ -48,7 +72,6 @@ html{
 #bookcleaner{
     text-align: center;
     text-decoration: none;
-    margin: 20px;
 }
 #lbc{
     color: white;
@@ -91,7 +114,6 @@ html{
     border-radius: 50%;
     cursor: pointer;
 }
-
 #whl{
     text-align: center;
     color: #4f4f4f;
@@ -110,7 +132,6 @@ html{
     padding-top: 0px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     margin:0px 30px
 }
 .whldisc{
@@ -125,6 +146,7 @@ html{
 .whldisc1{
     color: #565656;
     font-size: 15px; 
+    text-align: center;
 }
 .cont{
     margin: 160px 200px 0px 200px;
@@ -142,7 +164,6 @@ html{
 }
 .container1{
     width: 50%;
-    /* flex-grow: 1; */
 }
 .container2{
     width: 403px;
@@ -160,6 +181,9 @@ html{
     width:357px;
     box-shadow: 0px 0px 30px #E4EBF0;
     border-radius: 4px;
+}
+.ob:hover{
+    box-shadow: 0px 0px 30px #869aaa;
 }
 #ourblog{
     display: flex;
@@ -209,6 +233,9 @@ html{
     border-left: 3px solid #1d7a8c ;
     margin-bottom: 40px;
 }
+.wocscontent:hover{
+    box-shadow:0px 0px 30px #869aaa;
+}
 .wocsimg{
     padding: 25px 0px 5px 15px;
     display: block;
@@ -243,9 +270,13 @@ html{
     display: inline-block;
     padding: 0px 11px 20px 20px;
 }
+.readmoreicon:hover{
+    margin-left: 10px; 
+    transition: all 0.2s;  
+    cursor: pointer;
+}
 #getons{
     display: flex;
-    /* text-align: center; */
     align-items: center;
     justify-content: center;
 }
@@ -331,8 +362,8 @@ html{
 .okbutton{
     display: block;
     background-color: #292929;
-   display: flex;
-   justify-content: center;
+    display: flex;
+    justify-content: center;
     opacity: 80;
 }
 #button{
@@ -378,13 +409,17 @@ html{
     margin:12px 10px;
     padding: 9px 18px;
     text-decoration: none;
-    color: #ffffff !important;
+    color: #ffffff;
     font-size: 17px;
+    border-radius: 50px;
+}
+.facqnav:hover{
+    color: #29626d;
+    background-color: #ffffff;
 }
 .rf{
     border: 1px solid #ffffff;
     background-color: #29626d;
-    border-radius: 50px;
 }
 .nf{
     border: 1px solid #ffffff;
@@ -919,10 +954,15 @@ html{
     padding: 5px 20px 5px 20px;
 }
 .navuscont{
-    color: #ffffff !important;
+    color: #ffffff;
     font-size: 17px;
-    padding: 21px;
+    padding: 10px 21px;
     text-decoration: none;
+    border-radius: 20px;
+}
+.navuscont:hover{
+    color: #29626d;
+    background-color: #ffffff;
 }
 #usnavss{
     padding: 0px 17px 0px 5px;
@@ -1082,12 +1122,16 @@ table.dataTable tbody td {
 	transition: background 0.3s, color 0.3s;
 }
 .navshextra{
-    padding: 7px 10px;
-    color: #ffffff !important;
+    padding: 10px 10px;
+    color: #ffffff;
     text-decoration:none;
     background-color: #29626D;
     border: 1px solid #ffffff;
     border-radius: 20px;
+}
+.navshextra:hover{
+    color: #29626D;
+    background-color: #ffffff;
 }
 .shcol{
     color: #646464;

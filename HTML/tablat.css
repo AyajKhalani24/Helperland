@@ -19,10 +19,22 @@ html{
 }
 .nav{
     text-decoration: none;
-    padding:5px 20px;
+    padding:8px 20px;
     margin: 0px 2px;
     font-size: 15px;
     color: white;
+    border-radius: 20px;
+}
+.nav:hover{
+    color: #006072 !important;
+    background-color:#ffffff;
+}
+.england{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:40px;
+    margin-left: 10px;
 }
 .logo{   
     padding: 10px;
@@ -149,6 +161,7 @@ html{
 .container1{
     width:60%;
     order: 2;
+    margin-left: 30px;
 }
 .container2{
     order:1;
@@ -166,6 +179,9 @@ html{
     box-shadow: 0px 0px 30px #E4EBF0;
     border-radius: 4px;
     z-index: 100;
+}
+.ob:hover{
+    box-shadow: 0px 0px 30px #869aaa;
 }
 #ourblog{
     display: flex;
@@ -216,6 +232,9 @@ html{
     background-color: white;
     border-left: 3px solid #1d7a8c ;
     margin-bottom: 40px;
+}
+.wocscontent:hover{
+    box-shadow:0px 0px 30px #869aaa;
 }
 .wocsimg{
     padding: 25px 0px 5px 15px;
@@ -392,13 +411,17 @@ html{
     margin: 11px 10px 15px 10px;
     padding: 9px 15px;
     text-decoration: none;
-    color: #ffffff !important;
+    color: #ffffff;
     font-size: 17px;
+    border-radius: 50px;
+}
+.facqnav:hover{
+    background-color: #ffffff;
+    color:#29626d;
 }
 .rf{
     border: 1px solid #ffffff;
     background-color: #29626d;
-    border-radius: 50px;
 }
 .nf{
     border: 1px solid #ffffff;
