@@ -53,7 +53,7 @@ html{
     border-radius: 20px;
 }
 #disc{
-    margin:130px 55px 0px 55px;
+    margin:120px 55px 0px 55px;
     color:white;
     font-size: 15px;
 }
@@ -61,7 +61,7 @@ html{
     padding: 2px;
 }
 .disc12{
-    padding: 5px 2px;
+    padding: 10px 2px;
 }
 .righttick{
     margin-right: 10px;
@@ -80,6 +80,10 @@ html{
     border: 1px solid white;
     border-radius: 27px;
     background-color: #006072;
+}
+#lbc:hover{
+    color: #29626D;
+    background-color: white;
 }
 #flow{
     margin-top: 100px;
