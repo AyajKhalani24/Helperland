@@ -12,27 +12,27 @@ html{
     background: url("../images/Group\ 35.png") no-repeat center center/cover;
 }
 #navm{
-    margin-top: 43px;
+    /* margin-top: 43px; */
     margin-right: 15px;
     display: flex;
     justify-content: center;
     text-align: center;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
-.navbar{
+.navbarhome{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
-.nav{
+.navhome{
     text-decoration: none;
-    padding:8px 20px !important;
-    margin: 0px 2px !important;
+    padding:7px 19px;
+    margin: 0px 2px;
     font-size: 16px;
-    height: 21px;
     color: white;
     border-radius: 20px !important;
 }
-.nav:hover{
+.navhome:hover{
     color: #006072 !important;
     background-color:#ffffff;
 }
@@ -40,9 +40,63 @@ html{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 30px;
+    /* height: 30px; */
     width:40px;
     margin-left: 10px;
+}
+.modal{
+    color: #646464;
+}
+.modal-content{
+    margin: auto !important;
+    width: 350px !important;
+}
+.modal-header{
+    border-bottom: 0px !important;
+    font-size: 24px;
+}
+.modal-body{
+    padding-bottom: 0px !important;
+}
+.modal-footer{
+    border-top: 0px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px !important;
+}
+.loginbutton{
+    color: #ffffff;
+    background-color: #3f8694;
+    border-radius: 40px;
+    font-size: 18px;
+    padding: 5px 30%;
+}
+.loginbutton:hover{
+    background-color: #1d7a8c;
+}
+#loginemail{
+    width: 317px;
+}
+#loginpassword{
+    width: 317px;
+}
+#logincheckbox{
+    margin-bottom: 0px !important;
+}
+.forgetpassword{
+    margin-top: 10px;
+    color: #1D7A8C !important;
+    text-decoration: none;
+}
+.createaccount{
+    margin-bottom: 10px;
+    color: #1D7A8C !important;
+    text-decoration: none;
+}
+.loginpara{
+    margin: 0px;
 }
 .logo{   
     margin: 10px 10px 0px 10px;
@@ -53,15 +107,18 @@ html{
     border-radius: 20px;
 }
 #disc{
-    margin:120px 55px 0px 55px;
+    margin:110px 40px 0px 55px !important;
     color:white;
     font-size: 15px;
+    padding: 0px;
 }
 .disc1{
     padding: 2px;
+    margin: 0px;
 }
 .disc12{
-    padding: 10px 2px;
+    padding: 5px 2px;
+    margin: 0px;
 }
 .righttick{
     margin-right: 10px;
@@ -86,7 +143,7 @@ html{
     background-color: white;
 }
 #flow{
-    margin-top: 100px;
+    margin-top: 75px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -113,7 +170,7 @@ html{
     height: 40px;
     width: 40px;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 30px;
     border: 1px solid white;
     border-radius: 50%;
     cursor: pointer;
@@ -122,7 +179,7 @@ html{
     text-align: center;
     color: #4f4f4f;
     font-size: 35px;
-    margin: 70px;
+    padding: 70px;
 }
 .whlimg{
     border-radius: 150px;
@@ -198,22 +255,26 @@ html{
     color: #3d4046;
     font-size: 18px;
     padding: 3px 5px;
+    margin: 0px;
 }
 .obdisc{
     color: #565656;
     padding:3px 5px;
     font-size: 15px;
+    margin: 0px;
 }
 .obdate{
     color:#a3a3a3;
     font-size:11px;
     padding: 3px 5px;
+    margin: 0px;
 }
 .rtp{
     color: #4f4f4f;
     size: 18px;
     padding:5px 11px 5px 3px ;
     display: inline-block;
+    margin: 0px;
 }
 #wocstitle{
     padding: 50px 0px;
@@ -243,6 +304,7 @@ html{
 .wocsimg{
     padding: 25px 0px 5px 15px;
     display: block;
+    margin: 0px;
     float: left;
 }
 .msgicon
@@ -256,23 +318,26 @@ html{
     font-size: 18px;
     display: inline-block;
     padding: 40px 20px 0px 21px;
+    margin: 0px;
 }
 .wocscity{
     color: #8e8e8e;
     font-size: 12px;
     display: inline-block;
     padding: 0px 0px 0px 20px;
+    margin: 0px;
 }
 .wocsdisc{
-    margin: 20px;
+    margin: 0px;
     color: #565656;
     font-size: 16px;
+    padding: 0px 20px;
 }
 .readmore{
     color: #565656;
     font-size: 18px;
     display: inline-block;
-    padding: 0px 11px 20px 20px;
+    padding: 10px 11px 0px 20px;
 }
 .readmoreicon:hover{
     margin-left: 10px; 
@@ -344,9 +409,13 @@ html{
 }
 .navb{
     text-decoration: none;
-    color: #f1f1f1 !important;
+    color: #f1f1f1;
     font-size: 13px;
     padding:0px 15px;
+}
+.navb:hover{
+    color: #ffffff;
+    font-weight: bold;
 }
 #igfb{
     display: flex;
@@ -736,7 +805,7 @@ html{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
 }
 .formdecoration{
     margin:0px 14px 14px 0px;
@@ -746,11 +815,11 @@ html{
     border: 1px solid #c8c8c8;
     border-radius: 4px;
     height: 46px;
-    width:614px
+    width:614px;
 }
 #firstname{
     width: 300px;
-    margin-right: 10px !important;
+    margin-right: 10px;
 }
 #lastname{
     width: 300px;
@@ -800,11 +869,12 @@ html{
 #contactushrline{
     margin-top: 40px;
 }
-.map{
-    position: relative;
+.contactusmap {
+	height: 400px;
+}
+.contactusmap iframe {
     width: 100%;
-    height: 400px;
-    background: url("../images/map.png") no-repeat center center/cover;
+	height: 100%;
 }
 .contactusgetons{
     margin: 43px 0px 53px 0px !important;
@@ -836,10 +906,10 @@ html{
 }
 .bpccmono{
     display: flex;
-    width: 91%;
+    width: 84%;
 }
 #ccbecomepro{
-    width: 10%;
+    width: 15%;
     color: #4f4f4f;
     font-size: 16px;
     margin-right: 0px;
@@ -865,13 +935,14 @@ html{
 }
 .check{
     display: flex;
-    margin: 7.5px 0px ;
+    margin: 2px 0px ;
     columns: #4f4f4f;
     font-size: 16px;
 }
 .checkbox{
     height: 20px;
     width: 20px;
+    margin: 0px;
 }
 .blue{
     color: #1fb6ff !important;
@@ -1199,4 +1270,79 @@ table.dataTable tbody td {
 }
 .leftrightimg{
     position: relative;
+}
+.signuppage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 26px;
+}
+.signuppage .check{
+    margin-left: 7px;
+}
+.signuppage p{
+    color: #646464;
+}
+.signuppage a{
+    color: #4794a3;
+    text-decoration: none;
+}
+.horiflex{
+    display: flex;
+}
+#signupfirstname , #signuplastname , #signupemail , #signuppassword , #signupconfirmpassword{
+    width: 310px !important;
+    margin: 7px 7px !important;
+}
+.signupccmono{
+    display: flex;
+    margin: 7px 7px !important;
+}
+#signupcc{
+    width: 60px;
+    border-radius: 4px 0px 0px 4px;
+    margin: 0px;
+}
+#signupmono{
+    width: 250px;
+    border-radius: 0px 4px 4px 0px;
+    border-left: 0px;
+    margin: 0px;
+}
+.signuppage #submitbutton{
+    margin: 0px auto 10px auto;
+}
+.inputfile{
+    width: 0.1px;
+    height: 0.1px;
+    pointer-events: none;
+    opacity: 1;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.filelabaled{
+    margin-top: 0px;
+    color: #4f4f4f;
+    font-size: 16px;
+    padding:10px 25px;
+    border: 1px solid #4f4f4f;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.filelabaled:hover{
+    color: #1D7A8C;
+    padding:10px 25px;
+    border: 1px solid #3b90a1;
+}
+#file{
+    align-items: center;
+}
+.attach{
+    color: #4f4f4f;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 0px;
 }

@@ -1,91 +1,120 @@
- 
-    <section>
-        <img src="~/images/contactUsImage.png" alt=""  class="facqimg">
-    </section>   
+@model HELPERLAND.Models.ViewModels.ContactusViewmodel;
+@{
+    ViewData["Title"] = "Contact Us | Helperland";
+}
+<section>
+    <img src="~/images/contactUsImage.png" alt="" class="facqimg">
+</section>
 
 
 
-    <section class="facqheader">
-        <p>Contact Us</p>
-    </section>
-    <div class="faHeaderDecoration">
-        <span class="line"></span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25">
-            <path
-                fill-rule="evenodd"
-                fill="#1D7A8C"
-                d="M22.93 13.616c.575 0 1.068-.481 1.068-1.122 0-.56-.493-1.041-1.068-1.041-.987 0-9.26-.321-9.26-10.053 0-.921-1.096-1.3-1.671-1.3-.576 0-1.069.379-1.069 1.3 0 9.732-8.39 10.053-9.26 10.053H.985c-.575.08-.985.481-.985 1.041 0 1.056.492 1.041 1.67 1.041.466 0 9.26.321 9.26 10.414 0 .56.493 1.041 1.069 1.041.493.71.986-.401.986-.71 0-10.344 8.876-10.664 9.863-10.664h.082z"
-            />
-        </svg>
-        <span class="line"></span>
+<section class="facqheader">
+    <p>Contact Us</p>
+</section>
+<div class="faHeaderDecoration">
+    <span class="line"></span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25">
+        <path fill-rule="evenodd" fill="#1D7A8C"
+            d="M22.93 13.616c.575 0 1.068-.481 1.068-1.122 0-.56-.493-1.041-1.068-1.041-.987 0-9.26-.321-9.26-10.053 0-.921-1.096-1.3-1.671-1.3-.576 0-1.069.379-1.069 1.3 0 9.732-8.39 10.053-9.26 10.053H.985c-.575.08-.985.481-.985 1.041 0 1.056.492 1.041 1.67 1.041.466 0 9.26.321 9.26 10.414 0 .56.493 1.041 1.069 1.041.493.71.986-.401.986-.71 0-10.344 8.876-10.664 9.863-10.664h.082z" />
+    </svg>
+    <span class="line"></span>
+</div>
+
+
+
+<section class="contactus">
+    <div class="contactusdisc" id="infoadd">
+        <img src="~/images/address.png" alt="">
+        <p>1111 Lorem ipsum text 100,<br> Lorem ipsum AB</p>
     </div>
-
-
-
-    <section class="contactus">
-        <div class="contactusdisc" id="infoadd">
-            <img src="~/images/address.png" alt="">
-            <p>1111 Lorem ipsum text 100,<br> Lorem ipsum AB</p>
-        </div>
-        <div class="contactusdisc">
-            <img src="~/images/phone-call.png" alt="">
-            <p>+49 (40) 123 56 7890 <br>+49 (40) 987 56 0000</p>
-        </div>
-        <div class="contactusdisc">
-            <img src="~/images/mail.png" alt="">
-            <p id="infomail">info@helperland.com</p>
-        </div>
-    </section>
-
-
-
-    <div class="centerhr">
-        <span class="hrline" id="contactushrline"></span>
+    <div class="contactusdisc">
+        <img src="~/images/phone-call.png" alt="">
+        <p>+49 (40) 123 56 7890 <br>+49 (40) 987 56 0000</p>
     </div>
+    <div class="contactusdisc">
+        <img src="~/images/mail.png" alt="">
+        <p id="infomail">info@helperland.com</p>
+    </div>
+</section>
+
+
+
+<div class="centerhr">
+    <span class="hrline" id="contactushrline"></span>
+</div>
 
 
 
 <section class="gitwu">
     <p class="gitwuheader">Get in touch with us</p>
-        <form action="#" method="get">
-            <div class="lmnm">
-                <input type="text" id="firstname" name="firstname" placeholder="First Name" class="formdecoration">
-                <input type="text" id="lastname" name="lastname" placeholder="Last Name" class="formdecoration">
+    <form asp-controller="home" asp-action="Contact" method="post" enctype="multipart/form-data">
+        <div class="lmnm">
+            <input type="text" placeholder="First Name" class="formdecoration" asp-for="firstname">
+            <span asp-validation-for="firstname"></span>
+            <input type="text" placeholder="Last Name" class="formdecoration" asp-for="lastname">
+            <span asp-validation-for="lastname" class="danger"></span>
+        </div>
+        <div class="monoemail d-flex align-items-center">
+            <div class="ccmono">
+                <div class="d-flex align-items-center justify-content-center w-100">
+                    <input type="text" id="countrycode" name="countrycode" placeholder="+91" class="formdecoration"
+                        disabled>
+                    <input type="number" placeholder="Mobile Number" class="formdecoration" asp-for="mono">
+                    <span asp-validation-for="mono" class="danger"></span>
+                </div>
             </div>
-            <div class="monoemail d-flex align-items-center">
-                <div class="ccmono">
-                    <div class="d-flex align-items-center justify-content-center w-100">
-                        <input type="text" id="countrycode" name="countrycode" placeholder="+91" class="formdecoration">                    
-                        <input type="number" id="mono" name="mono" placeholder="Mobile Number" class="formdecoration"> 
-                    </div>
-                </div>                  
-                <input type="email" id="email" name="email" placeholder="Email Address" class="formdecoration">
-            </div>
-            <div class="select">
-                <select name="subject" id="subject" class="formdecoration">
-                    <option value=""selected>Subject</option>
-                    <option value="Not Satisfied">We are not satisfied with your service</option>
-                    <option value="Extra Services" >What type of extra service do you provide?</option>
-                </select>
-            </div>
-            <div class="textarea">
-                <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Message" class="formdecoration"></textarea>
-            </div>
-            <div class="submit">
-                <button type="submit" class="formdecoration" id="submitbutton">Submit</button>
-            </div>
-        </form>
+            <input type="email" placeholder="Email Address" class="formdecoration" asp-for="email">
+            <span asp-validation-for="email"></span>
+        </div>
+        <div class="select">
+            <select class="formdecoration" asp-for="subject">
+                <option value="General" selected>General</option>
+                <option value="Inquiry">Inquiry</option>
+                <option value="Renewal">Renewal</option>
+                <option value="Revocation">Revocation</option>
+            </select>
+        </div>
+        <div class="textarea">
+            <textarea cols="30" rows="10" placeholder="Message" class="formdecoration" asp-for="msg"></textarea>
+            <span asp-validation-for="msg"></span>
+        </div>
+        <div class="attachment">
+            <input type="file" class="inputfile" asp-for="File">
+            <p class="attach">Attachment</p>
+            <label for="File" class="d-flex" id="file">
+                <p class="filelabaled">Upload</p>
+                <div class="divfile ms-2 mb-3"></div>
+            </label>
+            
+        </div>
+        <div class="submit">
+            <button type="submit" class="formdecoration" id="submitbutton">Submit</button>
+        </div>
+    </form>
 </section>
 
 
-    <section class="map">
-        <img src="~/images/locationMarker.png" alt="" class="mapimg">
-    </section>
+<div class="contactusmap">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2138.8861017138393!2d7.132943476147287!3d50.73330128397445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8addff5d1803d%3A0x518acab4fd9eb236!2sHelperland%20GmbH!5e0!3m2!1sen!2sin!4v1643863974311!5m2!1sen!2sin" allowfullscreen="true" loading="lazy"></iframe>
+</div>
 
-    <div id="getonscontent" class="contactusgetons">
-        <p class="getonsp">GET OUR NEWSLETTER</p>
-        <form action="">
-            <input type="email" placeholder="YOUR EMAIL" id="getonsemail">
-            <input type="submit" id="submitbutton">
-        </form>
-      </div>
+<div id="getonscontent" class="contactusgetons">
+    <p class="getonsp">GET OUR NEWSLETTER</p>
+    <form action="">
+        <input type="email" placeholder="YOUR EMAIL" id="getonsemail">
+        <input type="submit" id="submitbutton">
+    </form>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    const divfile = document.querySelector(".divfile");
+	const fileIp = document.querySelector("input[type='file']");
+
+    fileIp.addEventListener("focusout", () => divfile.innerHTML = (fileIp.files.length > 0) ? fileIp.files[0].name : "No File Selected");
+	fileIp.addEventListener("change", () => divfile.innerHTML = (fileIp.files.length > 0) ? fileIp.files[0].name : "No File Selected");
+</script>

@@ -1,0 +1,81 @@
+ @model HELPERLAND.Models.ViewModels.SignupViewmodel;
+ @{
+ ViewData["Title"]="Sign Up | Helperland";
+ }
+
+<div class="facqheader">
+    <p style="padding:0px 10px ;">Create An Account</p>
+</div>
+<div class="faHeaderDecoration">
+    <span class="line"></span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25">
+        <path fill-rule="evenodd" fill="#1D7A8C"
+            d="M22.93 13.616c.575 0 1.068-.481 1.068-1.122 0-.56-.493-1.041-1.068-1.041-.987 0-9.26-.321-9.26-10.053 0-.921-1.096-1.3-1.671-1.3-.576 0-1.069.379-1.069 1.3 0 9.732-8.39 10.053-9.26 10.053H.985c-.575.08-.985.481-.985 1.041 0 1.056.492 1.041 1.67 1.041.466 0 9.26.321 9.26 10.414 0 .56.493 1.041 1.069 1.041.493.71.986-.401.986-.71 0-10.344 8.876-10.664 9.863-10.664h.082z" />
+    </svg>
+    <span class="line"></span>
+</div>
+
+
+<div class="signuppage">
+    <form asp-controller="signup" asp-action="Signup" method="post">
+        <div class="horiflex">
+            <input type="text" id="signupfirstname" class="formdecoration" placeholder="First Name" asp-for="FirstName">
+            <input type="text" id="signuplastname" class="formdecoration" placeholder="Last Name" asp-for="LastName">
+        </div>
+        <div class="horiflex">
+            <input type="text" id="signupemail" placeholder="Email Address" class="formdecoration" asp-for="Email">
+            <div class="signupccmono">
+                <input type="text" id="signupcc" class="formdecoration" placeholder="+49" disabled>
+                <input type="text" id="signupmono" class="formdecoration" placeholder="Mobile number" asp-for="Mobile">
+            </div>
+        </div>
+        <div class="horiflex">
+            <input type="text" id="signuppassword" class="formdecoration" placeholder="Password" asp-for="Password">
+            <input type="text" id="signupconfirmpassword" class="formdecoration" placeholder="Confirm Password">
+        </div>
+        <div class="check logincheck">
+            <input type="checkbox" id="logincheckbox" class="checkbox">
+            <pre>  </pre>
+            <p>I have read the <a href="">Privacy Policy</a></p>
+        </div>
+        <div class="submit signupsubmit">
+            <button type="submit" class="formdecoration" id="submitbutton">Submit</button>
+        </div>
+
+    </form>
+    <p>Already registered? 
+                <a href="" class="" id="" data-bs-toggle="modal" data-bs-target="#exampleModal">Login now</a>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Log in</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form asp-controller="home" asp-action="login" method="post"></form>
+                                <input type="email" id="loginemail" name="email" placeholder="Email Address"
+                                    class="formdecoration">
+                                <input type="text" id="loginpassword" name="password" placeholder="Password"
+                                    class="formdecoration">
+                                <div class="check logincheck">
+                                    <input type="checkbox" name="" id="logincheckbox" class="checkbox">
+                                    <pre>  </pre>
+                                    <p class="">Remember Me</p>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary loginbutton">Log In</button>
+
+                                <a href="#" class="forgetpassword">Forgot Password?</a>
+                                <p class="loginpara">Don't have an account?</p>
+                                <a asp-controller="home" asp-action="Signup" class="createaccount">Create a Account</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div></p>
+</div>

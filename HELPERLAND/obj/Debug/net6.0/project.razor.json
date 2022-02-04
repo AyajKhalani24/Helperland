@@ -16298,6 +16298,11 @@
   "RootNamespace": "HELPERLAND",
   "Documents": [
     {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\Signup.cshtml",
+      "TargetPath": "Views\\Home\\Signup.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -16305,6 +16310,11 @@
     {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\Contact.cshtml",
       "TargetPath": "Views\\Home\\Contact.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\Becomeprovider.cshtml",
+      "TargetPath": "Views\\Home\\Becomeprovider.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -1,9 +1,16 @@
 using HELPERLAND.Models;
+using HELPERLAND.Models.Implementation;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
  
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<Implcontactus>();
+builder.Services.AddScoped<Impluser>();
+builder.Services.AddDbContext<HelperlandContext>(option =>
+	option.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection"))
+);
 
 var app = builder.Build();
 
@@ -23,6 +30,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "default",
