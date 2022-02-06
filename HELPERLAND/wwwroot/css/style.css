@@ -30,7 +30,8 @@ html{
     margin: 0px 2px;
     font-size: 16px;
     color: white;
-    border-radius: 20px !important;
+    border-radius: 200px !important;
+    cursor: pointer;
 }
 .navhome:hover{
     color: #006072 !important;
@@ -800,6 +801,12 @@ html{
     font-weight: bold;
     color: #4f4f4f;
 }
+.lmnm{
+    display: flex;
+}
+.errorcss{
+flex-direction: column;
+}
 .gitwu{
     display: flex;
     flex-direction: column;
@@ -808,8 +815,9 @@ html{
     /* text-align: center; */
 }
 .formdecoration{
+    outline: none;
     margin:0px 14px 14px 0px;
-    padding: 14px 15px !important;
+    padding: 14px 15px;
     font-size: 16px;
     color:#a0a0a0;
     border: 1px solid #c8c8c8;
@@ -819,7 +827,6 @@ html{
 }
 #firstname{
     width: 300px;
-    margin-right: 10px;
 }
 #lastname{
     width: 300px;
@@ -889,6 +896,7 @@ html{
     text-align: left;
     width: 430px;
     margin: auto;
+    padding-bottom: 20px;
 }
 .becomeprodecoration{
     /* height: 46px; */
@@ -948,8 +956,51 @@ html{
     color: #1fb6ff !important;
 }
 #becomeaprovider{
-    height: 950px;
+    height: 100%;
     background: url("../images/group-18\ \(3\).png") no-repeat center center/cover;
+}
+#becomeaprovider .field-validation-error
+{
+    color:red;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px 40px;
+}
+#becomeaprovider .input-validation-error 
+{  
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px;
+}
+.signuppage .field-validation-error,.modal-body .field-validation-error
+{
+    color:red;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px 10px;
+}
+.signuppage .input-validation-error,.modal-body .input-validation-error
+{
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px;
+}
+.backbutton{
+    color:#1d7a8c !important;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 16px;
+    border: 0px;
+    background-color: #ffffff;
+}
+.gitwu .field-validation-error{
+    color:red;
+    font-size: 14px;
+    margin: 0px 5px 5px 0px;
+    padding: 4px 0px;
+}
+.gitwu .input-validation-error
+{
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px !important;
 }
 .becomeprosubmit{
     background-color: #1d7a8c;
@@ -1101,7 +1152,7 @@ html{
 .dataTables_wrapper {
 	max-width: 861px !important;
 }
-.usnavmobile{
+.usnavmobile,.usnavmobile1{
     display: none;
 }
 .uscol{
@@ -1340,9 +1391,62 @@ table.dataTable tbody td {
 #file{
     align-items: center;
 }
+.attachment{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 .attach{
     color: #4f4f4f;
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 0px;
+}
+#btnpopover{
+    padding: 0px 10px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+.textnone{
+    color: #4f4f4f;
+    text-decoration: none;
+    padding: 3px;
+    font-size: 16px;
+}
+.loginbutton,.loginbutton:focus,.loginbutton:active{
+    box-shadow: 0px !important;
+    outline: 0px !important;
+    border: 0px !important;
+}
+.resetpass .field-validation-error
+{
+    color:red;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px 10px;
+}
+.resetpass .input-validation-error 
+{  
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px;
+}
+.resetpassword{
+    margin: 10px;
+    width: 500px;
+}
+#resetpasssubmit{
+    color: #ffffff !important;
+    background-color: #1d7a8c;
+    border: 0px;
+    padding: 10px 20px;
+    width: 200px;
+    border-radius: 200px;
+    margin-bottom: 20px;
+}
+.resetpass{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

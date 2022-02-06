@@ -23,7 +23,8 @@ html{
     margin: 0px 2px;
     font-size: 15px;
     color: white;
-    border-radius: 20px;
+    border-radius: 200px;
+    cursor: pointer;
 }
 .navhome:hover{
     color: #006072 !important;
@@ -38,7 +39,6 @@ html{
 }
 .modal{
     color: #646464;
-    margin-top: 250px;
 }
 .modal-content{
     margin: auto !important;
@@ -66,8 +66,8 @@ html{
     font-size: 18px;
     padding: 5px 30%;
 }
-.loginbutton:hover{
-    background-color: #1d7a8c;
+.loginbutton:hover, .loginbutton:active , .loginbutton:focus{
+    background-color: #1d7a8c !important;
 }
 #loginemail{
     width: 317px;
@@ -812,6 +812,7 @@ html{
 	height: 100%;
 }
 .formdecoration{
+    outline: none;
     margin:0px 14px 14px 0px;
     padding: 13px;
     color:#a0a0a0;
@@ -822,7 +823,6 @@ html{
 }
 #firstname{
     width: 300px;
-    margin-right: 10px;
 }
 #lastname{
     width: 300px;
@@ -868,6 +868,52 @@ html{
 }
 .contactusgetons{
     margin: 43px 0px 53px 0px !important;
+}
+.lmnm .field-validation-error{
+    color:red;
+    font-size: 14px;
+    margin: 0px !important;
+    padding: 2px 0px;
+}
+.lmnm .input-validation-error
+{
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px !important;
+}
+#becomeaprovider .field-validation-error
+{
+    color:red;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px 40px;
+}
+#becomeaprovider .input-validation-error
+{
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px;
+}
+.gitwu .field-validation-error{
+    color:red;
+    font-size: 14px;
+    margin: 0px 5px 5px 0px;
+    padding: 4px 0px;
+}
+.gitwu .input-validation-error
+{
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px !important;
+}
+.signuppage .field-validation-error, .modal-body .field-validation-error
+{
+    color:red;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px 10px;
+}
+.signuppage .input-validation-error, .modal-body .input-validation-error
+{
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px;
 }
 .becomepro{
     background-color: #ffffff;
@@ -934,7 +980,7 @@ html{
     color: #1fb6ff !important;
 }
 #becomeaprovider{
-    height: 1050px;
+    height: 100%;
     background: url("../images/group-18\ \(3\).png") no-repeat center center/cover;
 }
 .becomeprosubmit{
@@ -1085,4 +1131,100 @@ html{
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 0px;
+}
+.usnavstyle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #525252;
+    height: 110px;
+}
+.usnavstyle img{
+    padding: 0px 0px 10px 0px;
+}
+#usnavicon{
+    border-left: 1px solid #e1e1e1;
+    border-right: 1px solid #e1e1e1;
+    padding: 5px 20px 5px 20px;
+}
+.navuscont{
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px 21px;
+    text-decoration: none;
+    border-radius: 20px;
+}
+.navuscont:hover{
+    color: #29626d;
+    background-color: #ffffff;
+}
+#usnavss{
+    padding: 0px 17px 0px 5px;
+    cursor: pointer;
+}
+.navshextra{
+    padding: 10px 10px;
+    color: #ffffff;
+    text-decoration:none;
+    background-color: #29626D;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+}
+.navshextra:hover{
+    color: #29626D;
+    background-color: #ffffff;
+}
+.usnavmobile ,.usnavmobile1{
+    display: none;
+}
+#btnpopover{
+    padding: 0px 20px !important;
+}
+#btnpopover{
+    padding: 0px 10px !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+.textnone{
+    color: #4f4f4f;
+    text-decoration: none;
+    padding: 3px;
+    font-size: 16px;
+}
+.loginbutton,.loginbutton:focus,.loginbutton:active{
+    box-shadow: none !important;
+    outline: 0px !important;
+    border: 0px !important;
+}
+.resetpass .field-validation-error
+{
+    color:red;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px 10px;
+}
+.resetpass .input-validation-error 
+{  
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px;
+}
+.resetpassword{
+    margin: 10px;
+    width: 500px;
+}
+#resetpasssubmit{
+    color: #ffffff !important;
+    background-color: #1d7a8c;
+    border: 0px;
+    padding: 10px 20px;
+    width: 200px;
+    border-radius: 200px;
+    margin-bottom: 20px;
+}
+.resetpass{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

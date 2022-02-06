@@ -90,7 +90,6 @@ html{
 }
 .modal{
     color: #646464;
-    margin-top: 100px;
 }
 .modal-content{
     margin: auto !important;
@@ -872,6 +871,7 @@ html{
 }
 
 .formdecoration{
+    outline: none;
     margin:15px 0px;
     padding: 13px;
     color:#a0a0a0;
@@ -918,6 +918,55 @@ html{
     border: 0px;
     border-radius: 23px;
     margin-bottom: 80px;
+}
+.lmnm{
+    flex-direction: column;
+}
+.lmnm .field-validation-error{
+    color:red;
+    font-size: 14px;
+    margin: 0px !important;
+    padding: 3px 40px;
+}
+.lmnm .input-validation-error
+{
+    border-color:rgb(226, 69, 69);
+    margin: 0px !important;
+}
+#becomeaprovider .field-validation-error
+{
+    color:red;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px 40px;
+}
+#becomeaprovider .input-validation-error
+{
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px;
+}
+.gitwu .field-validation-error{
+    color:red;
+    font-size: 14px;
+    margin: 0px 5px 5px 0px;
+    padding: 4px 0px;
+}
+.gitwu .input-validation-error
+{
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px !important;
+}
+.signuppage .field-validation-error,.modal-body .field-validation-error
+{
+    color:red;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px 10px;
+}
+.signuppage .input-validation-error,.modal-body .input-validation-error
+{
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px;
 }
 .ccmono .d-flex{
     width: 100%;
@@ -1066,7 +1115,7 @@ html{
 .blogright{
    display: none;
 }
-.usnavmobile img{
+.usnavmobile img , .usnavmobile1 img{
     padding: 10px;
 }
 .usnavmobile{
@@ -1074,6 +1123,15 @@ html{
     position: sticky;
     top: 0;
     z-index: 100;
+}
+.usnavmobile1{
+    /* background-color: #525252; */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.navbarhome{
+    display: none;
 }
 .usnav2{
     display: flex;
@@ -1447,7 +1505,7 @@ table.dataTable tbody td {
     align-items: center;
 }
 .attachment{
-    margin-left: 10px;
+    /* margin-left: 10px; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1457,4 +1515,35 @@ table.dataTable tbody td {
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 0px;
+}
+.resetpass .field-validation-error
+{
+    color:red;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px 10px;
+}
+.resetpass .input-validation-error 
+{  
+    border-color:rgb(226, 69, 69);
+    margin-bottom: 0px;
+}
+.resetpassword{
+    margin: 10px;
+    width: 500px;
+}
+#resetpasssubmit{
+    color: #ffffff !important;
+    background-color: #1d7a8c;
+    border: 0px;
+    padding: 10px 20px;
+    width: 200px;
+    border-radius: 200px;
+    margin-bottom: 20px;
+}
+.resetpass{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

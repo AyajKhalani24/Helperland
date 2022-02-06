@@ -16298,6 +16298,11 @@
   "RootNamespace": "HELPERLAND",
   "Documents": [
     {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\ResetPassword.cshtml",
+      "TargetPath": "Views\\Home\\ResetPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\Signup.cshtml",
       "TargetPath": "Views\\Home\\Signup.cshtml",
       "FileKind": "mvc"
@@ -16318,8 +16323,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\index.cshtml",
-      "TargetPath": "Views\\Home\\index.cshtml",
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

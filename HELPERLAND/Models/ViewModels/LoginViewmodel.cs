@@ -9,11 +9,11 @@ public class LoginViewmodel
 {   
     #nullable disable
 
-    [Required]
+    [Required(ErrorMessage ="*Please Enter Email")]
+    [DataType(DataType.EmailAddress)]
     public string Email { get; set; }
 
     [Required]
-    [DataType(DataType.EmailAddress)]
     public string Password { get; set; }
 
     #nullable enable

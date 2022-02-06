@@ -46,27 +46,34 @@
 
 
 <section class="gitwu">
-    <p class="gitwuheader">Get in touch with us</p>
+    <p class="gitwuheader d-flex">Get in touch with us</p>
     <form asp-controller="home" asp-action="Contact" method="post" enctype="multipart/form-data">
-        <div class="lmnm">
-            <input type="text" placeholder="First Name" class="formdecoration" asp-for="firstname">
-            <span asp-validation-for="firstname"></span>
-            <input type="text" placeholder="Last Name" class="formdecoration" asp-for="lastname">
-            <span asp-validation-for="lastname" class="danger"></span>
+        <div class="lmnm d-flex">
+            <div class="d-flex flex-column justify-content-start">
+                <input type="text" placeholder="First Name" class="formdecoration" asp-for="firstname">
+                <span asp-validation-for="firstname"></span>
+            </div>
+            <div class="d-flex flex-column">
+                <input type="text" placeholder="Last Name" class="formdecoration" asp-for="lastname">
+                <span asp-validation-for="lastname" class="danger"></span>
+            </div>
         </div>
-        <div class="monoemail d-flex align-items-center">
+        <div class="monoemail d-flex">
             <div class="ccmono">
-                <div class="d-flex align-items-center justify-content-center w-100">
-                    <input type="text" id="countrycode" name="countrycode" placeholder="+91" class="formdecoration"
-                        disabled>
-                    <input type="number" placeholder="Mobile Number" class="formdecoration" asp-for="mono">
-                    <span asp-validation-for="mono" class="danger"></span>
+                <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center justify-content-center w-100">
+                        <input type="text" id="countrycode" name="countrycode" placeholder="+91" class="formdecoration"
+                            disabled>
+                        <input type="text" placeholder="Mobile Number" class="formdecoration" asp-for="mono">
+                    </div>
                 </div>
             </div>
+            <div class="d-flex flex-column">
             <input type="email" placeholder="Email Address" class="formdecoration" asp-for="email">
             <span asp-validation-for="email"></span>
+            </div>
         </div>
-        <div class="select">
+        <div class="select d-flex">
             <select class="formdecoration" asp-for="subject">
                 <option value="General" selected>General</option>
                 <option value="Inquiry">Inquiry</option>
@@ -74,18 +81,18 @@
                 <option value="Revocation">Revocation</option>
             </select>
         </div>
-        <div class="textarea">
+        <div class="textarea d-flex">
             <textarea cols="30" rows="10" placeholder="Message" class="formdecoration" asp-for="msg"></textarea>
             <span asp-validation-for="msg"></span>
         </div>
-        <div class="attachment">
+        <div class="attachment d-flex">
             <input type="file" class="inputfile" asp-for="File">
             <p class="attach">Attachment</p>
             <label for="File" class="d-flex" id="file">
                 <p class="filelabaled">Upload</p>
                 <div class="divfile ms-2 mb-3"></div>
             </label>
-            
+
         </div>
         <div class="submit">
             <button type="submit" class="formdecoration" id="submitbutton">Submit</button>
@@ -95,7 +102,9 @@
 
 
 <div class="contactusmap">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2138.8861017138393!2d7.132943476147287!3d50.73330128397445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8addff5d1803d%3A0x518acab4fd9eb236!2sHelperland%20GmbH!5e0!3m2!1sen!2sin!4v1643863974311!5m2!1sen!2sin" allowfullscreen="true" loading="lazy"></iframe>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2138.8861017138393!2d7.132943476147287!3d50.73330128397445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8addff5d1803d%3A0x518acab4fd9eb236!2sHelperland%20GmbH!5e0!3m2!1sen!2sin!4v1643863974311!5m2!1sen!2sin"
+        allowfullscreen="true" loading="lazy"></iframe>
 </div>
 
 <div id="getonscontent" class="contactusgetons">
@@ -106,15 +115,14 @@
     </form>
 </div>
 
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+@section CustomScripts{
 
 <script>
     const divfile = document.querySelector(".divfile");
-	const fileIp = document.querySelector("input[type='file']");
+    const fileIp = document.querySelector("input[type='file']");
 
     fileIp.addEventListener("focusout", () => divfile.innerHTML = (fileIp.files.length > 0) ? fileIp.files[0].name : "No File Selected");
-	fileIp.addEventListener("change", () => divfile.innerHTML = (fileIp.files.length > 0) ? fileIp.files[0].name : "No File Selected");
+    fileIp.addEventListener("change", () => divfile.innerHTML = (fileIp.files.length > 0) ? fileIp.files[0].name : "No File Selected");
 </script>
+
+}

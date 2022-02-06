@@ -31,12 +31,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGYWNxLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Home/index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbmRleC5jc2h0bWw=
+[F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Home/Price.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcmljZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Home/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Home/Signup.cshtml]
