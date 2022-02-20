@@ -30,6 +30,7 @@ public class SignupViewmodel
     public string CPassword { get; set; }
 
     [StringLength(12)]
+    [Required(ErrorMessage = "*Please Enter mobile number")]
     public string Mobile { get; set; }
 
 }

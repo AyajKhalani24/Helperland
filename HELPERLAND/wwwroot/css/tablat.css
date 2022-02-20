@@ -256,16 +256,19 @@ html{
     color: #3d4046;
     font-size: 18px;
     padding: 3px 5px;
+    margin: 0px;
 }
 .obdisc{
     color: #565656;
     padding:3px 5px;
     font-size: 15px;
+    margin: 0px;
 }
 .obdate{
     color:#a3a3a3;
     font-size:11px;
     padding: 3px 5px;
+    margin-bottom: 0px;
 }
 .rtp{
     color: #4f4f4f;
@@ -283,10 +286,13 @@ html{
     margin:50px 0px 0px 0px;
     background-color: #f4f5f8;
 }
+.wocs b{
+    padding-left: 20px;
+}
 .wocsflex{
     display: flex;
     flex-wrap: wrap;
-    margin: 0px 160px;
+    /* margin: 0px 160px; */
     justify-content: center;
 }
 .wocscontent{
@@ -326,12 +332,13 @@ html{
     margin: 20px;
     color: #565656;
     font-size: 16px;
+    margin-top: 0px;
 }
 .readmore{
     color: #565656;
     font-size: 18px;
     display: inline-block;
-    padding: 0px 11px 20px 20px;
+    padding: 0px 11px 0px 20px;
 }
 #getons{
     display: flex;
@@ -830,6 +837,7 @@ html{
 #countrycode{
     width: 57px;
     margin-right: 0px !important;
+    margin-bottom: 0px;
     border-radius: 4px 0px 0px 4px;
     background-color:#f6f6f6 ;
 }
@@ -933,9 +941,10 @@ html{
     padding: 13px 15px;
     margin: 7.5px 35px;
     border: 1px solid #C8C8C8;
-    border-radius: 2px;
+    border-radius: 4px;
     color: #A0A0A0;
     font-size: 16px;
+    outline: none;
 }
 .register{
     margin: 19px ;
@@ -1227,4 +1236,366 @@ html{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.setupservicemaincontent{
+    padding-left: 20px;
+    flex-wrap: wrap;
+}
+.nav-link{
+    color:#646464 !important;
+    font-size: 18px;
+    padding:17px 18px;
+    background-color: #F3F3F3 ;
+    border-radius: 0px;
+    border: 0px;
+    position: relative;
+    height: 60px;
+}
+.tabimg{
+    margin-right: 7.5px;
+    /* margin-left: 2px; */
+    height: 32px;
+    width: 32px;
+    object-fit: none;
+    object-position: 0 0;
+}
+.extraservicecheck:checked+label .esimg{
+    border: 3px solid #1D7A8C;
+}
+.extraservicecheck:checked+label svg path{
+    fill: #1d7a8c;
+}
+.nav-link.active .tabimg{
+	object-position: 0 -32px;
+}
+.nav-link.active::before{
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border: 14px solid transparent;
+    border-top: 14px solid #1d7a8c;
+    bottom: -27px;
+    left: calc(50% - 14px);
+}
+.nav-link.active ,.nav-link:focus {
+    color: #FFFFFF !important;
+    background-color: #1D7A8C ;
+}
+.dnformobile{
+    margin: 0px;
+}
+.checkavail{
+    color: #FFFFFF;
+    background-color: #1D7A8C ;
+    border: 0px;
+    border-radius: 200px;
+    padding: 11px 22px;
+    width: 174px;
+    outline: none;
+}
+.quationheaderhr{
+    display: none;
+}
+.quationheaderextra{
+    display: none;
+}
+#Postalcode{
+    width:306px;
+    border-radius: 4px;
+    padding: 12px 15px;
+    height: 46px;
+    box-shadow: none;
+    border: 1px solid #dedddd;
+    margin-right: 10px;
+    outline: none;
+}
+#eypc{
+    margin: 10px 0px;
+    color:#4f4f4f;
+    font-size: 16px;
+}
+.setupsummary{
+    margin: 0px 30px;
+    box-shadow: 0px 0px 7px #00000059;
+    opacity: 1;
+}
+.paymentsummary{
+    color: #ffffff;
+    background-color: #1d7a8c;
+    font-size: 18px;
+    padding: 18px 22px;
+    width:550px;
+    height: 60px;
+    line-height: 20px;
+}
+.datetimebed,.basic{
+    padding: 0px 18px;
+    color:#4F4F4F;
+    font-size: 16px;
+    margin: 0px;
+    line-height:18px;
+}
+.basic p{
+    margin-bottom: 10px;
+}
+.duration{
+    padding: 0px 18px;
+    color:#4F4F4F;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px 0px 10px 0px;
+    line-height: 20px;
+}
+.dbasic{
+    padding: 0px 18px;
+    color:#4F4F4F;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px;
+    line-height: 20px;
+}
+.mainsummary{
+    font-size: 20px;
+    color: #1D7A8C;
+    padding: 5px 18px 0px 18px;
+    margin: 0px;
+    line-height: 25px;
+}
+.halflineok{
+    height: 1px !important;
+    width: 324px !important;
+    background: #E1E1E1;
+    padding: 0px 18px;
+}
+#scheduledate{
+    height: 46px;
+    width:160px;
+    border: 1px solid #dedddd;
+    border-radius: 4px;
+    padding: 10px 10px 10px 40px;
+    margin: 0px;
+    background: url("../images/bluecalender.png") no-repeat center left 0.80rem;
+    color: #646464;
+    outline: none;
+}
+#scheduletime , #scheduleduration{
+    height: 46px;
+    width:110px;
+    border: 1px solid #dedddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 0px 10px;
+    color: #646464;
+    outline: none;
+}
+#scheduleduration{
+    margin: 0;
+}
+.quationheader{
+    font-size: 16px;
+    color: #4f4f4f;
+    font-weight: 500;
+    margin-bottom: 7px;
+    margin-top: 10px;
+}
+.setupsummary hr{
+    width: calc(100% - 36px);
+    margin: auto;
+    margin-bottom: 5px;
+    background-color: #dcdcdc;
+    opacity: 1;
+}
+.fullline{
+    width: 100% !important;
+    margin: 0px;
+    margin-bottom: 10px !important;
+}
+.forhrline .hrline{
+    width: 100%;
+    margin-top: 27px;
+    line-height: 1px;
+}
+.basicbottom{
+    background-color: #F3F3F3;
+    color: #8D8D8D;
+}
+.swiai{
+    padding-left: 7px;
+}
+.scheduleservice .extraservice{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 5px;
+}
+.scheduleservice .esimg{
+    margin: 0px;
+}
+.scheduleservice .esdisc{
+    margin: 0px;
+}
+.extraqh{
+    margin-top: 18px;
+}
+#bookservicecomments{
+    height: 100px;
+    width: 100%;
+    border: 1px solid #dedddd;
+    border-radius: 4px;
+    outline: none;
+    padding: 10px;
+}
+#petsyesorno{
+    color: #4F4F4F;
+    font-size: 16px;
+    margin-top: 4px;
+}
+#petscheck{
+    height: 18px;
+    width: 18px;
+    margin-top: 7px;
+}
+.extraavail{
+    font-weight: bold;
+    padding: 11px 22px;
+    font-size: 20px;
+    width: 141px;
+}
+.serviceaddress{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid #e1e1e1;
+    margin: 15px 0px;
+    border-radius: 4px;
+}
+.addressservice{
+    color: #4f4f4f;
+    font-size: 16px;
+  margin: 10px 20px 10px 20px;
+    width: 100%;
+}
+#add1{
+    width: 18px;
+    height: 18px;
+    margin: 0px 0px 0px 15px;
+}
+.ana{
+    color: #1d7a8c;
+    border: 1px solid #1d7a8c;
+    padding: 10px 15px;
+    border-radius: 200px;
+    width: 175px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    display: none;
+}
+.ana.collapsed{
+    display: block;
+}
+.ana:hover{
+    background-color: #1d7a8c;
+    color: #ffffff;
+    font-weight: 400;
+}
+.anaform{
+    border: 1px solid #c8c8c8;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    background: #f8f8f8;
+}
+.addaddressform{
+    width:344px;
+    font-size: 16px;
+    padding: 12px 15px;
+    border: 1px solid #dedddd;
+    outline: none;
+    line-height: 20px;
+    height: 46px;
+    color: #646464;
+    border-radius: 4px;
+}
+.formlable{
+    color: #4f4f4f;
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+#addresscc{
+    width: 60px;
+    border-right: 0px;
+    border-radius: 4px 0px 0px 4px;
+}
+#addressmono{
+    width:284px;
+    border-radius: 0px 4px 4px 0px;
+}
+#saveaddress{
+    background: #1d7a8c;
+    border: none!important;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff!important;
+    transition: all 0.3s ease;
+    padding: 11px 25px;
+    border-radius: 23px;
+    width: 100px;
+}
+#canceladdress{  
+    border:1px solid #c6c6c6;
+    font-size: 16px;
+    line-height: 24px;
+    color: #666;
+    transition: all 0.3s ease;
+    padding: 11px 25px;
+    border-radius: 23px;
+    margin-left: 12px;
+    width: 100px;
+    cursor: pointer;
+}
+.anaform{
+    display: static;
+}
+.checkavailextra{
+    color: #1D7A8C;
+    border: 1px solid #1d7a8c;
+    border-radius: 200px;
+    padding: 11px 22px;
+    width: 100px;
+    outline: none;
+    background-color: #ffffff;
+    margin-left: 5px;
+}
+.checkavailextra:hover{
+    color: #ffffff;
+    background-color: #1d7a8c;
+}
+.paymentservice .hrline{
+    margin: 25px 0px;
+    width: 100%;
+}
+#creditcarddetails{
+    width: 100%;
+    background: "MM / YY CVC"  no-repeat center right 0.80rem;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    color: #c5c5c5;
+}
+.paymentservice #logincheck{
+    height: 18px;
+    width: 18px;
+    margin-top: 4px;
+}
+.bluetext{
+    color: #1d7a8c;
+    display: inline-block;
+}
+.creditcheck{
+    width: 700px;
+    margin-left: 10px;
+}
+.extraavailable{
+    width: 200px;
+    font-size: 18px;
+    font-weight: bold;
 }

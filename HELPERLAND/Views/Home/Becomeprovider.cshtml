@@ -35,52 +35,52 @@
                 <a href="" class="navhome">Our Gurantee</a>
                 <a href="" class="navhome">Blog</a>
                 <a asp-controller="home" asp-action="Contact" class="navhome">Contact Us</a>
-            
+
                 <a class="navhome loginbtn" id="r">Login</a>
-                
+
                 <a asp-controller="home" asp-action="becomeprovider" class="navhome" id="r">Become A Helper</a>
                 <a href="" class="england">
                     <img src="~/images/flagengland.png" alt="">
                     <img src="~/images/selfside.png" alt="">
                 </a>
-                
+
             </div>
         </div>
 
         <section class="usnavmobile1">
-        <div class="navjustify">
+            <div class="navjustify">
 
-            <img src="~/images/logo-small.png" alt="">
-            <div class="hamburger2">
-                <img src="~/images/togler.png" alt="">
-            </div>
-        </div>
-
-        <div class="usnav2">
-            <div class="closebutton">
-
-            </div>
-            <div class="opennav">
-               
-                    <a class="vertnavcont loginbtn">Login</a>
-                    <a asp-controller="Home" asp-action="Becomeprovider" class="vertnavcont">Become A Helper</a>
-                
-                <span></span>
-                <a href="#" class="vertnavcont">Book Now</a>
-                <a asp-controller="Home" asp-action="Price" class="vertnavcont">Prices & Services</a>
-                <a href="#" class="vertnavcont">Warrenty</a>
-                <a href="#" class="vertnavcont">Blog</a>
-                <a asp-controller="Home"  asp-action="Contact" class="vertnavcont">Contact</a>
-                <span></span>
-                <div>
-                    <a href="https:/www.instagram.com"><img src="~/images/Forma 1_3.png" alt=""
-                            style="filter: invert(1);"></a>
-                    <a href="https:/www.facebook.com"><img src="~/images/Forma 1_5.png" alt=""
-                            style="filter: invert(1);"></a>
+                <img src="~/images/logo-small.png" alt="">
+                <div class="hamburger2">
+                    <img src="~/images/togler.png" alt="">
                 </div>
             </div>
-        </div>
-    </section>
+
+            <div class="usnav2">
+                <div class="closebutton">
+
+                </div>
+                <div class="opennav">
+
+                    <a class="vertnavcont loginbtn">Login</a>
+                    <a asp-controller="Home" asp-action="Becomeprovider" class="vertnavcont">Become A Helper</a>
+
+                    <span></span>
+                    <a href="#" class="vertnavcont">Book Now</a>
+                    <a asp-controller="Home" asp-action="Price" class="vertnavcont">Prices & Services</a>
+                    <a href="#" class="vertnavcont">Warrenty</a>
+                    <a href="#" class="vertnavcont">Blog</a>
+                    <a asp-controller="Home" asp-action="Contact" class="vertnavcont">Contact</a>
+                    <span></span>
+                    <div>
+                        <a href="https:/www.instagram.com"><img src="~/images/Forma 1_3.png" alt=""
+                                style="filter: invert(1);"></a>
+                        <a href="https:/www.facebook.com"><img src="~/images/Forma 1_5.png" alt=""
+                                style="filter: invert(1);"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <form asp-controller="Signup" asp-action="Becomeprovider">
             <div class="becomepro">
@@ -94,33 +94,34 @@
                 <input type="email" id="becomeproemail" placeholder="Email Address" class="becomeprodecoration"
                     asp-for="Email">
                 <span asp-validation-for="Email"></span>
+
                 <div class="bpccmono">
                     <input type="text" name="ccbecomepro" id="ccbecomepro" placeholder="+46">
                     <input type="text" id="monobecomepro" placeholder="Phone Number" asp-for="Mobile">
-                    <span asp-validation-for="Mobile"></span>
                 </div>
 
                 <input type="text" id="password" placeholder="Password" class="becomeprodecoration" asp-for="Password">
                 <span asp-validation-for="Password"></span>
 
                 <input type="text" name="cpassword" id="cpassword" placeholder="Confirm Password"
-                    class="becomeprodecoration">
+                    class="becomeprodecoration" asp-for="CPassword">
+                <span asp-validation-for="CPassword"></span>
 
                 <div class="checkboxes">
                     <div class="check">
                         <input type="checkbox" name="smnfh" id="smnfh" class="checkbox">
                         <pre>  </pre>
-                        <p class="smnfh"> Send me newsletters from Helperland</p>
+                        <p class="smnfh">Send me newsletters from Helperland</p>
                     </div>
                     <div class="check">
-                        <input type="checkbox" name="acceptt&c" id="acceptt&c" class="checkbox">
+                        <input type="checkbox" name="acceptt&c" id="accepttc" class="checkbox">
                         <pre>  </pre>
                         <p class="smnfh">I accept <a class="blue">terms and conditions</a> & <a class="blue">privacy
                                 policy</a></p>
                     </div>
                 </div>
 
-                <img src="~/images/layer-20.png" style="margin: 2px 0px;" alt="">
+                <img src="~/images/layer-20.png" style="margin: 2px 0px;" class="becomeproformimg" alt="">
 
                 <button class="becomeprosubmit">Get Started <img src="~/images/shape-2.png" alt=""></button>
             </div>

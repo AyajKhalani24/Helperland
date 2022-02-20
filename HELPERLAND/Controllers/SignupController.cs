@@ -69,6 +69,7 @@ public class SignupController : Controller
                 claims.Add(new Claim("Email", user.Email));
                 claims.Add(new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()));
                 claims.Add(new Claim(ClaimTypes.Name, user.FirstName + " " + user.LastName));
+                claims.Add(new Claim(ClaimTypes.SerialNumber, user.UserTypeId.ToString()));
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
                 await HttpContext.SignInAsync(claimsPrincipal);

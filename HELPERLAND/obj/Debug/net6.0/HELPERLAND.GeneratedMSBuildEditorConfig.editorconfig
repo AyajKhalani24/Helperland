@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\Tatvasoft\Project\Helperland\HELPERLAND
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Bookservice/setupservice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NlcnZpY2Vcc2V0dXBzZXJ2aWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

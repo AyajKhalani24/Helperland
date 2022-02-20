@@ -16348,6 +16348,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Bookservice\\setupservice.cshtml",
+      "TargetPath": "Views\\Bookservice\\setupservice.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\About.cshtml",
       "TargetPath": "Views\\Home\\About.cshtml",
       "FileKind": "mvc"
