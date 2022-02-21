@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7zxMaPuxeSfswpjBKg1Sc0ERHkNI4StBqD/qk+CpieY=",
+  "Hash": "MKoCWlJsDnSCV2DdNcGO4rH2Aa1gm6l0nueKYjNtzAE=",
   "Source": "HELPERLAND",
   "BasePath": "_content/HELPERLAND",
   "Mode": "Default",
@@ -491,6 +491,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\ellipse-525.png"
+    },
+    {
+      "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\images\\email.png",
+      "SourceId": "HELPERLAND",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\",
+      "BasePath": "_content/HELPERLAND",
+      "RelativePath": "images/email.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\email.png"
     },
     {
       "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\images\\emailIcon.png",
@@ -1394,6 +1411,23 @@
       "OriginalItemSpec": "wwwroot\\images\\message.png"
     },
     {
+      "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\images\\password.png",
+      "SourceId": "HELPERLAND",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\",
+      "BasePath": "_content/HELPERLAND",
+      "RelativePath": "images/password.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\password.png"
+    },
+    {
       "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\images\\phone-call.png",
       "SourceId": "HELPERLAND",
       "SourceType": "Discovered",
@@ -1613,6 +1647,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\setup-service.png"
+    },
+    {
+      "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\images\\setupserviceposter.png",
+      "SourceId": "HELPERLAND",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\",
+      "BasePath": "_content/HELPERLAND",
+      "RelativePath": "images/setupserviceposter.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\setupserviceposter.png"
     },
     {
       "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\images\\Shape 1.png",
@@ -1885,6 +1936,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\threedot.png"
+    },
+    {
+      "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\images\\tickBig.png",
+      "SourceId": "HELPERLAND",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\",
+      "BasePath": "_content/HELPERLAND",
+      "RelativePath": "images/tickBig.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\tickBig.png"
     },
     {
       "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\images\\togler.png",

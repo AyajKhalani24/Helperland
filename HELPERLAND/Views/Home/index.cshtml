@@ -89,7 +89,14 @@
                 </div>
             </div>
             <div id="navm">
-                <a href="" class="navhome" id="r">Book a Cleaner</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-controller="Bookservice" asp-action="setupservice" class="navhome" id="r">Book a Cleaner</a>
+                }
+                else
+                {
+                    <a service" id="r" class="lbcalert navhome">Book a Cleaner</a>
+                }
                 <a asp-controller="home" asp-action="price" class="navhome">Prices</a>
                 <a href="" class="navhome">Our Gurantee</a>
                 <a href="" class="navhome">Blog</a>
@@ -97,7 +104,6 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <a href="#"><img src="~/images/icon-notification.png" alt="" id="usnavicon">
-                        <span class="count">1</span>
                     </a>
                     <button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover"
                     data-bs-custom-class="navbarpopover"
@@ -155,7 +161,14 @@
                         <a asp-controller="Home" asp-action="Becomeprovider" class="vertnavcont">Become A Helper</a>
                     }
                     <span></span>
-                    <a href="#" class="vertnavcont">Book Now</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Bookservice" asp-action="setupservice" class="vertnavcont">Book Now</a>
+                    }
+                    else
+                    {
+                        <a class="lbcalert vertnavcont">Book Now</a>
+                    }
                     <a asp-controller="Home" asp-action="Price" class="vertnavcont">Prices & Services</a>
                     <a href="#" class="vertnavcont">Warrenty</a>
                     <a href="#" class="vertnavcont">Blog</a>
@@ -182,9 +195,18 @@
             <p class="disc1"><img src="~/images/Forma 1 copy 10.png" alt="" class="righttick">Secure online payment
                 method</p>
         </div>
-        <div id="bookcleaner">
-            <a asp-controller="Bookservice" asp-action="setupservice" id="lbc">Let's Book Cleaner</a>
-        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div id="bookcleaner">
+                <a asp-controller="Bookservice" asp-action="setupservice" id="lbc">Let's Book Cleaner</a>
+            </div>
+        }
+        else
+        {
+            <div id="bookcleaner">
+                <a id="lbc" class="lbcalert" style="cursor: pointer;">Let's Book Cleaner</a>
+            </div>
+        }
         <div id="flow">
             <div class="flow1"><img src="~/images/Forma 1 copy.png" alt="">
                 <p class="flow2">Inter your Postcode</p>
@@ -425,6 +447,10 @@
         document.querySelector('#button').addEventListener('click', () => {
             closingbutton.style.display = "none"
         })
+        document.querySelector('.lbcalert').addEventListener('click', () => {
+            alert("You need to logged in to book service")
+        })
+
 
     </script>
 </body>

@@ -1,8 +1,29 @@
 @{
     ViewData["Title"] = "Book Now | Helperland";
 }
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header p-0 flex-column align-items-center justify-content-center border-0">
+                <img class="rounded-circle my-4" src="~/images/tickBig.png" asp-append-version="true">
+                <h5 class="modal-title text-center" id="successModalLabel">Service Booked Successfully !!</h5>
+                <p class="modal-body text-center"></p>
+            </div>
+            <div class="modal-footer p-0 my-3 border-0 align-items-center justify-content-center">
+                <button type="button" class="text-white rounded-pill py-2 px-4 border-0" data-bs-dismiss="modal">OK
+                    !</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="loaderContainer">
+    <div class="loader rounded-circle"></div>
+</div>
+
 <section>
-    <img src="~/images/primary-cover2.jpg" alt="" height="370px" width="100%">
+    <img src="~/images/setupserviceposter.png" alt="" class="facqimg">
 </section>
 
 <section class="facqheader">
@@ -76,9 +97,9 @@
                             <label for="Postalcode" id="eypc">Enter Your Postal Code</label>
                             <input type="text" id="Postalcode">
                         </div>
-                        <span class="text-danger zipcodeerror"></span>
                         <input type="submit" value="Check Availability" class="checkavail"></input>
                     </div>
+                    <span class="text-danger zipcodeerror d-block my-2"></span>
                 </form>
             </div>
 
@@ -98,55 +119,55 @@
                         <p class="quationheader">When do you need the cleaner?</p>
                         <div class="d-flex justify-content-center align-items-center">
                             <div class="position-relative datePicker">
-                                <input type="text" id="scheduledate" placeholder="DD/MM/YYYY">
+                                <input type="text" id="scheduledate" placeholder="DD/MM/YYYY" readonly>
                             </div>
                             <select name="" id="scheduletime">
-                                <option value="8:00">8:00</option>
-                                <option value="8:30">8:30</option>
-                                <option value="9:00">9:00</option>
-                                <option value="9:30">9:30</option>
-                                <option value="10:00">10:00</option>
-                                <option value="10:30">10:30</option>
-                                <option value="11:00">11:00</option>
-                                <option value="11:30">11:30</option>
-                                <option value="12:00">12:00</option>
-                                <option value="12:30">12:30</option>
-                                <option value="13:00">13:00</option>
-                                <option value="13:30">13:30</option>
-                                <option value="14:00">14:00</option>
-                                <option value="14:30">14:30</option>
-                                <option value="15:00">15:00</option>
-                                <option value="15:30">15:30</option>
-                                <option value="16:00">16:00</option>
-                                <option value="16:30">16:30</option>
-                                <option value="17:00">17:00</option>
-                                <option value="17:30">17:30</option>
-                                <option value="18:00">18:00</option>
+                                <option value="8">8:00</option>
+                                <option value="8.5">8:30</option>
+                                <option value="9">9:00</option>
+                                <option value="9.5">9:30</option>
+                                <option value="10">10:00</option>
+                                <option value="10.5">10:30</option>
+                                <option value="11">11:00</option>
+                                <option value="11.5">11:30</option>
+                                <option value="12">12:00</option>
+                                <option value="12.5">12:30</option>
+                                <option value="13">13:00</option>
+                                <option value="13.5">13:30</option>
+                                <option value="14">14:00</option>
+                                <option value="14.5">14:30</option>
+                                <option value="15">15:00</option>
+                                <option value="15.5">15:30</option>
+                                <option value="16">16:00</option>
+                                <option value="16.5">16:30</option>
+                                <option value="17">17:00</option>
+                                <option value="17.5">17:30</option>
+                                <option value="18">18:00</option>
                             </select>
                         </div>
                     </div>
                     <div class="hldynycs">
                         <p class="quationheader">How long do you need your cleaner to stay?</p>
                         <select name="" id="scheduleduration">
-                            <option value="3.0 Hrs">3.0 Hrs</option>
-                            <option value="3.5 Hrs">3.5 Hrs</option>
-                            <option value="4.0 Hrs">4.0 Hrs</option>
-                            <option value="4.5 Hrs">4.5 Hrs</option>
-                            <option value="5.0 Hrs">5.0 Hrs</option>
-                            <option value="5.5 Hrs">5.5 Hrs</option>
-                            <option value="6.0 Hrs">6.0 Hrs</option>
-                            <option value="6.5 Hrs">6.5 Hrs</option>
-                            <option value="7.0 Hrs">7.0 Hrs</option>
-                            <option value="7.5 Hrs">7.5 Hrs</option>
-                            <option value="8.0 Hrs">8.0 Hrs</option>
-                            <option value="8.5 Hrs">8.5 Hrs</option>
-                            <option value="9.0 Hrs">9.0 Hrs</option>
-                            <option value="9.5 Hrs">9.5 Hrs</option>
-                            <option value="10.0 Hrs">10.0 Hrs</option>
-                            <option value="10.5 Hrs">10.5 Hrs</option>
-                            <option value="11.0 Hrs">11.0 Hrs</option>
-                            <option value="11.5 Hrs">11.5 Hrs</option>
-                            <option value="12.0 Hrs">12.0 Hrs</option>
+                            <option value="3.0">3.0 Hrs</option>
+                            <option value="3.5">3.5 Hrs</option>
+                            <option value="4.0">4.0 Hrs</option>
+                            <option value="4.5">4.5 Hrs</option>
+                            <option value="5.0">5.0 Hrs</option>
+                            <option value="5.5">5.5 Hrs</option>
+                            <option value="6.0">6.0 Hrs</option>
+                            <option value="6.5">6.5 Hrs</option>
+                            <option value="7.0">7.0 Hrs</option>
+                            <option value="7.5">7.5 Hrs</option>
+                            <option value="8.0">8.0 Hrs</option>
+                            <option value="8.5">8.5 Hrs</option>
+                            <option value="9.0">9.0 Hrs</option>
+                            <option value="9.5">9.5 Hrs</option>
+                            <option value="10.0">10.0 Hrs</option>
+                            <option value="10.5">10.5 Hrs</option>
+                            <option value="11.0">11.0 Hrs</option>
+                            <option value="11.5">11.5 Hrs</option>
+                            <option value="12.0">12.0 Hrs</option>
                         </select>
                     </div>
                 </div>
@@ -237,22 +258,8 @@
                 <p class="quationheader quationheaderextra">Setup Service</p>
                 <hr class="quationheaderhr">
                 <div class="addressses">
-                    <p class="quationheader extraqh">Enter your contact details, so we can serve you in better way!</p>
-                    <div class="serviceaddress">
-                        <input type="radio" name="Address" id="add1" class="check form-check-input">
-                        <p class="addressservice"><b>Address:</b> Main Market, Haveli Street <br> <b>Phone
-                                Number:</b> 9099913439</p>
-                    </div>
-                    <div class="serviceaddress">
-                        <input type="radio" name="Address" id="add1" class="check form-check-input">
-                        <p class="addressservice"><b>Address:</b> Main Market, Haveli Street <br> <b>Phone
-                                Number:</b> 9099913439</p>
-                    </div>
-                    <div class="serviceaddress">
-                        <input type="radio" name="Address" id="add1" class="check form-check-input">
-                        <p class="addressservice"><b>Address:</b> Main Market, Haveli Street <br> <b>Phone
-                                Number:</b> 9099913439</p>
-                    </div>
+                    <p class="quationheader extraqh">Enter your contact details, so we can serve you in better way!
+                    </p>
                 </div>
                 <p class="ana collapsed" data-bs-toggle="collapse" data-bs-target="#formcollapse" aria-expanded="false"
                     aria-controls="formcollapse">+ Add New Address</p>
@@ -276,9 +283,9 @@
                             <div class="d-flex flex-column" style="padding: 7.5px 15px;">
                                 <label for="City" class="formlable">City</label>
                                 <select class="addaddressform" id="City">
-                                    <option value="">Berlin</option>
-                                    <option value="">Munich</option>
-                                    <option value="">Hamburg</option>
+                                    <option value="Berlin">Berlin</option>
+                                    <option value="Munich">Munich</option>
+                                    <option value="Hamburg">Hamburg</option>
                                 </select>
                             </div>
                         </div>
@@ -292,11 +299,17 @@
                         <div class="d-flex" style="padding: 7.5px 15px;">
                             <input type="submit" value="Save" class="addaddressform" id="saveaddress">
                             <p id="canceladdress" class="addaddressform" data-bs-toggle="collapse"
-                                data-bs-target="#formcollapse" aria-expanded="true" aria-controls="formcollapse">Cancel
+                                data-bs-target="#formcollapse" aria-expanded="true" aria-controls="formcollapse">
+                                Cancel
                             </p>
                         </div>
 
                     </form>
+                </div>
+                <div id="tab3Error" class="text-danger my-1"></div>
+
+                <div class="d-flex justify-content-end">
+                    <input type="submit" value="Continue" class="checkavail extraavail mb-3" id="tab3btnsubmit">
                 </div>
             </div>
 
@@ -334,18 +347,17 @@
                     <input type="checkbox" id="logincheck" class="check form-check-input">
                     <p class="creditcheck">I accepted terms and conditions, the cancellation policyand the privacy
                         policy.I confirm that
-                        Helperland starts to execute the contract before the expiry of the withdrawal period and I lose
+                        Helperland starts to execute the contract before the expiry of the withdrawal period and I
+                        lose
                         my right of withdrawal as a consumer with full performance of the contract.
                     </p>
                 </div>
+                <div class="bookServiceErr text-danger my-1"></div>
                 <div class="d-flex justify-content-end">
-                    <input type="submit" value="Complete Booking" class="checkavail extraavailable"></input>
+                    <input type="submit" value="Complete Booking" class="checkavail extraavailable"
+                        id="completebooking">
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 

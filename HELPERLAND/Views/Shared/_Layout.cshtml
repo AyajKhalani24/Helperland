@@ -51,7 +51,14 @@
         </div>
 
         <div class="usnav1">
-            <a href="#" class="navuscount navshextra">Book Now</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Bookservice" asp-action="setupservice" class="navhome" id="r">Book a Cleaner</a>
+            }
+            else
+            {
+                <a service" id="r" class="lbcalert navhome">Book a Cleaner</a>
+            }
             <a asp-controller="Home" asp-action="Price" class="navuscont">Prices & Services</a>
             <a href="#" class="navuscont">Warrenty</a>
             <a href="#" class="navuscont">Blog</a>
@@ -111,7 +118,14 @@
                     <a asp-controller="Home" asp-action="Becomeprovider" class="vertnavcont">Become A Helper</a>
                 }
                 <span></span>
-                <a href="#" class="vertnavcont">Book Now</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-controller="Bookservice" asp-action="setupservice" class="vertnavcont">Book Now</a>
+                }
+                else
+                {
+                    <a asp-controller="Bookservice" asp-action="setupservice" class="lbcalert vertnavcont">Book Now</a>
+                }
                 <a asp-controller="Home" asp-action="Price" class="vertnavcont">Prices & Services</a>
                 <a href="#" class="vertnavcont">Warrenty</a>
                 <a href="#" class="vertnavcont">Blog</a>
@@ -201,6 +215,9 @@
                 })
             })
         }
+        document.querySelector('.lbcalert').addEventListener('click', () => {
+            alert("You need to logged in to book service")
+        })
     </script>
     @RenderSection("CustomScripts",required:false)
 </body>

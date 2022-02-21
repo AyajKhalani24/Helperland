@@ -9,19 +9,16 @@ namespace HELPERLAND.Models.ViewModels
 
     public class SetupserviceViewmodel
     {
-        [Required(ErrorMessage = "Zipcode is required")]
-        [RegularExpression(@"[0-9]{5}", ErrorMessage = "Enter Valid Zipcode")]
+#nullable disable
         public string Zipcode { get; set; }
-
-        [Required(ErrorMessage = "Please enter service date")]
-        [RegularExpression(@"[0-9]{5}", ErrorMessage = "Enter Valid Date")]
         public string servicedate { get; set; }
-
-        [Required(ErrorMessage = "Please select service time")]
         public float servicetime { get; set; }
-
-
-        [Required(ErrorMessage = "Please select service hours")]
         public float servicehours { get; set; }
+        public int AddressId { get; set; }
+        public bool HasPets { get; set; }
+
+#nullable enable
+        public IEnumerable<int>? ExtraServices { get; set; }
+        public string? Comments { get; set; }
     }
 }
