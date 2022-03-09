@@ -96,16 +96,19 @@
                 <span asp-validation-for="Email"></span>
 
                 <div class="bpccmono">
-                    <input type="text" name="ccbecomepro" id="ccbecomepro" placeholder="+46">
+                    <input type="text" name="ccbecomepro" id="ccbecomepro" placeholder="+46" disabled>
                     <input type="text" id="monobecomepro" placeholder="Phone Number" asp-for="Mobile">
                 </div>
+                <span asp-validation-for="Mobile"></span>
 
-                <input type="text" id="password" placeholder="Password" class="becomeprodecoration" asp-for="Password">
+                <input type="password" id="password" placeholder="Password" class="becomeprodecoration"
+                    asp-for="Password">
                 <span asp-validation-for="Password"></span>
 
-                <input type="text" name="cpassword" id="cpassword" placeholder="Confirm Password"
+                <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password"
                     class="becomeprodecoration" asp-for="CPassword">
                 <span asp-validation-for="CPassword"></span>
+
 
                 <div class="checkboxes">
                     <div class="check">

@@ -17,16 +17,17 @@ namespace HELPERLAND.Models.Implementation
                 mm.Subject = email.Subject;
                 mm.Body = email.Body;
                 mm.IsBodyHtml = email.isHTML;
-                if (email.Attachment != null){
-                    
-					string fileName = Path.GetFileName(email.Attachment.FileName);
-					mm.Attachments.Add(new Attachment(email.Attachment.OpenReadStream(), fileName));
+                if (email.Attachment != null)
+                {
+
+                    string fileName = Path.GetFileName(email.Attachment.FileName);
+                    mm.Attachments.Add(new Attachment(email.Attachment.OpenReadStream(), fileName));
                 }
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential("chachamehta33@gmail.com", "Chacha@2114"); // Enter seders User name and password  
+                smtp.Credentials = new System.Net.NetworkCredential("chachamehta33@gmail.com", "Chacha@2114");
                 smtp.EnableSsl = true;
                 smtp.Send(mm);
 

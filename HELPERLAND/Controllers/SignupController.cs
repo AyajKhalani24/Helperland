@@ -70,17 +70,23 @@ public class SignupController : Controller
                 claims.Add(new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()));
                 claims.Add(new Claim(ClaimTypes.Name, user.FirstName + " " + user.LastName));
                 claims.Add(new Claim(ClaimTypes.SerialNumber, user.UserTypeId.ToString()));
+                if (user.UserTypeId == 1)
+                {
+                    claims.Add(new Claim(ClaimTypes.AuthorizationDecision, "Customer"));
+                }
+                else if (user.UserTypeId == 2)
+                {
+                    claims.Add(new Claim(ClaimTypes.AuthorizationDecision, "Provider"));
+                }
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
                 await HttpContext.SignInAsync(claimsPrincipal);
-                ViewData["Name"] = user.FirstName;
             }
         }
-        return RedirectToAction("About", "Home");
+        return RedirectToAction("Index", "Home");
     }
 
     [HttpGet]
-    // [Authorize]
     public async Task<IActionResult> Logout()
     {
         await HttpContext.SignOutAsync();

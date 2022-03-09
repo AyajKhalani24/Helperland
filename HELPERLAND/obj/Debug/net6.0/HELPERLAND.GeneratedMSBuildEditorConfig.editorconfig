@@ -19,6 +19,18 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NlcnZpY2Vcc2V0dXBzZXJ2aWNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Customer/dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcZGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Customer/mysettings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcbXlzZXR0aW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Customer/servicehistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcc2VydmljZWhpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -49,6 +61,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Home/Signup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaWdudXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Shared/layout2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXGxheW91dDIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/Tatvasoft/Project/Helperland/HELPERLAND/Views/Shared/_Layout.cshtml]

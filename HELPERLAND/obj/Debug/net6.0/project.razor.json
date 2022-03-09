@@ -16328,8 +16328,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Shared\\layout2.cshtml",
+      "TargetPath": "Views\\Shared\\layout2.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Customer\\mysettings.cshtml",
+      "TargetPath": "Views\\Customer\\mysettings.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Customer\\dashboard.cshtml",
+      "TargetPath": "Views\\Customer\\dashboard.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16340,6 +16355,11 @@
     {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\Price.cshtml",
       "TargetPath": "Views\\Home\\Price.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Customer\\servicehistory.cshtml",
+      "TargetPath": "Views\\Customer\\servicehistory.cshtml",
       "FileKind": "mvc"
     },
     {

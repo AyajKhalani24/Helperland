@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" />
 
 
-    <link rel="stylesheet" media='screen and (min-width: 140px) and (max-width: 918px)' href="~/css/mobile.css" />
-    <link rel="stylesheet" media='screen and (min-width: 918px) and (max-width: 1194px)' href="~/css/tablat.css" />
-    <link rel="stylesheet" media='screen and (min-width: 1194px)' href="~/css/style.css" />
+    <link rel="stylesheet" media='screen and (min-width: 140px) and (max-width: 1086px)' href="~/css/mobile.css" />
+    <link rel="stylesheet" media='screen and (min-width: 1086px)' href="~/css/style.css" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" />
 
     @RenderSection("CustomCSS",required:false)
 
@@ -29,37 +31,29 @@
             </a>
         </div>
 
-        <div class=" usnav1">
+        <div class="usnav1">
 
-            @if (User.Identity != null && User.Identity.IsAuthenticated)
-            {
-                <a asp-controller="Bookservice" asp-action="setupservice" class="navuscont" id="r">Book a Cleaner</a>
-            }
-            else
-            {
-                <a service" id="r" class="lbcalert navuscont">Book a Cleaner</a>
-            }
+            <a asp-controller="Bookservice" asp-action="setupservice" class="navuscont" id="r">Book a Cleaner</a>
+
             <a asp-controller="Home" asp-action="Price" class="navuscont">Prices & Services</a>
             <a href="#" class="navuscont">Warrenty</a>
             <a href="#" class="navuscont">Blog</a>
             <a asp-controller="Home" asp-action="Contact" class="navuscont">Contact</a>
-            @if (User.Identity != null && User.Identity.IsAuthenticated)
+
+            @if (User.Identity != null)
             {
+
                 <a href="#"><img src="~/images/icon-notification.png" alt="" id="usnavicon"></a>
                 <button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover"
                 data-bs-custom-class="navbarpopover" data-bs-offset="-50,20"
                 title="<div class='userInfoText'>Welcome,<b class='d-block'>@User.Identity.Name</b></div>"
-                data-bs-content="<div class='adminactionbutton d-flex flex-column'><a href='/Customer/dashboard' class='textnone'>My Dashboard</a><a href='#' class='textnone'>My Setting</a><a href='/Signup/Logout' class='textnone'>Logout</a></div>"
+                data-bs-content="<div class='adminactionbutton d-flex flex-column'><a href='/Customer/dashboard' class='textnone'>My dashboard</a><a href='/Customer/mysettings' class='textnone'>My Setting</a><a href='/Signup/Logout' class='textnone'>Logout</a></div>"
                 data-bs-html="true" data-bs-placement="bottom">
                     <img src="~/images/self.png" alt="" id="usnavself">
                     <img src="~/images/selfside.png" alt="" id="usnavss">
                 </button>
             }
-            else
-            {
-                <a class="navuscont loginbtn" id="r">Login</a>
-                <a asp-controller="home" asp-action="becomeprovider" class="facqnav rf">Become A Helper</a>
-            }
+
         </div>
     </section>
 
@@ -69,10 +63,9 @@
 
             <img src="~/images/logo-small.png" alt="">
 
-            @if (User.Identity != null && User.Identity.IsAuthenticated)
-            {
-                <a href="#"><img src="~/images/icon-notification.png" alt="" id="usnavicon"></a>
-            }
+
+            <a href="#"><img src="~/images/icon-notification.png" alt="" id="usnavicon"></a>
+
             <div class="hamburger2">
                 <img src="~/images/togler.png" alt="">
             </div>
@@ -83,29 +76,27 @@
 
             </div>
             <div class="opennav">
-                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                @if (User.Identity != null)
                 {
                     <p class="welcomesp">Welcome!</p>
                     <p class="welcomesp"><b>@User.Identity.Name</b></p>
                     <span></span>
                     <a asp-controller="Customer" asp-action="dashboard" class="vertnavcont">Dashbord</a>
-                    <a href="#" class="vertnavcont">My Settings</a>
+                    <a asp-controller="Customer" asp-action="mysettings" class="vertnavcont">My Settings</a>
                     <a asp-action="Logout" asp-controller="Signup" class="vertnavcont">Logout</a>
                 }
-                else
-                {
-                    <a class="vertnavcont loginbtn">Login</a>
-                    <a asp-controller="Home" asp-action="Becomeprovider" class="vertnavcont">Become A Helper</a>
-                }
                 <span></span>
-                @if (User.Identity != null && User.Identity.IsAuthenticated)
-                {
-                    <a asp-controller="Bookservice" asp-action="setupservice" class="vertnavcont">Book Now</a>
-                }
-                else
-                {
-                    <a asp-controller="Bookservice" asp-action="setupservice" class="lbcalert vertnavcont">Book Now</a>
-                }
+
+                <a asp-controller="Customer" asp-action="servicehistory" class="vertnavcont">Service History</a>
+                <a href="#" class="vertnavcont">Service Schedule</a>
+                <a href="#" class="vertnavcont">Favourite Pros</a>
+                <a href="#" class="vertnavcont">Invoices</a>
+                <a href="#" class="vertnavcont">Notification</a>
+
+                <span></span>
+
+                <a asp-controller="Bookservice" asp-action="setupservice" class="vertnavcont">Book Now</a>
+
                 <a asp-controller="Home" asp-action="Price" class="vertnavcont">Prices & Services</a>
                 <a href="#" class="vertnavcont">Warrenty</a>
                 <a href="#" class="vertnavcont">Blog</a>
@@ -120,9 +111,26 @@
             </div>
         </div>
     </section>
+    <div class="welcometext">
+        @if (User.Identity != null)
+        {
+            <p>Welcome, <b>@User.Identity.Name</b></p>
+        }
+    </div>
+    <section class="uscont">
+        <div class="vertnav sticky-top">
+            <a asp-controller="Customer" asp-action="dashboard" class="vertnavcont" id="dashboard">Dashbord</a>
+            <a asp-controller="Customer" asp-action="servicehistory" class="vertnavcont" id="servicehistory">Service
+                History</a>
+            <a href="#" class="vertnavcont">Service Schedule</a>
+            <a href="#" class="vertnavcont">Favourite Pros</a>
+            <a href="#" class="vertnavcont">Invoices</a>
+            <a href="#" class="vertnavcont">Notification</a>
+        </div>
 
-    @RenderBody()
+        @RenderBody()
 
+    </section>
     <div class="footer">
         <div class="img">
             <img src="~/images/white_logo_transparent_background copy 4.png" alt="" class="footerlogo">
@@ -144,8 +152,8 @@
     </div>
 
     <div class="terms text-center">
-        ©2018 Helperland. All rights reserved. <a href="#" class="text-decoration a-color">Terms and Conditions</a> | <a
-            href="#" class="text-decoration a-color">Privacy Policy</a>
+        ©2018 Helperland. All rights reserved. <a href="#" class="text-decoration a-color">Terms and Conditions</a>
+        | <a href="#" class="text-decoration a-color">Privacy Policy</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -163,16 +171,21 @@
         integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
     <script>
         var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
             return new bootstrap.Popover(popoverTriggerEl)
         })
-
-        $('.hamburger').click(() => {
-            $('.hamburger').toggleClass('toggle');
-            $('.facqnavitem').toggleClass('toggle');
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
         })
+
 
         const hamburger2 = document.querySelector('.hamburger2');
         const opennav = document.querySelector('.usnav2');
@@ -185,20 +198,10 @@
             opennav.classList.remove('open')
         })
 
-        const loginbuttons = document.querySelectorAll('.loginbtn');
-        if (loginbuttons.length > 0) {
-            loginbuttons.forEach(loginbutton => {
-                loginbutton.addEventListener('click', () => {
-                    document.cookie = "loginmodal=true;path=/"
-                    document.location.href = "/"
-                })
-            })
-        }
-        document.querySelector('.lbcalert').addEventListener('click', () => {
-            alert("You need to logged in to book service")
-        })
     </script>
+
     @RenderSection("CustomScripts",required:false)
+
 </body>
 
 </html>

@@ -1,0 +1,278 @@
+@model IEnumerable<HELPERLAND.Models.ViewModels.ServicehistoryViewmodel>
+@{
+    Layout = "../Shared/layout2.cshtml";
+    ViewData["Title"] = "Service History | Helperland";
+}
+<div class="modal fade px-3" id="serviceDetails" tabindex="-1" aria-labelledby="serviceDetailsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered mx-auto">
+        <div class="modal-content">
+            <div class="modal-header pb-0 border-0">
+                <h5 class="modal-title fs-3" id="serviceDetailsLabel">Service Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body row gy-0 gx-2"></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="RatingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div id="ratingmodal">
+
+                <div class="lumwat">
+                    <div class="capimg"><img id="ratingmodalspimg" class="img-fluid" src="~/images/cap.png" alt=""></div>
+                    <div><span id="serviceProviderName"></span>
+                        <div class="d-flex">
+                            <div
+                                class="stars feedback position-relative d-flex align-items-center justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <div class="cover position-absolute top-0 end-0 h-100 pe-none" style=""></div>
+                            </div>
+                            <div id="ratings">0</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="rysp">Rate Your Service Provider</p>
+                <hr>
+                <div class="d-flex flex-column threerating">
+
+                    <div class="d-flex justify-content-between align-items-center distthree">
+                        <p class="ratingtype">On Time Arrival</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="stars1 position-relative d-flex align-items-center justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <div class="cover1 position-absolute top-0 end-0 h-100 pe-none"></div>
+                            </div>
+                            <div id="ratings1">0</div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center distthree">
+                        <p class="ratingtype">Freindly</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="stars2 position-relative d-flex align-items-center justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <div class="cover2 position-absolute top-0 end-0 h-100 pe-none"></div>
+                            </div>
+                            <div id="ratings2">0</div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center distthree">
+                        <p class="ratingtype">Quality of service</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="stars3 position-relative d-flex align-items-center justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                </svg>
+                                <div class="cover3 position-absolute top-0 end-0 h-100 pe-none"></div>
+                            </div>
+                            <div id="ratings3">0</div>
+                        </div>
+
+                    </div>
+                    <label for="ratingcomment">Feedback</label>
+                    <textarea id="ratingcomment" cols="10" rows="4" class="formdecoration"></textarea>
+                    <button class="ratesp ratespcompleted w-100" id="ratingsubmit">Rate SP</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="upcomingservicestable">
+    <table id="ustable">
+        <p class="servicehistorytag"><b>Service History</b></p>
+        <thead>
+            <tr>
+                <th>Service Id</th>
+                <th>Service Details</th>
+                <th>Service Provider</th>
+                <th>Payment</th>
+                <th>status</th>
+                <th>Rate SP</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var sh in Model)
+                {
+                    <tr>
+                        <td data-title="Service Id" class="uscol" style="cursor: pointer;" onclick='openDetailsModal(
+							"@sh.ServiceId",
+							"@sh.ServiceProviderName",
+							"@sh.ServiceProviderProfilePicture",
+							"@sh.AvgRating",
+							"@sh.ServiceStartTime.ToString("dd/MM/yyyy").Replace("-","/")",
+							"@sh.ServiceStartTime.ToString("MM/dd/yyyy")",
+							"@sh.ServiceStartTime.ToString("HH:mm")",
+							"@sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm")",
+							"@sh.Payment"
+							)'>@sh.ServiceId</td>
+                        <td class="shcol" data-title="Service Date" style="cursor: pointer;" onclick='openDetailsModal(
+							"@sh.ServiceId",
+							"@sh.ServiceProviderName",
+							"@sh.ServiceProviderProfilePicture",
+							"@sh.AvgRating",
+							"@sh.ServiceStartTime.ToString("dd/MM/yyyy").Replace("-","/")",
+							"@sh.ServiceStartTime.ToString("MM/dd/yyyy")",
+							"@sh.ServiceStartTime.ToString("HH:mm")",
+							"@sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm")",
+							"@sh.Payment"
+							)'>
+                            <div><img src="~/images/calculator.png" alt=""><b>
+                                    @sh.ServiceStartTime.ToString("dd/MM/yyyy").Replace("-","/")</b></div>
+                            <div><img src="~/images/clock.png" alt=""> @sh.ServiceStartTime.ToString("HH:mm") -
+                                @sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm")</div>
+                        </td>
+                        <td class="shcol" data-title="Service Provider">
+                            @if (sh.ServiceProviderProfilePicture != null)
+                            {
+                                <div class="lumwat">
+                                    <div class="capimg"><img src="~/images/@sh.ServiceProviderProfilePicture" alt=""
+                                class="img-fluid"></div>
+                                    <div>@sh.ServiceProviderName
+                                        <div class="d-flex">
+                                            <div class="stars position-relative d-flex align-items-center justify-content-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                </svg>
+                                                <div class="cover position-absolute top-0 end-0 h-100 pe-none"
+                                        style="width: (5-@sh.AvgRating) * 20%;">
+                                                </div>
+                                            </div>
+                                            <div>@sh.AvgRating</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </td>
+                        <td class="shcol3" data-title="Status"><b>&euro;63</b></td>
+                        <td data-title="Payment">
+                            @if (sh.Status == 3)
+                            {
+                                <p class="redgreen" id="green">Completed</p>
+                            }
+                            else
+                            {
+                                <p class="redgreen" id="red">Cancelled</p>
+                            }
+                        </td>
+                        <td data-title="Rate SP">
+                            @if (sh.Status == 3)
+                            {
+                                <p class="ratesp ratespcompleted" style="cursor: pointer;"
+                        onclick='ratespfunction("@sh.ServiceId","@sh.ServiceProviderId","@sh.ServiceProviderName","@sh.AvgRating","@sh.ServiceProviderProfilePicture") '>Rate
+                                    SP</p>
+                            }
+                            else
+                            {
+                                <p class="ratesp" style="cursor: not-allowed;">Rate
+                                    SP</p>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+@section CustomScripts{
+<script src="/js/servicehistory.js" asp-append-version="true"></script>
+}

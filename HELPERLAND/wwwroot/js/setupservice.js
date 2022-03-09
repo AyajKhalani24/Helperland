@@ -252,7 +252,7 @@ document.querySelector("#completebooking").addEventListener("click", async () =>
             data.Comments = document.querySelector("#bookservicecomments").value;
         }
         data.HasPets = document.querySelector("#petscheck").checked;
-        const addressCheckboxes = document.querySelectorAll("input[name='Address'");
+        const addressCheckboxes = document.querySelectorAll("input[name='Address']");
         for (let i = 0; i < addressCheckboxes.length; i++) {
             if (addressCheckboxes[i].checked) {
                 data.AddressId = parseInt(addressCheckboxes[i].getAttribute("data-addressid"));
@@ -269,18 +269,13 @@ document.querySelector("#completebooking").addEventListener("click", async () =>
         });
         const jsonData = await res.json();
         body.classList.remove("loading");
+        // const t = parseFloat(time.value);
+
         if (jsonData.serviceId) {
-            let str = "";
-            if (selectedCheckBoxs.length > 0) {
-                selectedCheckBoxs.forEach((c, i) => {
-                    str += i != selectedCheckBoxs.length - 1 ? c.text + ", " : c.text;
-                });
-            } else {
-                str = "No Extra Service Selected";
-            }
+
             successModalHtml.querySelector(".modal-body").innerHTML = `
             <div>Service Id = ${jsonData.serviceId}</div>
-            <div>Service Date = ${date.value} ${time.value}</div>
+            <div>Service Date = ${date.value}</div>
             <div>Total Payment = ${PerCleaning1.innerHTML}</div>
             `;
             successModal.show();

@@ -1,0 +1,201 @@
+@model IEnumerable<HELPERLAND.Models.ViewModels.ServicehistoryViewmodel>
+@{
+    Layout = "../Shared/layout2.cshtml";
+    ViewData["Title"] = "Dashboard | Helperland";
+}
+@section CustomCSS{
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"   />
+}
+<div class="modal fade" id="CancelModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cancel Service Request</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="cancelcomment">Why you want to cancel service?</label>
+                <textarea id="cancelcomment" cols="30" rows="10" class="formdecoration"></textarea>
+                <div class="d-flex justify-content-center align-items-center">
+                    <input type="submit" value="Cancel Now" class="checkavail my-2" id="cancelsubmit"
+                        style="font-size: 18px; margin-top:0px">
+                    <span id="errormsgforreason"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="reschedulemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Reschedule Service</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+            <div class="modal-body">
+                <label for="scheduledate" style="margin-left: 15px;">Select New Date & Time</label>
+                <div class="d-flex justify-content-center align-items-center">
+
+
+                    <div class="position-relative datePicker">
+                        <input type="text" id="scheduledate" placeholder="DD/MM/YYYY" style="cursor: pointer;" readonly>
+                    </div>
+
+                    <select name="" id="scheduletime">
+                        <option value="8">8:00</option>
+                        <option value="8.5">8:30</option>
+                        <option value="9">9:00</option>
+                        <option value="9.5">9:30</option>
+                        <option value="10">10:00</option>
+                        <option value="10.5">10:30</option>
+                        <option value="11">11:00</option>
+                        <option value="11.5">11:30</option>
+                        <option value="12">12:00</option>
+                        <option value="12.5">12:30</option>
+                        <option value="13">13:00</option>
+                        <option value="13.5">13:30</option>
+                        <option value="14">14:00</option>
+                        <option value="14.5">14:30</option>
+                        <option value="15">15:00</option>
+                        <option value="15.5">15:30</option>
+                        <option value="16">16:00</option>
+                        <option value="16.5">16:30</option>
+                        <option value="17">17:00</option>
+                        <option value="17.5">17:30</option>
+                        <option value="18">18:00</option>
+                    </select>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <input type="submit" value="Upadte" class="checkavail my-2" id="Reschedulesubmit"
+                        style="font-size: 18px; margin-top:0px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade px-3" id="serviceDetails" tabindex="-1" aria-labelledby="serviceDetailsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered mx-auto">
+        <div class="modal-content">
+            <div class="modal-header pb-0 border-0">
+                <h5 class="modal-title fs-3" id="serviceDetailsLabel">Service Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body row gy-0 gx-2"></div>
+        </div>
+    </div>
+</div>
+
+<div class="upcomingservicestable">
+    <span id="errorspan"></span>
+
+    <a asp-controller="Bookservice" asp-action="setupservice" class="floatright">Add New
+        Request</a>
+
+    <table id="ustable">
+        <thead>
+            <tr>
+                <th>Service Id</th>
+                <th>Service Date</th>
+                <th>Service Provider</th>
+                <th>Payment</th>
+                <th class="actioncenter">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var sh in Model)
+                {
+                    <tr id="service-@sh.ServiceId">
+                        <td data-title="Service Id" class="uscol" onclick='openDetailsModal(
+							"@sh.ServiceId",
+							"@sh.ServiceProviderName",
+							"@sh.ServiceProviderProfilePicture",
+							"@sh.AvgRating",
+							"@sh.ServiceStartTime.ToString("dd/MM/yyyy").Replace("-","/")",
+							"@sh.ServiceStartTime.ToString("MM/dd/yyyy")",
+							"@sh.ServiceStartTime.ToString("HH:mm")",
+							"@sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm")",
+							"@sh.Payment"
+							)'>@sh.ServiceId</td>
+                        <td data-title="Service Date" class="uscol" onclick='openDetailsModal(
+							"@sh.ServiceId",
+							"@sh.ServiceProviderName",
+							"@sh.ServiceProviderProfilePicture",
+							"@sh.AvgRating",
+							"@sh.ServiceStartTime.ToString("dd/MM/yyyy").Replace("-","/")",
+							"@sh.ServiceStartTime.ToString("MM/dd/yyyy")",
+							"@sh.ServiceStartTime.ToString("HH:mm")",
+							"@sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm")",
+							"@sh.Payment"
+							)'>
+                            <div><img src="~/images/calculator.png" alt=""><b>
+                                    @sh.ServiceStartTime.ToString("dd/MM/yyyy").Replace("-","/")</b></div>
+                            <div><img src="~/images/clock.png" alt=""> @sh.ServiceStartTime.ToString("HH:mm") -
+                                @sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm")</div>
+                        </td>
+                        <td data-title="Service Provider" class="uscol">
+                            @if (sh.ServiceProviderProfilePicture != null)
+                            {
+                                <div class="lumwat">
+                                    <div class="capimg"><img src="~/images/@sh.ServiceProviderProfilePicture" alt=""
+                                class="img-fluid"></div>
+                                    <div>@sh.ServiceProviderName
+                                        <div class="d-flex">
+                                            <div class="stars position-relative d-flex align-items-center justify-content-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                    <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                </svg>
+                                                <div class="cover position-absolute top-0 end-0 h-100 pe-none"
+                                        style="width: (5-@sh.AvgRating) * 20%;">
+                                                </div>
+                                            </div>
+                                            <div id="ratings">@sh.AvgRating</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </td>
+                        <td class="uscol dashboardpayment" data-title="Payment">$@sh.Payment</td>
+                        <td class="uscol d-flex justify-content-center" data-title="Actions">
+                            <p class="uscolbutton" id="uscol1"
+                        onclick='reschedulemodal("@sh.ServiceId","@sh.ServiceStartTime.ToString("MM/dd/yyyy")","@sh.ServiceStartTime.ToString("HH:mm")")'
+                        style="cursor: pointer;">
+                                Reschedule</p>
+                            <p class="uscolbutton" id="uscol2" onclick='cancelmodal("@sh.ServiceId")' style="cursor: pointer;">
+                                Cancel</p>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div class="loaderContainer">
+    <div class="loader rounded-circle"></div>
+</div>
+@section CustomScripts{
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script src="/js/dashboard.js" asp-append-version="true"></script>
+}
