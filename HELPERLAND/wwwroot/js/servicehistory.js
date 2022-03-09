@@ -205,23 +205,103 @@ const ratingmodalspimg = document.querySelector("#ratingmodalspimg");
 const ratings = document.querySelector("#ratings");
 const cover = document.querySelector(".feedback .cover");
 const RatingModalhtml = document.querySelector("#RatingModal");
+const ratingcomment = document.querySelector("#ratingcomment");
 const RatingModal = bootstrap.Modal.getOrCreateInstance(RatingModalhtml);
+const errorspan = document.querySelector(".errorspan");
 
-function ratespfunction(serviceId, serviceproid, serviceproname, serviceproavgrating, servicepropic) {
+async function ratespfunction(serviceId, serviceproid, serviceproname, serviceproavgrating, servicepropic) {
     serviceProviderName.innerHTML = serviceproname;
     ratingmodalspimg.src = "/images/" + servicepropic;
     ratings.innerHTML = serviceproavgrating;
     cover.style.width = (5 - parseFloat(serviceproavgrating)) * 20 + "%";
-    RatingModal.show();
 
     body.classList.add("loading");
     const res = await fetch(`/Customer/RatingGivenOrNot?ServiceId=${serviceId}&ServiceProviderId=${serviceproid}`, { method: "GET" });
     const data = await res.json();
     body.classList.remove("loading");
 
+    const distthrees = document.querySelectorAll(".distthree");
+    if (data.success) {
+        ratingcomment.removeAttribute("readonly");
 
+        distthrees.forEach((d) => {
+            const stars = d.querySelectorAll(".stars svg path");
+            const cover = d.querySelector(".cover");
+            const gratings = d.querySelector(".gratings");
+            cover.style.width = "100%";
+            stars.forEach((p, i) => {
+                const $p = p;
+                $($p).on("click", () => {
+                    cover.style.width = 100 - (i + 1) * 20 + "%";
+                    gratings.innerHTML = i + 1;
+                });
+                $($p).on("mouseover", () => {
+                    cover.style.width = 100 - (i + 1) * 20 + "%";
+                });
+                $($p).on("mouseout", () => {
+                    cover.style.width = 100 - parseInt(gratings.innerHTML) * 20 + "%";
+                });
+            })
+        })
+        const $ratingsubmit = ratingsubmit;
+        $($ratingsubmit).on('click', async () => {
+            const data = {
+                FriendlyRating: parseInt(distthrees[1].querySelector(".gratings").innerHTML),
+                OnTimeArrivalRating: parseInt(distthrees[0].querySelector(".gratings").innerHTML),
+                QualityOfServiceRating: parseInt(distthrees[2].querySelector(".gratings").innerHTML),
+                ServiceId: parseInt(serviceId),
+                ServiceProviderId: parseInt(serviceproid),
+            };
+            if (ratingcomment.value) {
+                data.Comments = ratingcomment.value;
+            }
+            body.classList.add("loading");
+            const response = await fetch("/Customer/Rating", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
 
-    ratingsubmit.addEventListener('click', async () => {
+            const resJson = await response.json();
+            body.classList.remove("loading");
+            if (resJson.success) {
+                RatingModal.hide();
+                errorspan.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success! </strong>Your rating has been submitted successfully.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`;
+                setTimeout(() => {
+                    window.location.reload();
+                }, 3000);
+            }
+            else {
 
-    })
+            }
+        })
+
+    }
+    else {
+        const strs = ["onTimeArrival", "friendly", "qualityOfService"];
+        ratingcomment.setAttribute("readonly", "true");
+        ratingcomment.value = data.comments;
+        distthrees.forEach((d, i) => {
+            const stars = d.querySelectorAll(".stars svg path");
+            const cover = d.querySelector(".cover");
+            const gratings = d.querySelector(".gratings");
+            cover.style.width = (5 - data[strs[i]]) * 20 + "%";
+            gratings.innerHTML = data[strs[i]];
+
+            stars.forEach((p) => {
+                const $p = p;
+                $($p).unbind("click");
+                $($p).unbind("mouseover");
+                $($p).unbind("mouseout");
+            })
+        })
+    }
+    RatingModal.show();
 }
+
+

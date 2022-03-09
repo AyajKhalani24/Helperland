@@ -59,7 +59,7 @@
                     <div class="d-flex justify-content-between align-items-center distthree">
                         <p class="ratingtype">On Time Arrival</p>
                         <div class="d-flex justify-content-center align-items-center">
-                            <div class="stars1 position-relative d-flex align-items-center justify-content-center">
+                            <div class="stars position-relative d-flex align-items-center justify-content-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
                                     <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
                 5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
@@ -80,15 +80,15 @@
                                     <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
                 5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
                                 </svg>
-                                <div class="cover1 position-absolute top-0 end-0 h-100 pe-none"></div>
+                                <div class="cover position-absolute top-0 end-0 h-100 pe-none"></div>
                             </div>
-                            <div id="ratings1">0</div>
+                            <div class="gratings">0</div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center distthree">
                         <p class="ratingtype">Freindly</p>
                         <div class="d-flex justify-content-center align-items-center">
-                            <div class="stars2 position-relative d-flex align-items-center justify-content-center">
+                            <div class="stars position-relative d-flex align-items-center justify-content-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
                                     <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
                 5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
@@ -109,15 +109,15 @@
                                     <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
                 5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
                                 </svg>
-                                <div class="cover2 position-absolute top-0 end-0 h-100 pe-none"></div>
+                                <div class="cover position-absolute top-0 end-0 h-100 pe-none"></div>
                             </div>
-                            <div id="ratings2">0</div>
+                            <div class="gratings">0</div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center distthree">
                         <p class="ratingtype">Quality of service</p>
                         <div class="d-flex justify-content-center align-items-center">
-                            <div class="stars3 position-relative d-flex align-items-center justify-content-center">
+                            <div class="stars position-relative d-flex align-items-center justify-content-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
                                     <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
                 5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
@@ -138,9 +138,9 @@
                                     <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
                 5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
                                 </svg>
-                                <div class="cover3 position-absolute top-0 end-0 h-100 pe-none"></div>
+                                <div class="cover position-absolute top-0 end-0 h-100 pe-none"></div>
                             </div>
-                            <div id="ratings3">0</div>
+                            <div class="gratings">0</div>
                         </div>
 
                     </div>
@@ -159,6 +159,7 @@
 
 
 <div class="upcomingservicestable">
+    <span id="errorspan"></span>
     <table id="ustable">
         <p class="servicehistorytag"><b>Service History</b></p>
         <thead>
@@ -234,7 +235,7 @@
                 5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
                                                 </svg>
                                                 <div class="cover position-absolute top-0 end-0 h-100 pe-none"
-                                        style="width: (5-@sh.AvgRating) * 20%;">
+                                        style="width: @((5-sh.AvgRating) * 20)%;">
                                                 </div>
                                             </div>
                                             <div>@sh.AvgRating</div>

@@ -374,6 +374,87 @@ public class CustomerController : Controller
             return Json(new { err = "Internal Server Error !" });
         }
     }
+    [HttpGet]
+    public IActionResult RatingGivenOrNot(int ServiceId, int ServiceProviderId)
+    {
+        try
+        {
+            int UserId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var user = context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
+            if (user != null)
+            {
+                var serviceRequest = context.ServiceRequests.Where(s => s.ServiceId == ServiceId && s.UserId == user.UserId).FirstOrDefault();
+                if (serviceRequest != null)
+                {
+                    var result = context.Ratings.Where(r => r.RatingFrom == user.UserId && r.RatingTo == ServiceProviderId && r.ServiceRequestId == serviceRequest.ServiceRequestId).FirstOrDefault();
+                    if (result != null)
+                    {
+                        return Json(new
+                        {
+                            err = true,
+                            OnTimeArrival = result.OnTimeArrival,
+                            Friendly = result.Friendly,
+                            QualityOfService = result.QualityOfService,
+                            Comments = result.Comments
+                        });
+                    }
+                    else
+                    {
+                        return Json(new { success = "No Rating Has Given !!" });
+                    }
+                }
+            }
+            return Json(new { err = "Service Request Not Found !!" });
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return Json(new { err = "Internal Server Error !" });
+        }
+    }
+
+    [HttpPost]
+    public IActionResult Rating([FromBody] RatingViewmodel model)
+    {
+        try
+        {
+            int UserId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var user = context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
+
+            if (user != null)
+            {
+                var service = context.ServiceRequests.Where(s => s.ServiceId == model.ServiceId).FirstOrDefault();
+                if (service != null)
+                {
+                    decimal AverageRating = Math.Round(((decimal)model.FriendlyRating + (decimal)model.QualityOfServiceRating + (decimal)model.OnTimeArrivalRating) / (decimal)3, 2);
+                    var newRating = new Rating()
+                    {
+                        RatingFrom = user.UserId,
+                        RatingTo = model.ServiceProviderId,
+                        ServiceRequestId = service.ServiceRequestId,
+                        Friendly = model.FriendlyRating,
+                        QualityOfService = model.QualityOfServiceRating,
+                        OnTimeArrival = model.OnTimeArrivalRating,
+                        RatingDate = DateTime.Now,
+                        Ratings = AverageRating
+                    };
+                    if (model.Comments != null)
+                    {
+                        newRating.Comments = model.Comments;
+                    }
+                    context.Add(newRating);
+                    context.SaveChanges();
+                    return Json(new { success = "Rating Saved Successfully !!" });
+                }
+            }
+            return Json(new { err = "Service Not Found !" });
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return Json(new { err = "Internal Server Error !!" });
+        }
+    }
 }
 
 
