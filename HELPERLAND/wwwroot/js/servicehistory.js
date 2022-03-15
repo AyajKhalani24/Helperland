@@ -17,84 +17,14 @@ const dt = new DataTable("#ustable", {
         lengthMenu: "Show_MENU_Entries",
     },
     buttons: ["excel"],
-    columnDefs: [{ orderable: false, targets: 4 }, { orderable: false, targets: 1 }, { orderable: false, targets: 2 }],
+    columnDefs: [{ orderable: false, targets: 4 }, { orderable: false, targets: 1 }, { orderable: false, targets: 2 }, { orderable: false, targets: 5 }],
 
 });
-
-
-// const stars = document.querySelectorAll(".stars svg path")
-// // const ratings = document.querySelector("#ratings")
-// const cover = document.querySelector(".cover")
-// for (let i = 0; i < stars.length; i++) {
-//     stars[i].addEventListener("click", () => {
-//         // ratings.innerHTML = i + 1;
-//         cover.style.width = ((4 - i) * 20) + "%"
-//     })
-//     stars[i].addEventListener("mouseover", () => {
-//         // ratings.innerHTML = i + 1;
-//         cover.style.width = ((4 - i) * 20) + "%"
-//     })
-//     stars[i].addEventListener("mouseout", () => {
-//         // ratings.innerHTML = i + 1;
-//         cover.style.width = ((5 - parseInt(ratings.innerHTML)) * 20) + "%"
-//     })
-// }
-// const stars1 = document.querySelectorAll(".stars1 svg path")
-// const ratings1 = document.querySelector("#ratings1")
-// const cover1 = document.querySelector(".cover1")
-// for (let i = 0; i < stars1.length; i++) {
-//     stars1[i].addEventListener("click", () => {
-//         ratings1.innerHTML = i + 1;
-//         cover1.style.width = ((4 - i) * 20) + "%"
-//     })
-//     stars1[i].addEventListener("mouseover", () => {
-//         // ratings.innerHTML = i + 1;
-//         cover1.style.width = ((4 - i) * 20) + "%"
-//     })
-//     stars1[i].addEventListener("mouseout", () => {
-//         // ratings.innerHTML = i + 1;
-//         cover1.style.width = ((5 - parseInt(ratings1.innerHTML)) * 20) + "%"
-//     })
-// }
-// const stars2 = document.querySelectorAll(".stars2 svg path")
-// const ratings2 = document.querySelector("#ratings2")
-// const cover2 = document.querySelector(".cover2")
-// for (let i = 0; i < stars2.length; i++) {
-//     stars2[i].addEventListener("click", () => {
-//         ratings2.innerHTML = i + 1;
-//         cover2.style.width = ((4 - i) * 20) + "%"
-//     })
-//     stars2[i].addEventListener("mouseover", () => {
-//         // ratings.innerHTML = i + 1;
-//         cover2.style.width = ((4 - i) * 20) + "%"
-//     })
-//     stars2[i].addEventListener("mouseout", () => {
-//         // ratings.innerHTML = i + 1;
-//         cover2.style.width = ((5 - parseInt(ratings2.innerHTML)) * 20) + "%"
-//     })
-// }
-// const stars3 = document.querySelectorAll(".stars3 svg path")
-// const ratings3 = document.querySelector("#ratings3")
-// const cover3 = document.querySelector(".cover3")
-// for (let i = 0; i < stars3.length; i++) {
-//     stars3[i].addEventListener("click", () => {
-//         ratings3.innerHTML = i + 1;
-//         cover3.style.width = ((4 - i) * 20) + "%"
-//     })
-//     stars3[i].addEventListener("mouseover", () => {
-//         // ratings.innerHTML = i + 1;
-//         cover3.style.width = ((4 - i) * 20) + "%"
-//     })
-//     stars3[i].addEventListener("mouseout", () => {
-//         // ratings.innerHTML = i + 1;
-//         cover3.style.width = ((5 - parseInt(ratings3.innerHTML)) * 20) + "%"
-//     })
-// }
 
 const serviceDetailsModalHtml = document.querySelector("#serviceDetails");
 const serviceDetailsModalBody = serviceDetailsModalHtml.querySelector(".modal-body");
 const serviceDetailsModal = bootstrap.Modal.getOrCreateInstance(serviceDetailsModalHtml);
-const extras = ["Inside Cabinate", "Inside Fridge", "Inside Oven", "Laundry Wash & Dry", "Interior Windows"];
+const extras = ["Inside Cabinate", "Inside Fridge", "Inside Oven", "Laundry Wash & Dry", "Interior Windows"];
 
 const openDetailsModal = async (
     serviceId,
@@ -120,7 +50,7 @@ const openDetailsModal = async (
                 let extraStr = "";
                 if (data.extras.length > 0) {
                     data.extras.forEach((e, i) => {
-                        extraStr += i == data.extras.length - 1 ? extras[e - 1] : extras[e - 1] + ", ";
+                        extraStr += i == data.extras.length - 1 ? extras[e] : extras[e] + ", ";
                     });
                 } else extraStr = "No Extra Service !";
                 serviceDetailsModalBody.innerHTML = `
@@ -212,7 +142,7 @@ const errorspan = document.querySelector(".errorspan");
 async function ratespfunction(serviceId, serviceproid, serviceproname, serviceproavgrating, servicepropic) {
     serviceProviderName.innerHTML = serviceproname;
     ratingmodalspimg.src = "/images/" + servicepropic;
-    ratings.innerHTML = serviceproavgrating;
+    ratings.innerHTML = parseFloat(serviceproavgrating).toFixed(2);
     cover.style.width = (5 - parseFloat(serviceproavgrating)) * 20 + "%";
 
     body.classList.add("loading");
@@ -283,6 +213,7 @@ async function ratespfunction(serviceId, serviceproid, serviceproname, servicepr
 
     }
     else {
+        // ratingsubmit.removeAttribute("onclick");
         const strs = ["onTimeArrival", "friendly", "qualityOfService"];
         ratingcomment.setAttribute("readonly", "true");
         ratingcomment.value = data.comments;

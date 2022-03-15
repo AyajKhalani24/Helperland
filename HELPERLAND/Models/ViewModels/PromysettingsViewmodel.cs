@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace HELPERLAND.Models.ViewModels;
 
-public class MysettingsViewmodel
+public class PromysettingsViewmodel
 {
 #nullable disable
     [Required]
-    public DetailsViewmodel detailsViewmodel { get; set; }
-    public AddaddressViewmodel addaddressViewmodel { get; set; }
-    public ChangepasswordViewmodel changepasswordViewmodel { get; set; }
+    public ProdetailsViewmodel detailsViewmodel { get; set; }
+    public ProchangepasswordViewmodel changepasswordViewmodel { get; set; }
 }
 
-public class DetailsViewmodel
+public class ProdetailsViewmodel
 {
 #nullable disable
     [Required]
@@ -32,21 +31,33 @@ public class DetailsViewmodel
     public int DobMonth { get; set; }
     [Required]
     public int DobYear { get; set; }
-    public int? PreLanguage { get; set; }
-
+    [Required]
+    public string StreetName { get; set; }
+    [Required]
+    public string HouseNumber { get; set; }
+    [Required]
+    public string PostalCode { get; set; }
+    [Required]
+    public string City { get; set; }
+    [Required]
+    public string ProfilePicture { get; set; }
+    [Required]
+    public int? Nationality { get; set; }
+    [Required]
+    public int? Gender { get; set; }
 }
-public class ChangepasswordViewmodel
+public class ProchangepasswordViewmodel
 {
 #nullable disable
     [Required(ErrorMessage = "*Please Enter Your Old Password")]
     public string OldPassword { get; set; }
 
-    
+
     [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$", ErrorMessage = "*Create strong Password")]
     [Required(ErrorMessage = "*Please Enter Your New Password")]
     public string NewPassword { get; set; }
 
-    #nullable enable
+#nullable enable
     [Required(ErrorMessage = "*Please Enter Your Confirm Password")]
     [Compare("NewPassword", ErrorMessage = "Password is not matching")]
     public string? ConfirmPassword { get; set; }

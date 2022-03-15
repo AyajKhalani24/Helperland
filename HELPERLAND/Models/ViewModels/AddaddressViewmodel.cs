@@ -14,7 +14,10 @@ public class AddaddressViewmodel
 
     [Required(ErrorMessage = "Enter house number")]
     public string hno { get; set; }
+
+    [Required]
     public string poc { get; set; }
+
     public string City { get; set; }
 
     [Required(ErrorMessage = "Enter ")]

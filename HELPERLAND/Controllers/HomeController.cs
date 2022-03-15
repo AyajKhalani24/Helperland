@@ -15,7 +15,7 @@ public class HomeController : Controller
         this.implcontactus = implcontactus;
     }
     public IActionResult Index()
-    { 
+    {
         return View();
     }
     public IActionResult About()
@@ -32,10 +32,10 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Contact(ContactusViewmodel contact)
     {
-        if(ModelState.IsValid)
-        {   
-        implcontactus.Add(contact); 
-        return RedirectToAction("Contact");
+        if (ModelState.IsValid)
+        {
+            implcontactus.Add(contact);
+            return RedirectToAction("Contact");
         }
         return RedirectToAction("Contact");
     }
@@ -49,13 +49,13 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-     public IActionResult Signup()
+    public IActionResult Signup()
     {
         return View();
     }
 
     [HttpGet]
-      public IActionResult Becomeprovider()
+    public IActionResult Becomeprovider()
     {
         return View();
     }
@@ -63,5 +63,5 @@ public class HomeController : Controller
     public IActionResult Privacy()
     {
         return View();
-    }   
+    }
 }

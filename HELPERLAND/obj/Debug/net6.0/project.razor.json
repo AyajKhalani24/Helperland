@@ -16298,6 +16298,11 @@
   "RootNamespace": "HELPERLAND",
   "Documents": [
     {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Provider\\BlockCustomer.cshtml",
+      "TargetPath": "Views\\Provider\\BlockCustomer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\ResetPassword.cshtml",
       "TargetPath": "Views\\Home\\ResetPassword.cshtml",
       "FileKind": "mvc"
@@ -16333,13 +16338,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Provider\\MySettings.cshtml",
+      "TargetPath": "Views\\Provider\\MySettings.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Provider\\UpcomingService.cshtml",
+      "TargetPath": "Views\\Provider\\UpcomingService.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Customer\\mysettings.cshtml",
       "TargetPath": "Views\\Customer\\mysettings.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Provider\\ServiceHistory.cshtml",
+      "TargetPath": "Views\\Provider\\ServiceHistory.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16360,6 +16380,16 @@
     {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Customer\\servicehistory.cshtml",
       "TargetPath": "Views\\Customer\\servicehistory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Provider\\MyRatings.cshtml",
+      "TargetPath": "Views\\Provider\\MyRatings.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Provider\\NewServiceRequest.cshtml",
+      "TargetPath": "Views\\Provider\\NewServiceRequest.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -17,26 +17,17 @@ public class CustomerController : Controller
     {
         this.context = context;
     }
-    public IActionResult servicehistory()
-    {
-        if (User.Identity.IsAuthenticated)
-        {
-            return View();
-        }
-        else
-        {
-            return BadRequest(error: "Access Denied");
-        }
-    }
     public IActionResult mysettings()
     {
         int UserId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var user = context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
+
         var detailsViewmodeltemp = new DetailsViewmodel();
         detailsViewmodeltemp.FirstName = user.FirstName;
         detailsViewmodeltemp.LastName = user.LastName;
         detailsViewmodeltemp.Email = user.Email;
         detailsViewmodeltemp.PhoneNumber = user.Mobile;
+
         if (user.DateOfBirth != null)
         {
             detailsViewmodeltemp.DobDate = user.DateOfBirth.Value.Day;
@@ -137,7 +128,7 @@ public class CustomerController : Controller
                     if (ratings.Count() > 0)
                     {
                         var avgRating = ratings.Average(r => r.Ratings);
-                        // var servicesWithSP = result.Where(x => x.ServiceProviderId == serviceProviderId).ToList();
+
                         foreach (var model in result)
                         {
                             if (model.ServiceProviderId == serviceProviderId)
@@ -185,7 +176,7 @@ public class CustomerController : Controller
                     if (ratings.Count() > 0)
                     {
                         var avgRating = ratings.Average(r => r.Ratings);
-                        // var servicesWithSP = result.Where(x => x.ServiceProviderId == serviceProviderId).ToList();
+
                         foreach (var model in result)
                         {
                             if (model.ServiceProviderId == serviceProviderId)
@@ -290,7 +281,7 @@ public class CustomerController : Controller
                     DateTime newServiceDate = DateTime.Parse(model.NewServiceDate).AddHours((double)model.NewServiceStartTime);
                     if (newServiceDate.CompareTo(service.ServiceStartDate) == 0)
                     {
-                        return Json(new { err = "This selected time is same !" });
+                        return Json(new { responce = 2 });
                     }
                     DateTime newServiceEnd = newServiceDate.AddHours(service.ServiceHours);
                     var services = context.ServiceRequests.Where(s => s.ServiceProviderId == service.ServiceProviderId && s.Status == 2 && s.ServiceRequestId != service.ServiceRequestId && s.ServiceStartDate.Date == newServiceDate.Date && s.
@@ -304,18 +295,14 @@ public class CustomerController : Controller
                             var tempServiceEnd = s.ServiceStartDate.AddHours((double)(service.ServiceHours + 1));
                             if ((newServiceEnd.CompareTo(tempServiceStart) > 0 && newServiceEnd.CompareTo(tempServiceEnd) <= 0) || (newServiceDate.CompareTo(tempServiceStart) >= 0 && newServiceDate.CompareTo(tempServiceEnd) < 0) || ((newServiceDate.CompareTo(tempServiceStart) >= 0 && newServiceEnd.CompareTo(tempServiceEnd) < 0)))
                             {
-                                return Json(new
-                                {
-                                    err = "Another service request has been assigned to the service provider on " + tempServiceStart.ToString("dd/MM/yyyy") +
-                                " from " + tempServiceStart.ToString("HH/mm") + " to " + tempServiceEnd.AddHours(-1).ToString("HH/mm") + ". Either choose another date or pick up a different time slot."
-                                });
+                                return Json(new { responce = 3 });
                             }
                         }
                     }
                     service.ServiceStartDate = newServiceDate;
                     context.ServiceRequests.Attach(service);
                     context.SaveChanges();
-                    return Json(new { success = "Successfully Rescheduled Service !!" });
+                    return Json(new { responce = 1 });
                 }
             }
             return Json(new { err = "Service Not Found !" });

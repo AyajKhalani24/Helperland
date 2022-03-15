@@ -1,0 +1,74 @@
+@model IEnumerable<HELPERLAND.Models.ViewModels.MyratingsViewModel>
+@{
+    Layout = "../Shared/layout2.cshtml";
+    ViewData["Title"] = "My Ratings | Helperland";
+    string[] RatingsStrings = { "Very Bad", "Bad", "Good", "Very Good", "Excellent" };
+}
+<div class="upcomingservicestable ratingtable">
+    <table id="ustable">
+        <p class="servicehistorytag"><b>Service History</b></p>
+        <thead class="d-none">
+            <tr>
+                <th class="text-nowrap"><span class="d-inline-block">Service Details</span></th>
+                <th class="text-nowrap"><span class="d-inline-block">Service Date</span></th>
+                <th class="text-nowrap"><span class="d-inline-block">Ratings</span></th>
+                <th class="text-nowrap"><span class="d-inline-block">Customer Comments</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var service in Model)
+                {
+                    <tr class="row g-0 mb-3 p-2 ratingcolor">
+                        <td class="serviceId col-12 col-md-3 text-start" data-title="Service ID">
+                            <div>@service.ServiceId</div>
+                            <div class="fw-bold">@service.CustomerName</div>
+                        </td>
+                        <td class="col-12 col-md-6" data-title="Service Date">
+                            <div class="tdHead d-flex align-items-center justify-content-start">
+                                <img src="~/images/calculator.png" alt="" class="me-2">
+                                <strong> @service.ServiceDate.ToString("dd/MM/yyyy").Replace("-","/")</strong>
+                            </div>
+                            @{
+                                var st = service.ServiceDate.ToString("HH:mm");
+                                var et = service.ServiceDate.AddHours(service.ServiceHours).ToString("HH:mm");
+                            }
+                            <div class="timing  d-flex align-items-center justify-content-start">
+                                <img src="~/images/clock.png" class="me-2">
+                                <div class="time text-nowrap">@st - @et</div>
+                            </div>
+                        </td>
+                        <td class="col-12 col-md-3" data-title="Ratings">
+                            <div class="text-start">Ratings: @Math.Round(service.Ratings,2)</div>
+                            <div class="feedback d-flex align-items-start justify-content-start">
+                                <div class="stars position-relative d-flex align-items-center justify-content-center">
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                            <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+										5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                        </svg>
+                                    }
+                                    <div class="cover position-absolute top-0 end-0 h-100"
+                                style="width: @(100-service.Ratings*20)%;">
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="lh-sm ms-1">@RatingsStrings[(int)Math.Round(service.Ratings-1,0)]</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-12 mt-0 mt-md-2 pt-1 feedbackdata text-start" data-title="Feedback">
+                            <div class="fw-bold">Customer Comments</div>
+                            <div>@(service.Comments!=null?service.Comments:"No Comments")</div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+@section CustomScripts{
+<script src="/js/promyrating.js"></script>
+}

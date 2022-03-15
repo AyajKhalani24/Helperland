@@ -8,6 +8,7 @@ namespace HELPERLAND.Models.ViewModels
     public class ReturnaddressViewmodel
     {
         #nullable disable
+
         public int AddressId { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }

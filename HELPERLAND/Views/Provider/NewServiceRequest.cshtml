@@ -1,0 +1,112 @@
+@model IEnumerable<HELPERLAND.Models.ViewModels.UpcomingserviceViewmodel>
+@{
+    Layout = "../Shared/layout2.cshtml";
+    ViewData["Title"] = "New Service Request | Helperland";
+}
+<div class="modal fade px-3" id="serviceDetails" tabindex="-1" aria-labelledby="serviceDetailsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered mx-auto">
+        <div class="modal-content">
+            <div class="modal-header pb-0 border-0">
+                <h5 class="modal-title fs-3" id="serviceDetailsLabel">Service Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body row gy-0 gx-2"></div>
+        </div>
+    </div>
+</div>
+
+<div class="upcomingservicestable">
+    <span id="errorspan"></span>
+    <div>
+        <input type="checkbox" name="haspets" id="haspets" class="form-check-input" role="button">
+        <label for="haspets" role="button">Include Pets At Home</label>
+    </div>
+    <table id="ustable">
+        <p class="servicehistorytag"><b>New Service Request</b>
+        </p>
+        <thead>
+            <tr>
+                <th class="tac">Service Id</th>
+                <th class="tac">Service Date</th>
+                <th class="tac">Customer Detail</th>
+                <th class="tac">Payment</th>
+                <th class="tac">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var sh in Model)
+                {
+                    <tr>
+                        <td data-title="Service Id" class="uscol tac" style="cursor: pointer;" onclick='openDetailsModal(
+							"@sh.ServiceId",
+							"@sh.CustomerName",
+							"@sh.ServiceDate.ToString("dd/MM/yyyy").Replace("-","/")",
+							"@sh.ServiceDate.ToString("MM/dd/yyyy")",
+							"@sh.ServiceDate.ToString("HH:mm")",
+							"@sh.ServiceDate.AddHours(sh.ServiceHours).ToString("HH:mm")",
+							"@sh.Payment",
+							"@sh.PostalCode",
+							"@sh.City",
+							"@sh.StreetName",
+							"@sh.HouseNumber",
+							"@sh.PhoneNumber",
+                            "@sh.RecordVersion"
+							)'>
+                            @sh.ServiceId
+                        </td>
+                        <td class="tac" data-title="Service Date" onclick='openDetailsModal(
+						"@sh.ServiceId",
+							"@sh.CustomerName",
+							"@sh.ServiceDate.ToString("dd/MM/yyyy").Replace("-","/")",
+							"@sh.ServiceDate.ToString("MM/dd/yyyy")",
+							"@sh.ServiceDate.ToString("HH:mm")",
+							"@sh.ServiceDate.AddHours(sh.ServiceHours).ToString("HH:mm")",
+							"@sh.Payment",
+							"@sh.PostalCode",
+							"@sh.City",
+							"@sh.StreetName",
+							"@sh.HouseNumber",
+							"@sh.PhoneNumber",
+                            "@sh.RecordVersion"
+							)'>
+                            <div>
+                                <img src="~/images/calculator.png" alt="">
+                                <b>@sh.ServiceDate.ToString("dd/MM/yyyy").Replace("-","/")</b>
+                            </div>
+                            <div>
+                                <img src="~/images/clock.png" alt="">
+                                @sh.ServiceDate.ToString("HH:mm") -
+                                @sh.ServiceDate.AddHours(sh.ServiceHours).ToString("HH:mm")
+                            </div>
+                        </td>
+                        <td class="tac" data-title="Customer Details">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <img src="~/images/house.png" alt="" style="margin-right:10px">
+                                <div class="d-flex flex-column align-items-start">
+                                    <div>@sh.CustomerName</div>
+                                    <div>@sh.StreetName , @sh.HouseNumber</div>
+                                    <div>@sh.PostalCode , @sh.City</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="tac dashboardpayment" data-title="Payment">$@sh.Payment</td>
+                        <td class="tac" data-title="Action">
+                            <div class="acceptparent">
+                                <p class="acceptbutton" onclick='acceptrequest("@sh.ServiceId","@sh.RecordVersion")'
+                            style="cursor: pointer;">
+                                    Accept</p>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
+
+@section CustomScripts{
+<script src="/js/pronewservicerequest.js" asp-append-version="true"></script>
+}

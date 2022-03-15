@@ -1,3 +1,32 @@
+jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+    "serviceDate-pre": function (a) {
+        let time = a
+            .match(/<span>.*<\/span>/)[0]
+            .replace(`<span>`, "")
+            .replace("</span>", "");
+        time = time.split(" - ")[0] + ":00";
+        a = a
+            .match(/<b>.*<\/b>/)[0]
+            .replace("<b>", "")
+            .replace("</b>", "");
+        let d = a.split("/");
+        let day = d[0].length === 1 ? `0${d[0]}` : d[0];
+        let month = d[1].length === 1 ? `0${d[1]}` : d[1];
+        let year = d[2].length === 1 ? `0${d[2]}` : d[2];
+        a = `${month}/${day}/${year} ${time}`;
+        return a.toString();
+    },
+    "serviceDate-asc": function (a, b) {
+        const dateA = new Date(a);
+        const dateB = new Date(b);
+        return dateA < dateB;
+    },
+    "serviceDate-desc": function (a, b) {
+        const dateA = new Date(a);
+        const dateB = new Date(b);
+        return dateB > dateA;
+    },
+});
 const dt = new DataTable("#ustable", {
     dom: "Rtlip",
     responsive: false,
@@ -13,7 +42,7 @@ const dt = new DataTable("#ustable", {
         lengthMenu: "Show_MENU_Entries",
     },
     //  buttons: ["excel"],
-    columnDefs: [{ orderable: false, targets: 4 }, { orderable: false, targets: 1 }, { orderable: false, targets: 2 }],
+    columnDefs: [{ orderable: false, targets: 4 }, { type: "serviceDate", targets: 1 }]
 });
 
 $(function () {
@@ -96,7 +125,7 @@ CancelButton.addEventListener("click", async () => {
 
 const validation = () => {
     if (!cancelcomment.value.trim()) {
-        errorreason.innerHTML = "Enter Cancel Reason !";
+        errorreason.innerHTML = "*Enter reason of cancellation.";
         cancelcomment.classList.add("input-validation-error");
         return false;
     } else {
@@ -141,17 +170,26 @@ Reschedulesubmit.addEventListener('click', async (e) => {
             const data = await res.json();
             body.classList.remove("loading");
             RescheduleModal.hide();
-            if (data) {
+            if (data.responce == 1) {
                 // document.querySelector("#service-" + serviceId).remove();
                 errorspan.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Information! </strong>Your Service has been cancelled successfully.
+                <strong>Success! </strong>Your Service has been cancelled successfully.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>`
                 setTimeout(() => {
                     window.location.reload();
                 }, 2500);
-            } else {
-
+            } else if (data.responce == 2) {
+                errorspan.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Failed! </strong>Entered time and date is same as the previous one.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`
+            }
+            else if (data.responce == 3) {
+                errorspan.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Failed! </strong>Service Provider is not available at this time please choose another time slot.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`
             }
         }
     } catch (error) {
@@ -165,7 +203,7 @@ Reschedulesubmit.addEventListener('click', async (e) => {
 const serviceDetailsModalHtml = document.querySelector("#serviceDetails");
 const serviceDetailsModalBody = serviceDetailsModalHtml.querySelector(".modal-body");
 const serviceDetailsModal = bootstrap.Modal.getOrCreateInstance(serviceDetailsModalHtml);
-const extras = ["Inside Cabinate", "Inside Fridge", "Inside Oven", "Laundry Wash & Dry", "Interior Windows"];
+const extras = ["Inside Cabinate", "Inside Fridge", "Inside Oven", "Laundry Wash & Dry", "Interior Windows"];
 
 const openDetailsModal = async (
     serviceId,
@@ -192,7 +230,7 @@ const openDetailsModal = async (
                 let extraStr = "";
                 if (data.extras.length > 0) {
                     data.extras.forEach((e, i) => {
-                        extraStr += i == data.extras.length - 1 ? extras[e - 1] : extras[e - 1] + ", ";
+                        extraStr += i == data.extras.length - 1 ? extras[e] : extras[e] + ", ";
                     });
                 } else extraStr = "No Extra Service !";
                 serviceDetailsModalBody.innerHTML = `

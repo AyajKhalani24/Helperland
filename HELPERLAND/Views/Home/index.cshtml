@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div id="navm">
-                @if (User.Identity!=null && User.Identity.IsAuthenticated)
+                @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Customer"))
                 {
                     <a asp-controller="Bookservice" asp-action="setupservice" class="navhome" id="r">Book a Cleaner</a>
                 }
@@ -101,19 +101,34 @@
                 <a href="" class="navhome">Our Gurantee</a>
                 <a href="" class="navhome">Blog</a>
                 <a asp-controller="home" asp-action="Contact" class="navhome">Contact Us</a>
-                @if (User.Identity!=null && User.Identity.IsAuthenticated)
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
                 {
                     <a href="#"><img src="~/images/icon-notification.png" alt="" id="usnavicon">
                     </a>
-                    <button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover"
+                    @if (User.IsInRole("Customer"))
+                    {
+                        <button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover"
                     data-bs-custom-class="navbarpopover"
                     title="<div class='userInfoText'>Welcome,<b class='d-block'>@User.Identity.Name</b></div>"
                     data-bs-content="<div class='adminactionbutton d-flex flex-column'><a href='/Customer/dashboard' class='textnone'>My Dashboard</a><a href='/Customer/mysettings' class='textnone'>My Setting</a><a href='/Signup/Logout' class='textnone'>Logout</a></div>"
                     data-bs-html="true" data-bs-placement="bottom" data-bs-offset="-30,20">
-                        <img src="~/images/self.png" alt="" id="usnavself">
-                        <img src="~/images/selfside.png" alt="" id="usnavss">
-                    </button>
+                            <img src="~/images/self.png" alt="" id="usnavself">
+                            <img src="~/images/selfside.png" alt="" id="usnavss">
+                        </button>
+                    }
+                    else if (User.IsInRole("Provider"))
+                    {
+                        <button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover"
+                    data-bs-custom-class="navbarpopover"
+                    title="<div class='userInfoText'>Welcome,<b class='d-block'>@User.Identity.Name</b></div>"
+                    data-bs-content="<div class='adminactionbutton d-flex flex-column'><a href='/Provider/NewServiceRequest' class='textnone'>New Requests</a><a href='/Provider/mysettings' class='textnone'>My Setting</a><a href='/Signup/Logout' class='textnone'>Logout</a></div>"
+                    data-bs-html="true" data-bs-placement="bottom" data-bs-offset="-30,20">
+                            <img src="~/images/self.png" alt="" id="usnavself">
+                            <img src="~/images/selfside.png" alt="" id="usnavss">
+                        </button>
+                    }
                 }
+
                 else
                 {
                     <a class="navhome loginbtn" id="r" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
@@ -132,7 +147,7 @@
 
                 <img src="~/images/logo-small.png" alt="">
 
-                @if (User.Identity!=null && User.Identity.IsAuthenticated)
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
                 {
                     <a href="#"><img src="~/images/icon-notification.png" alt="" id="usnavicon"></a>
                 }
@@ -146,13 +161,21 @@
 
                 </div>
                 <div class="opennav">
-                    @if (User.Identity!=null && User.Identity.IsAuthenticated)
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
                     {
                         <p class="welcomesp">Welcome!</p>
                         <p class="welcomesp"><b>@User.Identity.Name</b></p>
                         <span></span>
-                        <a asp-controller="Customer" asp-action="dashboard" class="vertnavcont">Dashbord</a>
-                        <a asp-controller="Customer" asp-action="mysettings" class="vertnavcont">My Settings</a>
+                        @if (User.IsInRole("Customer"))
+                        {
+                            <a asp-controller="Customer" asp-action="dashboard" class="vertnavcont">Dashbord</a>
+                            <a asp-controller="Customer" asp-action="mysettings" class="vertnavcont">My Settings</a>
+                        }
+                        else if (User.IsInRole("Provider"))
+                        {
+                            <a asp-controller="Provider" asp-action="NewServiceRequest" class="vertnavcont">New Requests</a>
+                            <a asp-controller="Provider" asp-action="mysettings" class="vertnavcont">My Settings</a>
+                        }
                         <a asp-action="Logout" asp-controller="Signup" class="vertnavcont">Logout</a>
                     }
                     else
@@ -161,7 +184,7 @@
                         <a asp-controller="Home" asp-action="Becomeprovider" class="vertnavcont">Become A Helper</a>
                     }
                     <span></span>
-                    @if (User.Identity!=null && User.Identity.IsAuthenticated)
+                    @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Provider"))
                     {
                         <a asp-controller="Bookservice" asp-action="setupservice" class="vertnavcont">Book Now</a>
                     }
@@ -195,7 +218,7 @@
             <p class="disc1"><img src="~/images/Forma 1 copy 10.png" alt="" class="righttick">Secure online payment
                 method</p>
         </div>
-        @if (User.Identity!=null && User.Identity.IsAuthenticated)
+        @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Customer"))
         {
             <div id="bookcleaner">
                 <a asp-controller="Bookservice" asp-action="setupservice" id="lbc">Let's Book Cleaner</a>

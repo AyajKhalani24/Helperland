@@ -14,12 +14,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <label for="cancelcomment">Why you want to cancel service?</label>
-                <textarea id="cancelcomment" cols="30" rows="10" class="formdecoration"></textarea>
-                <div class="d-flex justify-content-center align-items-center">
+                <div class="d-flex align-items-start flex-column">
+                    <label for="cancelcomment">Why you want to cancel service?</label>
+                    <textarea id="cancelcomment" class="formdecoration"></textarea>
+                    <span id="errormsgforreason" class="text-danger"></span>
+                </div>
+                <div class="d-flex justify-content-center align-items-center flex-column">
                     <input type="submit" value="Cancel Now" class="checkavail my-2" id="cancelsubmit"
                         style="font-size: 18px; margin-top:0px">
-                    <span id="errormsgforreason"></span>
                 </div>
             </div>
 
@@ -97,11 +99,11 @@
     <table id="ustable">
         <thead>
             <tr>
-                <th>Service Id</th>
-                <th>Service Date</th>
+                <th class="tac">Service Id</th>
+                <th class="tac">Service Date</th>
                 <th>Service Provider</th>
-                <th>Payment</th>
-                <th class="actioncenter">Action</th>
+                <th class="tac">Payment</th>
+                <th class="actioncenter tac">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -110,7 +112,7 @@
                 foreach (var sh in Model)
                 {
                     <tr id="service-@sh.ServiceId">
-                        <td data-title="Service Id" class="uscol" onclick='openDetailsModal(
+                        <td data-title="Service Id" class="uscol tac" onclick='openDetailsModal(
 							"@sh.ServiceId",
 							"@sh.ServiceProviderName",
 							"@sh.ServiceProviderProfilePicture",
@@ -121,7 +123,7 @@
 							"@sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm")",
 							"@sh.Payment"
 							)'>@sh.ServiceId</td>
-                        <td data-title="Service Date" class="uscol" onclick='openDetailsModal(
+                        <td data-title="Service Date" class="uscol tac" onclick='openDetailsModal(
 							"@sh.ServiceId",
 							"@sh.ServiceProviderName",
 							"@sh.ServiceProviderProfilePicture",
@@ -132,10 +134,16 @@
 							"@sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm")",
 							"@sh.Payment"
 							)'>
-                            <div><img src="~/images/calculator.png" alt=""><b>
-                                    @sh.ServiceStartTime.ToString("dd/MM/yyyy").Replace("-","/")</b></div>
-                            <div><img src="~/images/clock.png" alt=""> @sh.ServiceStartTime.ToString("HH:mm") -
-                                @sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm")</div>
+                            <div><img src="~/images/calculator.png" alt="">
+                                <b>@sh.ServiceStartTime.ToString("dd/MM/yyyy").Replace("-","/")</b>
+                            </div>
+                            @{
+                                var st = sh.ServiceStartTime.ToString("HH:mm");
+                                var et = sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm");
+                            }
+                            <div><img src="~/images/clock.png" alt="">
+                                <span>@st - @et</span>
+                            </div>
                         </td>
                         <td data-title="Service Provider" class="uscol">
                             @if (sh.ServiceProviderProfilePicture != null)
@@ -143,7 +151,7 @@
                                 <div class="lumwat">
                                     <div class="capimg"><img src="~/images/@sh.ServiceProviderProfilePicture" alt=""
                                 class="img-fluid"></div>
-                                    <div>@sh.ServiceProviderName
+                                    <div class="d-flex flex-column align-items-start">@sh.ServiceProviderName
                                         <div class="d-flex">
                                             <div class="stars position-relative d-flex align-items-center justify-content-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
@@ -177,8 +185,8 @@
                             }
 
                         </td>
-                        <td class="uscol dashboardpayment" data-title="Payment">$@sh.Payment</td>
-                        <td class="uscol d-flex justify-content-center" data-title="Actions">
+                        <td class="uscol dashboardpayment tac" data-title="Payment">$@sh.Payment</td>
+                        <td class="uscol d-flex justify-content-center tac" data-title="Actions">
                             <p class="uscolbutton" id="uscol1"
                         onclick='reschedulemodal("@sh.ServiceId","@sh.ServiceStartTime.ToString("MM/dd/yyyy")","@sh.ServiceStartTime.ToString("HH:mm")")'
                         style="cursor: pointer;">

@@ -72,11 +72,11 @@ public class SignupController : Controller
                 claims.Add(new Claim(ClaimTypes.SerialNumber, user.UserTypeId.ToString()));
                 if (user.UserTypeId == 1)
                 {
-                    claims.Add(new Claim(ClaimTypes.AuthorizationDecision, "Customer"));
+                    claims.Add(new Claim(ClaimTypes.Role, "Customer"));
                 }
                 else if (user.UserTypeId == 2)
                 {
-                    claims.Add(new Claim(ClaimTypes.AuthorizationDecision, "Provider"));
+                    claims.Add(new Claim(ClaimTypes.Role, "Provider"));
                 }
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);

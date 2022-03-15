@@ -40,7 +40,7 @@
             <a href="#" class="navuscont">Blog</a>
             <a asp-controller="Home" asp-action="Contact" class="navuscont">Contact</a>
 
-            @if (User.Identity != null)
+            @if (User.Identity != null && User.IsInRole("Customer"))
             {
 
                 <a href="#"><img src="~/images/icon-notification.png" alt="" id="usnavicon"></a>
@@ -48,6 +48,18 @@
                 data-bs-custom-class="navbarpopover" data-bs-offset="-50,20"
                 title="<div class='userInfoText'>Welcome,<b class='d-block'>@User.Identity.Name</b></div>"
                 data-bs-content="<div class='adminactionbutton d-flex flex-column'><a href='/Customer/dashboard' class='textnone'>My dashboard</a><a href='/Customer/mysettings' class='textnone'>My Setting</a><a href='/Signup/Logout' class='textnone'>Logout</a></div>"
+                data-bs-html="true" data-bs-placement="bottom">
+                    <img src="~/images/self.png" alt="" id="usnavself">
+                    <img src="~/images/selfside.png" alt="" id="usnavss">
+                </button>
+            }
+            else if (User.Identity != null && User.IsInRole("Provider"))
+            {
+                <a href="#"><img src="~/images/icon-notification.png" alt="" id="usnavicon"></a>
+                <button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover"
+                data-bs-custom-class="navbarpopover" data-bs-offset="-50,20"
+                title="<div class='userInfoText'>Welcome,<b class='d-block'>@User.Identity.Name</b></div>"
+                data-bs-content="<div class='adminactionbutton d-flex flex-column'><a href='/Provider/NewServiceRequest' class='textnone'>New Requests</a><a href='/Provider/MySettings' class='textnone'>My Setting</a><a href='/Signup/Logout' class='textnone'>Logout</a></div>"
                 data-bs-html="true" data-bs-placement="bottom">
                     <img src="~/images/self.png" alt="" id="usnavself">
                     <img src="~/images/selfside.png" alt="" id="usnavss">
@@ -81,17 +93,34 @@
                     <p class="welcomesp">Welcome!</p>
                     <p class="welcomesp"><b>@User.Identity.Name</b></p>
                     <span></span>
-                    <a asp-controller="Customer" asp-action="dashboard" class="vertnavcont">Dashbord</a>
-                    <a asp-controller="Customer" asp-action="mysettings" class="vertnavcont">My Settings</a>
-                    <a asp-action="Logout" asp-controller="Signup" class="vertnavcont">Logout</a>
+                    if (User.IsInRole("Customer"))
+                    {
+                        <a asp-controller="Customer" asp-action="dashboard" class="vertnavcont">Dashbord</a>
+                        <a asp-controller="Customer" asp-action="mysettings" class="vertnavcont">My Settings</a>
+                        <a asp-action="Logout" asp-controller="Signup" class="vertnavcont">Logout</a>
+                        <span></span>
+                        <a asp-controller="Customer" asp-action="servicehistory" class="vertnavcont">Service History</a>
+                        <a href="#" class="vertnavcont">Service Schedule</a>
+                        <a href="#" class="vertnavcont">Favourite Pros</a>
+                        <a href="#" class="vertnavcont">Invoices</a>
+                        <a href="#" class="vertnavcont">Notification</a>
+                    }
+                    else if (User.IsInRole("Provider"))
+                    {
+                        <a asp-controller="Provider" asp-action="NewServiceRequest" class="vertnavcont">New Requests</a>
+                        <a asp-controller="Provider" asp-action="mysettings" class="vertnavcont">My Settings</a>
+                        <a asp-action="Logout" asp-controller="Signup" class="vertnavcont">Logout</a>
+                        <span></span>
+                        <a asp-controller="Provider" asp-action="UpcomingService" class="vertnavcont">Upcoming Service</a>
+                        <a href="#" class="vertnavcont">Service Schedule</a>
+                        <a asp-controller="Provider" asp-action="ServiceHistory" class="vertnavcont">Service History</a>
+                        <a asp-controller="Provider" asp-action="MyRatings" class="vertnavcont">My Ratings</a>
+                        <a asp-controller="Provider" asp-action="BlockCustomer" class="vertnavcont">Block Customer</a>
+                        <a href="#" class="vertnavcont">Invoices</a>
+                        <a href="#" class="vertnavcont">Notification</a>
+                    }
                 }
-                <span></span>
 
-                <a asp-controller="Customer" asp-action="servicehistory" class="vertnavcont">Service History</a>
-                <a href="#" class="vertnavcont">Service Schedule</a>
-                <a href="#" class="vertnavcont">Favourite Pros</a>
-                <a href="#" class="vertnavcont">Invoices</a>
-                <a href="#" class="vertnavcont">Notification</a>
 
                 <span></span>
 
@@ -119,13 +148,32 @@
     </div>
     <section class="uscont">
         <div class="vertnav sticky-top">
-            <a asp-controller="Customer" asp-action="dashboard" class="vertnavcont" id="dashboard">Dashbord</a>
-            <a asp-controller="Customer" asp-action="servicehistory" class="vertnavcont" id="servicehistory">Service
-                History</a>
-            <a href="#" class="vertnavcont">Service Schedule</a>
-            <a href="#" class="vertnavcont">Favourite Pros</a>
-            <a href="#" class="vertnavcont">Invoices</a>
-            <a href="#" class="vertnavcont">Notification</a>
+            @if (User.IsInRole("Customer"))
+            {
+                <a asp-controller="Customer" asp-action="dashboard" class="vertnavcont" id="dashboard">Dashbord</a>
+                <a asp-controller="Customer" asp-action="servicehistory" class="vertnavcont" id="servicehistory">Service
+                    History</a>
+                <a href="#" class="vertnavcont">Service Schedule</a>
+                <a href="#" class="vertnavcont">Favourite Pros</a>
+                <a href="#" class="vertnavcont">Invoices</a>
+                <a href="#" class="vertnavcont">Notification</a>
+            }
+            else if (User.IsInRole("Provider"))
+            {
+                <a href="#" class="vertnavcont">Dashboard</a>
+                <a asp-controller="Provider" asp-action="NewServiceRequest" class="vertnavcont" id="newservicerequest">New
+                    Service Request</a>
+                <a asp-controller="Provider" asp-action="UpcomingService" class="vertnavcont" id="upcomingservice">Upcoming
+                    Service</a>
+                <a href="#" class="vertnavcont">Service Schedule</a>
+                <a asp-controller="Provider" asp-action="ServiceHistory" class="vertnavcont" id="servicehistory">Service
+                    History</a>
+                <a asp-controller="Provider" asp-action="MyRatings" class="vertnavcont" id="myrating">My Ratings</a>
+                <a asp-controller="Provider" asp-action="BlockCustomer" class="vertnavcont" id="blockcustomer">Block
+                    Customer</a>
+                <a href="#" class="vertnavcont">Invoices</a>
+                <a href="#" class="vertnavcont">Notification</a>
+            }
         </div>
 
         @RenderBody()

@@ -1,0 +1,50 @@
+@model IEnumerable<HELPERLAND.Models.ViewModels.BlockcustomerViewmodel>
+@{
+    Layout = "../Shared/layout2.cshtml";
+    ViewData["Title"] = "Block Customer | Helperland";
+}
+
+<div class="upcomingservicestable blocktable">
+    <span id="errorspan"></span>
+    <table id="ustable">
+        @* <p class="servicehistorytag"><b>New Service Request</b></p> *@
+        <thead class="d-none">
+            <tr>
+                <th class="text-nowrap"><span class="d-inline-block">Customer Details</span><span></span></th>
+            </tr>
+        </thead>
+        <tbody class="row g-4">
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var block in Model)
+                {
+                    <tr class="col-md-3" id="user_@block.UserId">
+                        <td data-us-title="Service ID :"
+                    class="w-100 h-100 d-flex align-items-center justify-content-evenly flex-column">
+                            <img src="~/images/avatar-hat.png" class="mt-4">
+                            <div class="fw-bold mt-3 mb-2 fs-4">@block.CustomerName</div>
+                            @if (block.IsBlocked)
+                            {
+                                <label role="button" for="user-@block.UserId"
+                        class="rounded-pill blockunblock blocked mb-4 fs-6">Unblock</label>
+                                <input type="checkbox" id="user-@block.UserId" name="user_@block.UserId" checked hidden
+                        onclick='blockOrUnblock("@block.UserId")'>
+                            }
+                            else
+                            {
+                                <label role="button" for="user-@block.UserId"
+                        class="rounded-pill blockunblock unblocked mb-4 fs-6">Block</label>
+                                <input type="checkbox" id="user-@block.UserId" name="user_@block.UserId" hidden
+                        onclick='blockOrUnblock("@block.UserId")'>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+@section CustomScripts{
+<script src="/js/problockcustomer.js" asp-append-version="true"></script>
+}

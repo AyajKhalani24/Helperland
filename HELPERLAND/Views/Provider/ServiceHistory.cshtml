@@ -1,0 +1,83 @@
+@model IEnumerable<HELPERLAND.Models.ViewModels.ProServicehistoryViewmodel>
+@{
+    Layout = "../Shared/layout2.cshtml";
+    ViewData["Title"] = "Service History | Helperland";
+}
+<div class="modal fade px-3" id="serviceDetails" tabindex="-1" aria-labelledby="serviceDetailsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered mx-auto">
+        <div class="modal-content">
+            <div class="modal-header pb-0 border-0">
+                <h5 class="modal-title fs-3" id="serviceDetailsLabel">Service Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body row gy-0 gx-2"></div>
+        </div>
+    </div>
+</div>
+
+<div class="upcomingservicestable">
+    <span id="errorspan"></span>
+    <table id="ustable">
+        <p class="servicehistorytag"><b>Service History</b></p>
+        <thead>
+            <tr>
+                <th class="tac">Service Id</th>
+                <th class="tac">Service Date</th>
+                <th class="tac">Customer Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var sh in Model)
+                {
+                    <tr onclick='openDetailsModal(
+							"@sh.ServiceId",
+							"@sh.CustomerName",
+							"@sh.ServiceStartTime.ToString("dd/MM/yyyy").Replace("-","/")",
+							"@sh.ServiceStartTime.ToString("MM/dd/yyyy")",
+							"@sh.ServiceStartTime.ToString("HH:mm")",
+							"@sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm")",
+							"@sh.Payment",
+							"@sh.PostalCode",
+							"@sh.City",
+							"@sh.Addressline1",
+							"@sh.Addressline2",
+							"@sh.PhoneNumber",
+							)'>
+                        <td data-title="Service Id" class="uscol tac" style="cursor: pointer;">
+                            @sh.ServiceId
+                        </td>
+                        <td class="tac" data-title="Service Date">
+                            <div>
+                                <img src="~/images/calculator.png" alt="">
+                                <b> @sh.ServiceStartTime.ToString("dd/MM/yyyy").Replace("-","/")</b>
+                            </div>
+                            <div>
+                                <img src="~/images/clock.png" alt="">
+                                @sh.ServiceStartTime.ToString("HH:mm") -
+                                @sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm")
+                            </div>
+                        </td>
+                        <td class="tac" data-title="Customer Details">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <img src="~/images/house.png" alt="" style="margin-right:10px">
+                                <div class="d-flex flex-column align-items-start">
+                                    <div>@sh.CustomerName</div>
+                                    <div>@sh.Addressline1 , @sh.Addressline2</div>
+                                    <div>@sh.PostalCode , @sh.City</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+@section CustomScripts{
+<script src="/js/proservicehistory.js"></script>
+}

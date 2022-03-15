@@ -1173,7 +1173,7 @@ html{
     font-size: 30px;
     background-color: #f9f9f9;
     border-bottom:1px solid #e1e1e1 ;
-    height: 119px;
+    height: 150px;
 }
 #ustable {
 	border-collapse: collapse !important;
@@ -1336,6 +1336,9 @@ div.dataTables_length, div.dataTables_paginate {
 	border: 1px solid #e1e1e1 !important;
 	border-radius: 4px !important;
 	outline: none !important;
+}
+table.dataTable tbody th, table.dataTable tbody td{
+    padding: 8px 0px !important;
 }
 table.dataTable thead th.sorting_asc {
 	background-image: url("../images/sort1.png") !important;
@@ -1908,6 +1911,64 @@ table.dataTable tbody td {
 .addressmodal .modal-dialog{
     max-width: 706px !important;
 }
+.mapcontainer{
+    background-color: #e1e1e1;
+}
+.ratingtable #ustable , .blocktable #ustable{
+    border-bottom: none;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+#ustable{
+    border: none;
+}
+.ratingtable table.dataTable thead th,.ratingtable table.dataTable tbody td {
+    border: #e1e1e1 !important;
+}
+.feedbackdata{
+    border-top: 1px solid #e1e1e1 !important;
+}
+.blocktable table.dataTable tbody tr{
+    margin: 23px;
+    margin-top: 40px;
+}
+.blockunblock{
+    color: #fff;
+    padding: 7px 20px;
+    border-radius: 25px;
+}
+.blocked{
+    background-color: #1D7A8C;
+}
+.unblocked{
+    background-color: #FF6B6B;
+}
+.gendertag{
+    margin-bottom: 0px;
+    font-size: 20px;
+    color: #646464;
+    font-weight: 450;
+}
+#M, #F, #RNTS{
+    height: 17px;
+    width: 17px;
+    content: "";
+}
+.genderlabel{
+    margin-left: 7px;
+    font-size: 16px;
+    color: #646464;
+}
+.radiodiv{
+    margin-right: 30px;
+}
+.avatar input[type="radio"]:checked + label {
+	border: 3px solid #1d7a8c;
+    border-radius: 50%;
+}
+.ratingtable table.dataTable tbody td.feedbackdata{
+    border-top: 1px solid #e1e1e1 !important;
+}
 @media screen and (max-width: 820px) {
     .dataTable thead tr{
         display: none;
@@ -1917,11 +1978,16 @@ table.dataTable tbody td {
         justify-content: start;
         align-items: flex-start;
         flex-direction: column;
-        padding: 25px;
+        padding: 25px !important;
         margin-bottom: 12px;
         border-radius: 8px;
         box-shadow: 5px 5px 15px 5px rgba(0, 0, 0,0.2);
-     
+    }
+    .blocktable table.dataTable tbody tr{
+        margin: 23px;
+        /* margin-top: 40px; */
+        padding: 0px;
+        width: 94%;
     }
     .dataTable tbody tr td{
         padding: 0 !important;
@@ -1940,6 +2006,12 @@ table.dataTable tbody td {
         font-size: 16px;
         font-weight: bold;
         color: #646464;
+    }
+    .mapcontainer{
+        min-height: 374px;
+    }
+    .ratingtable table.dataTable tbody td.feedbackdata{
+        border-top: none !important;
     }
 }
 
@@ -1980,6 +2052,12 @@ table.dataTable tbody td {
     }
     .addressmodal .modal-dialog{
         max-width: 550px !important;
+    }
+    .blocktable table.dataTable tbody tr{
+        margin: 23px;
+        /* margin-top: 40px; */
+        padding: 0px;
+        width: 90%;
     }
 }
 @media screen and (max-width: 572px) {
@@ -2090,6 +2168,15 @@ table.dataTable tbody td {
     .setupsummary{
         margin: 0px 15px;
     }
+    .blocktable table.dataTable tbody tr{
+        margin: 23px;
+        /* margin-top: 40px; */
+        padding: 0px;
+        width: 87%;
+    }
+    .radiodiv{
+        margin-right: 15px;
+    }
 }
 @media screen and (max-width: 354px) {
     .nav-link{
@@ -2142,6 +2229,9 @@ table.dataTable tbody td {
     }
     .addressservice{
         margin: 7px 10px 4px 10px;
+    }
+    .radiodiv{
+        margin-right: 5px;
     }
 }
 @media screen and (max-width: 666px) {
@@ -2303,7 +2393,7 @@ body.loading .loaderContainer .loader {
     object-position: 0 0;
 }
 .nav-link.active .dnforstyle{
-	object-position: 0 -25px;
+	object-position: 0 -26px;
 }
 .cover, .cover1, .cover2,.cover3 {
     mix-blend-mode: color;
@@ -2344,6 +2434,8 @@ body.loading .loaderContainer .loader {
 }
 #CancelModal textarea{
     margin: 0px;
+    height: 130px;
+    width: 100%;
 }
 select{
     background-color: #ffffff;
@@ -2369,7 +2461,6 @@ select{
 	height: 46px;
 	width: 46px;
 }
-
 .serviceProviderInfo .serviceProviderName {
 	font-size: 16px;
 	color: #646464;
@@ -2385,9 +2476,7 @@ select{
 	border: none;
 	transition: background 0.3s;
     margin-bottom: 20px;
-
 }
-
 .rate:hover {
 	background: #146371;
 }
@@ -2401,7 +2490,39 @@ select{
 	transition: background 0.3s;
     margin-bottom: 20px;
 }
-
 .cancel:hover {
 	background: #cc5656;
+}
+#savedetail .input-validation-error , #changepassword .input-validation-error , #addressvalidation .input-validation-error , #addressvalidation .input-validation-error{
+    border: 1px solid red;
+    margin-bottom: 0px;
+}
+#changepassword .field-validation-error{
+    color: red;
+    margin-top: 1px;
+    margin-bottom: 5px;
+}
+.acceptbutton{
+    color: #ffffff;
+    background-color: #1d7a8c;
+    padding: 7px 10px;
+    border-radius: 20px;
+    width: 100px;
+}
+.acceptparent{
+    display: flex;
+    justify-content: center;
+}
+.form-check-input:focus {
+	box-shadow: none !important;
+	border-color: #1d7a8c;
+	color: #646464 !important;
+}
+.form-check-input:checked {
+	border-color: #1d7a8c !important;
+	background-color: #1d7a8c !important;
+}
+.ratingcolor{
+    color: #646464;
+    font-size: 16px;
 }

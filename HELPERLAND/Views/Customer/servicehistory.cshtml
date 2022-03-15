@@ -146,7 +146,7 @@
                     </div>
                     <label for="ratingcomment">Feedback</label>
                     <textarea id="ratingcomment" cols="10" rows="4" class="formdecoration"></textarea>
-                    <button class="ratesp ratespcompleted w-100" id="ratingsubmit">Rate SP</button>
+                    <p class="ratesp ratespcompleted w-100" id="ratingsubmit" style="cursor:pointer">Rate SP</p>
                 </div>
             </div>
         </div>
@@ -164,10 +164,10 @@
         <p class="servicehistorytag"><b>Service History</b></p>
         <thead>
             <tr>
-                <th>Service Id</th>
-                <th>Service Details</th>
+                <th class="tac">Service Id</th>
+                <th class="tac">Service Details</th>
                 <th>Service Provider</th>
-                <th>Payment</th>
+                <th class="tac">Payment</th>
                 <th>status</th>
                 <th>Rate SP</th>
             </tr>
@@ -178,7 +178,7 @@
                 foreach (var sh in Model)
                 {
                     <tr>
-                        <td data-title="Service Id" class="uscol" style="cursor: pointer;" onclick='openDetailsModal(
+                        <td data-title="Service Id" class="uscol tac" style="cursor: pointer;" onclick='openDetailsModal(
 							"@sh.ServiceId",
 							"@sh.ServiceProviderName",
 							"@sh.ServiceProviderProfilePicture",
@@ -189,7 +189,7 @@
 							"@sh.ServiceStartTime.AddHours(sh.ServiceHours).ToString("HH:mm")",
 							"@sh.Payment"
 							)'>@sh.ServiceId</td>
-                        <td class="shcol" data-title="Service Date" style="cursor: pointer;" onclick='openDetailsModal(
+                        <td class="shcol tac" data-title="Service Date" style="cursor: pointer;" onclick='openDetailsModal(
 							"@sh.ServiceId",
 							"@sh.ServiceProviderName",
 							"@sh.ServiceProviderProfilePicture",
@@ -211,7 +211,7 @@
                                 <div class="lumwat">
                                     <div class="capimg"><img src="~/images/@sh.ServiceProviderProfilePicture" alt=""
                                 class="img-fluid"></div>
-                                    <div>@sh.ServiceProviderName
+                                    <div class="d-flex flex-column align-items-start">@sh.ServiceProviderName
                                         <div class="d-flex">
                                             <div class="stars position-relative d-flex align-items-center justify-content-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
@@ -238,14 +238,14 @@
                                         style="width: @((5-sh.AvgRating) * 20)%;">
                                                 </div>
                                             </div>
-                                            <div>@sh.AvgRating</div>
+                                            <div>@Math.Round(sh.AvgRating,2)</div>
                                         </div>
                                     </div>
                                 </div>
                             }
                         </td>
-                        <td class="shcol3" data-title="Status"><b>&euro;63</b></td>
-                        <td data-title="Payment">
+                        <td class="shcol3 tac" data-title="Payment"><b>&euro;63</b></td>
+                        <td data-title="Status" class="tac">
                             @if (sh.Status == 3)
                             {
                                 <p class="redgreen" id="green">Completed</p>
@@ -255,7 +255,7 @@
                                 <p class="redgreen" id="red">Cancelled</p>
                             }
                         </td>
-                        <td data-title="Rate SP">
+                        <td data-title="Rate SP" class="tac">
                             @if (sh.Status == 3)
                             {
                                 <p class="ratesp ratespcompleted" style="cursor: pointer;"
