@@ -35,8 +35,39 @@ public class BookserviceController : Controller
     {
         if (PostalCode != null)
         {
-            var isAvailable = context.Users.Where(u => u.UserTypeId == 2 && u.ZipCode == PostalCode).FirstOrDefault();
-            if (isAvailable != null)
+            int UserId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var user = context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
+            // var isAvailable = context.Users.Where(u => u.UserTypeId == 2 && u.ZipCode == PostalCode).FirstOrDefault();
+            var isAvailable = (from u in context.Users.AsEnumerable()
+                               where
+                               !(
+                                   from fabu in context.FavoriteAndBlockeds.AsEnumerable()
+                                   where
+                                     fabu.UserId == user.UserId &&
+                                     fabu.IsBlocked == true
+                                   select new
+                                   {
+                                       TargetUserId = fabu.TargetUserId
+                                   }
+                               ).Union
+                               (
+                                   from fabt in context.FavoriteAndBlockeds.AsEnumerable()
+                                   where
+                                     fabt.TargetUserId == user.UserId &&
+                                     fabt.IsBlocked == true
+                                   select new
+                                   {
+                                       TargetUserId = fabt.UserId
+                                   }
+                               ).Contains(new { TargetUserId = u.UserId }) &&
+                                 u.UserTypeId == 2
+                               select new
+                               {
+                                   u.Email,
+                                   u.UserId
+                               }).ToList();
+
+            if (isAvailable.Count() > 0)
             {
                 return Json(true);
             }

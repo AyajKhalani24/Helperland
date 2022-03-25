@@ -5,10 +5,10 @@ const pets = document.querySelector("#haspets");
 
 pets.checked = window.location.search.includes("HasPets=True");
 pets.addEventListener("click", () => {
-    if (!pets.checked) {
-        window.location.href = "/Provider/NewServiceRequest?HasPets=False";
-    } else {
+    if (pets.checked) {
         window.location.href = "/Provider/NewServiceRequest?HasPets=True";
+    } else {
+        window.location.href = "/Provider/NewServiceRequest?HasPets=False";
     }
 });
 
@@ -52,6 +52,7 @@ const openDetailsModal = async (
                 serviceDetailsModal.hide();
             } else {
                 let extraStr = "";
+                let extraservicename = "";
                 if (data.extras.length > 0) {
                     data.extras.forEach((e, i) => {
                         extraStr += i == data.extras.length - 1 ? extras[e] : extras[e] + ", ";
@@ -83,7 +84,7 @@ const openDetailsModal = async (
 						<div><img src="/images/${data.hasPets ? "included.png" : "not-included.png"}"> I Have ${data.hasPets ? "" : "not"} Pets at Home</div>
 					</div>
                     <div>
-                    <p class="acceptbutton" onclick='acceptrequest(${serviceId},${RecordVersion}")'
+                    <p class="acceptbutton" onclick='acceptrequest("${serviceId}","${RecordVersion}")'
                             style="cursor: pointer; text-align:center;">
                                     Accept</p>
                     </div>
@@ -129,6 +130,7 @@ async function acceptrequest(serviceId, RecordVersion) {
             const data = await res.json();
 
             if (data.responce == 1) {
+                serviceDetailsModal.hide();
                 errorspan.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Success! </strong>This service has been assign to you.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -138,12 +140,16 @@ async function acceptrequest(serviceId, RecordVersion) {
                 }, 3000);
             }
             else if (data.responce == 2) {
+                serviceDetailsModal.hide();
+
                 errorspan.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Failed! </strong>You have another service at given time so you can't accept this service.
+                <strong>Failed! </strong>You have another service at given date and time so you can't accept this service.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>`;
             }
             else if (data.responce == 3) {
+                serviceDetailsModal.hide();
+
                 errorspan.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>Failed! </strong>This service is not available now.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

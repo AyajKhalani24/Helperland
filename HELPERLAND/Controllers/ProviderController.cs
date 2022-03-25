@@ -32,7 +32,7 @@ public class ProviderController : Controller
             on u.UserId equals s.UserId
             join sa in context.ServiceRequestAddresses
             on s.ServiceRequestId equals sa.ServiceRequestId
-            where s.Status == 1 && s.HasPets == HasPets
+            where s.Status == 1 && (HasPets ? true : s.HasPets == false)
             select new UpcomingserviceViewmodel
             {
                 UserId = s.UserId,
@@ -49,8 +49,8 @@ public class ProviderController : Controller
             }
          ).ToList();
 
-            var blocked = context.FavoriteAndBlockeds.Where(fab => (fab.UserId == ServiceproId || fab.TargetUserId == ServiceproId) && fab.IsBlocked);
-            foreach (var s in result)
+            var blocked = context.FavoriteAndBlockeds.Where(fab => (fab.UserId == ServiceproId || fab.TargetUserId == ServiceproId) && fab.IsBlocked == true).ToList();
+            foreach (var s in result.ToList())
             {
                 foreach (var b in blocked)
                 {

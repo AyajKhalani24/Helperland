@@ -9,10 +9,40 @@ namespace HELPERLAND.Controllers;
 public class HomeController : Controller
 {
     private readonly Implcontactus implcontactus;
+    private readonly HelperlandContext context;
 
-    public HomeController(Implcontactus implcontactus)
+    public HomeController(Implcontactus implcontactus, HelperlandContext context)
     {
         this.implcontactus = implcontactus;
+        this.context = context;
+    }
+
+    [HttpGet]
+    public IActionResult GetCityByPostalCode(string PostalCode)
+    {
+        try
+        {
+            if (PostalCode != null)
+            {
+                var city = (
+                    from z in context.Zipcodes
+                    join c in context.Cities
+                    on z.CityId equals c.Id
+                    where z.ZipcodeValue == PostalCode
+                    select c.CityName
+                ).FirstOrDefault();
+                if (city != null)
+                {
+                    return Json(new { cityName = city });
+                }
+            }
+            return Json(new { err = "City Not Found !" });
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return Json(new { err = "Internal Server Error !" });
+        }
     }
     public IActionResult Index()
     {

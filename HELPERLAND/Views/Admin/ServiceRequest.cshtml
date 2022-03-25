@@ -1,0 +1,257 @@
+@model HELPERLAND.Models.ViewModels.AdminSRViewmodel;
+@{
+    Layout = "../Shared/layout3.cshtml";
+    ViewData["Title"] = "Service Requests | Helperland";
+}
+
+
+<div class="modal fade px-3" id="EditOrRescheduleModal" tabindex="-1" aria-labelledby="EditOrRescheduleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered mx-auto">
+        <div class="modal-content">
+            <div class="modal-header pb-0 border-0">
+                <h5 class="modal-title fw-bold" id="EditOrRescheduleModalLabel">Edit or Reschedule</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="row" id="RescheduleForm">
+                    <div class="mb-3 col-12 col-md-6 position-relative mw-100">
+                        <label asp-for="AdminRescheduleViewModel.RescheduleDate" class="fw-bold">Date</label>
+                        <div class="datePicker mw-100">
+                            <input type="text" class="form-control box-shadow-none rounded-0"
+                                asp-for="AdminRescheduleViewModel.RescheduleDate" placeholder="Date">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-12 col-md-6">
+                        <label asp-for="AdminRescheduleViewModel.RescheduleTime" class="fw-bold">Time</label>
+                        <select asp-for="AdminRescheduleViewModel.RescheduleTime"
+                            class="form-select box-shadow-none rounded-0">
+                            <option value="8">8:00</option>
+                            <option value="8.5">8:30</option>
+                            <option value="9">9:00</option>
+                            <option value="9.5">9:30</option>
+                            <option value="10">10:00</option>
+                            <option value="10.5">10:30</option>
+                            <option value="11">11:00</option>
+                            <option value="11.5">11:30</option>
+                            <option value="12">12:00</option>
+                            <option value="12.5">12:30</option>
+                            <option value="13">13:00</option>
+                            <option value="13.5">13:30</option>
+                            <option value="14">14:00</option>
+                            <option value="14.5">14:30</option>
+                            <option value="15">15:00</option>
+                            <option value="15.5">15:30</option>
+                            <option value="16">16:00</option>
+                            <option value="16.5">16:30</option>
+                            <option value="17">17:00</option>
+                            <option value="17.5">17:30</option>
+                            <option value="18">18:00</option>
+                        </select>
+                    </div>
+                    <div class="col-12 fs-5 mb-1 fw-bold">Service Address</div>
+                    <div class="mb-3 col-12 col-md-6 position-relative mw-100">
+                        <label asp-for="AdminRescheduleViewModel.StreetName" class="fw-bold">Street Name</label>
+                        <input type="text" class="form-control box-shadow-none rounded-0"
+                            asp-for="AdminRescheduleViewModel.StreetName" placeholder="Street Name">
+                    </div>
+                    <div class="mb-3 col-12 col-md-6">
+                        <label asp-for="AdminRescheduleViewModel.HouseNumber" class="fw-bold">House Number</label>
+                        <input type="text" asp-for="AdminRescheduleViewModel.HouseNumber"
+                            class="form-control box-shadow-none rounded-0" placeholder="House Number" />
+                    </div>
+                    <div class="mb-3 col-12 col-md-6">
+                        <label asp-for="AdminRescheduleViewModel.PostalCode" class="fw-bold">Postal Code</label>
+                        <input type="text" asp-for="AdminRescheduleViewModel.PostalCode"
+                            class="form-control box-shadow-none rounded-0" placeholder="Postal Code" />
+                    </div>
+                    <div class="mb-3 col-12 col-md-6">
+                        <label asp-for="AdminRescheduleViewModel.City" class="fw-bold">City</label>
+                        <input type="text" asp-for="AdminRescheduleViewModel.City"
+                            class="form-control box-shadow-none rounded-0" placeholder="City" readonly />
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label asp-for="AdminRescheduleViewModel.RescheduleReason" class="fw-bold">Why do you want to
+                            Reschedule service ?</label>
+                        <textarea asp-for="AdminRescheduleViewModel.RescheduleReason"
+                            class="form-control py-2 box-shadow-none rounded-0"
+                            placeholder="Why do you want to Reschedule service ?"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="search w-100 fw-bold fs-6">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="adminpanel">
+
+    <div class="top1">
+        <p class="usermanagementheader"><b>Service Requests</b></p>
+    </div>
+    <span class="errorspan mx-2"></span>
+
+    <form action="#">
+        <div class="top2">
+            <input type="text" name="" id="adminserviceid" placeholder="Service ID" class="adminpanelform">
+            <select name="" id="customer" class="adminpanelform">
+                <option value="">Customer</option>
+                @if (Model != null && Model.Cust_Names.Any())
+                {
+                    foreach (var custName in Model.Cust_Names)
+                    {
+                        <option value="@custName">@custName</option>
+                    }
+                }
+
+            </select>
+            <select name="" id="ServiceProvider" class="adminpanelform">
+                <option value="">Service Provider</option>
+                @if (Model != null && Model.SP_Names.Any())
+                {
+                    foreach (var spName in Model.SP_Names)
+                    {
+                        <option value="@spName">@spName</option>
+                    }
+                }
+            </select>
+            <select name="" id="adminstatus" class="adminpanelform">
+                <option value="">Status</option>
+                <option value="New">New</option>
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+            <input type="text" id="fromdate" placeholder="From Date" class="adminpanelform" readonly>
+            <input type="text" id="todate" placeholder="To date" class="adminpanelform" readonly>
+            <input type="button" id="adminsubmit" value="Search" class="adminpanelform">
+            <input type="reset" id="adminreset" value="Reset" class="adminpanelform">
+        </div>
+    </form>
+
+    <div class="top3">
+        <table id="ustable">
+            <thead>
+                <tr>
+                    <th class="tac">Service ID</th>
+                    <th>Service Date</th>
+                    <th>Customer Details</th>
+                    <th>Service Provider</th>
+                    <th class="tac">Status</th>
+                    <th class="tac">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.viewModels.Any())
+                {
+                    foreach (var sr in Model.viewModels)
+                    {
+                        <tr>
+                            <td class="uscol tac">@sr.ServiceId</td>
+                            <td class="uscol">
+                                <div><img src="~/images/calculator.png" alt=""
+                                class="me-2"><b>@sr.ServiceDate.ToString("dd/MM/yyyy").Replace("-","/")</b>
+                                </div>
+                                <div><img src="~/images/clock.png" alt="" class="me-2">@sr.ServiceDate.ToString("HH:mm") -
+                                    18.00</div>
+                            </td>
+                            <td class="uscol">
+                                <div>@sr.User_First_Name @sr.User_Last_Name</div>
+                                <div><img src="~/images/house.png" alt="" class="me-1">@sr.StreetName @sr.HouseNumber,
+                                    @sr.PostalCode
+                                    @sr.City</div>
+                            </td>
+                            <td class="shcol">
+                                @if (sr.ProfilePhoto != null)
+                                {
+                                    <div class="lumwat">
+                                        <div class="capimg"><img src="~/images/@sr.ProfilePhoto" alt="" class="img-fluid"></div>
+                                        <div class="d-flex flex-column align-items-start">@sr.SP_First_Name @sr.SP_Last_Name
+                                            <div class="d-flex">
+                                                <div
+                                        class="stars position-relative d-flex align-items-center justify-content-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                        <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                        <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                        <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                        <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
+                                                        <path fill-rule="evenodd" fill="#ECB91C" d="m8.176 12.865 5.045 3.735-1.334-5.78 4.453-3.84-5.871-1.402L8.176.6 5.882
+                5.578.11 6.98l4.355 3.84L3.13 16.6l5.046-3.735z" />
+                                                    </svg>
+                                                    <div class="cover position-absolute top-0 end-0 h-100 pe-none"
+                                            style="width: @((5-sr.SP_Avg_Ratings) * 20)%;">
+                                                    </div>
+                                                </div>
+                                                <div id="ratings">@Math.Round(sr.SP_Avg_Ratings,2)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </td>
+                            <td class="npcc">
+                                @if (sr.ServiceStatus == 1)
+                                {
+                                    <p id="newservice">New</p>
+                                }
+                                else if (sr.ServiceStatus == 2)
+                                {
+                                    <p id="pendingservice">Pending</p>
+                                }
+                                else if (sr.ServiceStatus == 3)
+                                {
+                                    <p id="completedservice">Completed</p>
+                                }
+                                else if (sr.ServiceStatus == 4)
+                                {
+                                    <p id="cancelledservice">Cancelled</p>
+                                }
+                            </td>
+                            <td class="admindatatabledata actioncenter">
+                                @if (sr.ServiceStatus == 1 || sr.ServiceStatus == 2)
+                                {
+                                    <button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" tabindex="0"
+                            data-bs-trigger="focus"
+                            data-bs-content='<div class="adminactionbutton"><a href="#"" class="textnone" onclick=openEditOrRescheduleModal("@sr.ServiceId","@sr.ServiceDate.ToString("dd/MM/yyyy").Replace("-","/")","@sr.ServiceDate.ToString("HH:mm")","@sr.HouseNumber","@sr.PostalCode","@sr.City","@sr.StreetName.Replace(" ","%20")")>Edit & Reschedule</a></div>'
+                            data-bs-html="true" data-bs-placement="bottom"><img src="~/images/threedot.png"
+                                alt=""></button>
+                                }
+                                else
+                                {
+                                    <button type="button" id="btnpopover" class="btn btn-lg " data-bs-toggle="popover" tabindex="0"
+                            data-bs-trigger="focus"
+                            data-bs-content="<div class='adminactionbutton'><a href='#' class='textnone'>Refund</a></div>"
+                            data-bs-html="true" data-bs-placement="bottom"><img src="~/images/threedot.png"
+                                alt=""></button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="top4">
+        <p>©2018 Helperland. All rights reserved.</p>
+    </div>
+</div>
+
+@section CustomScripts{
+<script src="/js/adminservicerequest.js" asp-append-version="true"></script>
+}

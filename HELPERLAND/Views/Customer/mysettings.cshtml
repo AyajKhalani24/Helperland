@@ -14,11 +14,13 @@
                             <label for="StreetName" class="formlable">Street Name</label>
                             <input type="text" class="addaddressform" id="StreetName" placeholder="Street Name"
                                 asp-for="addaddressViewmodel.StreetName">
+                            <span asp-validation-for="addaddressViewmodel.StreetName"></span>
                         </div>
                         <div class="d-flex flex-column" style="padding: 7.5px 15px;">
                             <label for="HouseNumber" class="formlable">House Number</label>
                             <input type="text" class="addaddressform" id="HouseNumber" placeholder="House Number"
                                 asp-for="addaddressViewmodel.hno">
+                            <span asp-validation-for="addaddressViewmodel.hno"></span>
                         </div>
                     </div>
                     <div class="d-flex forflexwrapextra">
@@ -26,14 +28,17 @@
                             <label for="PostalCode" class="formlable">Postal Code</label>
                             <input type="text" class="addaddressform" id="PostalCode" placeholder=""
                                 asp-for="addaddressViewmodel.poc">
+                            <span asp-validation-for="addaddressViewmodel.poc"></span>
                         </div>
                         <div class="d-flex flex-column" style="padding: 7.5px 15px;">
                             <label for="City" class="formlable">City</label>
-                            <select class="addaddressform" id="City">
+                            <select class="addaddressform" id="City" asp-for="addaddressViewmodel.City">
                                 <option value="Berlin" selected>Berlin</option>
                                 <option value="Munich">Munich</option>
                                 <option value="Hamburg">Hamburg</option>
                             </select>
+                            <span asp-validation-for="addaddressViewmodel.City"></span>
+
                         </div>
                     </div>
                     <div class="d-flex flex-column" style="padding: 7.5px 15px;">
@@ -43,6 +48,7 @@
                             <input type="text" placeholder="" id="addressmono" class="addaddressform"
                                 asp-for="addaddressViewmodel.PhoneNumber">
                         </div>
+                        <span asp-validation-for="addaddressViewmodel.PhoneNumber"></span>
                     </div>
                     <div class="d-flex" style="padding: 7.5px 15px;">
                         <input type="submit" value="Save" class="addaddressform" id="saveaddress">
@@ -66,11 +72,13 @@
                             <label for="StreetName" class="formlable">Street Name</label>
                             <input type="text" class="addaddressform" id="StreetName1" placeholder="Street Name"
                                 asp-for="addaddressViewmodel.StreetName">
+                            <span asp-validation-for="addaddressViewmodel.StreetName"></span>
                         </div>
                         <div class="d-flex flex-column" style="padding: 7.5px 15px;">
                             <label for="HouseNumber" class="formlable">House Number</label>
                             <input type="text" class="addaddressform" id="HouseNumber1" placeholder="House Number"
                                 asp-for="addaddressViewmodel.hno">
+                            <span asp-validation-for="addaddressViewmodel.hno"></span>
                         </div>
                     </div>
                     <div class="d-flex forflexwrapextra">
@@ -78,6 +86,7 @@
                             <label for="PostalCode" class="formlable">Postal Code</label>
                             <input type="text" class="addaddressform" id="PostalCode1" placeholder=""
                                 asp-for="addaddressViewmodel.poc">
+                            <span asp-validation-for="addaddressViewmodel.poc"></span>
                         </div>
                         <div class="d-flex flex-column" style="padding: 7.5px 15px;">
                             <label for="City" class="formlable">City</label>
@@ -95,7 +104,9 @@
                             <input type="text" placeholder="" id="addressmono1" class="addaddressform"
                                 asp-for="addaddressViewmodel.PhoneNumber">
                         </div>
+                        <span asp-validation-for="addaddressViewmodel.PhoneNumber"></span>
                     </div>
+
                     <div class="d-flex" style="padding: 7.5px 15px;">
                         <input type="submit" value="Edit" class="addaddressform" id="editaddressbutton">
                         <p id="canceladdress" class="addaddressform" data-bs-dismiss="modal" aria-label="Close">
@@ -149,12 +160,14 @@
                         <div class="col-12 col-md-4">
                             <label for="detailsfname" class="detailslabel">First Name</label>
                             <input type="text" class="mydetailsdob w-100 mx-0 d-block" id="detailsfname"
-                                placeholder="Last Name" asp-for="detailsViewmodel.FirstName">
+                                placeholder="First Name" asp-for="detailsViewmodel.FirstName">
+                            <span asp-validation-for="detailsViewmodel.FirstName"></span>
                         </div>
                         <div class="col-12 col-md-4">
                             <label for="detailslname" class="detailslabel">Last Name</label>
                             <input type="text" class="mydetailsdob w-100 mx-0 d-block" id="detailslname"
                                 placeholder="Last Name" asp-for="detailsViewmodel.LastName">
+                            <span asp-validation-for="detailsViewmodel.LastName"></span>
                         </div>
                         <div class="col-12 col-md-4">
                             <label for="detailsemail" class="detailslabel">Email Address</label>
@@ -169,6 +182,7 @@
                                 <div class="col-2 rounded-start mx-0" id="detailscc">+91</div>
                                 <input type="text" class="col-10 rounded-end mx-0 d-block" id="detailsmono"
                                     asp-for="detailsViewmodel.PhoneNumber">
+                                <span asp-validation-for="detailsViewmodel.PhoneNumber"></span>
                             </div>
                         </div>
                         <div class="col-12 col-md-4 col-xl-4">
@@ -176,7 +190,8 @@
                             <label for="detailsdobdate">Date Of Birth</label>
                             <div class="detailsdob row g-1">
                                 <div class="col-3">
-                                    <select class="mx-0 d-block mydetailsdob" id="detailsdobdate">
+                                    <select class="mx-0 d-block mydetailsdob" id="detailsdobdate"
+                                        asp-for="detailsViewmodel.DobDate">
                                         <option value="" disabled>Date</option>
                                         <option value="1">01</option>
                                         <option value="2">02</option>
@@ -212,7 +227,8 @@
                                     </select>
                                 </div>
                                 <div class="col-5">
-                                    <select class="mx-0 d-block mydetailsdob" id="detailsdobmonth">
+                                    <select class="mx-0 d-block mydetailsdob" id="detailsdobmonth"
+                                        asp-for="detailsViewmodel.DobMonth">
                                         <option value="" disabled>Month</option>
                                         <option value="1">January</option>
                                         <option value="2">February</option>
@@ -229,7 +245,8 @@
                                     </select>
                                 </div>
                                 <div class="col-4">
-                                    <select id="detailsdobyear" class="mx-0 d-block mydetailsdob">
+                                    <select id="detailsdobyear" class="mx-0 d-block mydetailsdob"
+                                        asp-for="detailsViewmodel.DobYear">
                                         <option value="" disabled>Year</option>
                                         <option value="2004">2004</option>
                                         <option value="2003">2003</option>
@@ -273,7 +290,7 @@
                     <hr>
                     <div class="d-flex flex-column">
                         <label for="detailsprelan">My Preferred Language</label>
-                        <select class="mydetailsdob mx-0" id="detailsprelan">
+                        <select class="mydetailsdob mx-0" id="detailsprelan" asp-for="detailsViewmodel.PreLanguage">
                             <option value="1">English</option>
                             <option value="2">German</option>
                         </select>

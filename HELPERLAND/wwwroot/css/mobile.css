@@ -2497,10 +2497,10 @@ select{
     border: 1px solid red;
     margin-bottom: 0px;
 }
-#changepassword .field-validation-error{
+#changepassword .field-validation-error , #savedetail .field-validation-error, #addressvalidation  .modal-body .input-validation-error {
     color: red;
-    margin-top: 1px;
-    margin-bottom: 5px;
+    margin-top: 1px 0px 5px 0px;
+    padding: 0px !important;
 }
 .acceptbutton{
     color: #ffffff;

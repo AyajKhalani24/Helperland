@@ -16303,6 +16303,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Admin\\UserManagement.cshtml",
+      "TargetPath": "Views\\Admin\\UserManagement.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\ResetPassword.cshtml",
       "TargetPath": "Views\\Home\\ResetPassword.cshtml",
       "FileKind": "mvc"
@@ -16325,6 +16330,11 @@
     {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\Becomeprovider.cshtml",
       "TargetPath": "Views\\Home\\Becomeprovider.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Shared\\layout3.cshtml",
+      "TargetPath": "Views\\Shared\\layout3.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16365,6 +16375,11 @@
     {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Customer\\dashboard.cshtml",
       "TargetPath": "Views\\Customer\\dashboard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Admin\\ServiceRequest.cshtml",
+      "TargetPath": "Views\\Admin\\ServiceRequest.cshtml",
       "FileKind": "mvc"
     },
     {

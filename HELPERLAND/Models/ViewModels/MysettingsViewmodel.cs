@@ -18,13 +18,14 @@ public class MysettingsViewmodel
 public class DetailsViewmodel
 {
 #nullable disable
-    [Required]
+    [Required(ErrorMessage = "*Please enter firstname")]
     public string FirstName { get; set; }
-    [Required]
+
+    [Required(ErrorMessage = "*Please enter lastname")]
     public string LastName { get; set; }
     [Required]
     public string Email { get; set; }
-    [Required]
+    [Required(ErrorMessage = "*Please enter phonenumber")]
     public string PhoneNumber { get; set; }
     [Required]
     public int DobDate { get; set; }
@@ -32,6 +33,7 @@ public class DetailsViewmodel
     public int DobMonth { get; set; }
     [Required]
     public int DobYear { get; set; }
+    [Required]
     public int? PreLanguage { get; set; }
 
 }
@@ -41,12 +43,12 @@ public class ChangepasswordViewmodel
     [Required(ErrorMessage = "*Please Enter Your Old Password")]
     public string OldPassword { get; set; }
 
-    
+
     [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$", ErrorMessage = "*Create strong Password")]
     [Required(ErrorMessage = "*Please Enter Your New Password")]
     public string NewPassword { get; set; }
 
-    #nullable enable
+#nullable enable
     [Required(ErrorMessage = "*Please Enter Your Confirm Password")]
     [Compare("NewPassword", ErrorMessage = "Password is not matching")]
     public string? ConfirmPassword { get; set; }

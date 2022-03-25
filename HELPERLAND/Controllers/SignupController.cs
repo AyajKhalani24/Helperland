@@ -33,7 +33,7 @@ public class SignupController : Controller
     public IActionResult Signup(SignupViewmodel user)
     {
         impluser.Add1(user);
-        return RedirectToAction("Price", "Home");
+        return RedirectToAction("index", "Home");
     }
 
     [HttpPost]
@@ -78,9 +78,17 @@ public class SignupController : Controller
                 {
                     claims.Add(new Claim(ClaimTypes.Role, "Provider"));
                 }
+                else if (user.UserTypeId == 3)
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, "Admin"));
+                }
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
                 await HttpContext.SignInAsync(claimsPrincipal);
+                if (user.UserTypeId == 3)
+                {
+                    return RedirectToAction("ServiceRequest", "Admin");
+                }
             }
         }
         return RedirectToAction("Index", "Home");

@@ -1997,7 +1997,6 @@ body.loading .loaderContainer .loader {
     color:#646464;
     border:1px solid #c8c8c8;
     height: 46px;
-    margin-bottom: 10px;
 }
 #detailscc{
     display: flex;
@@ -2134,10 +2133,10 @@ select{
     border: 1px solid red;
     margin-bottom: 0px;
 }
-#changepassword .field-validation-error{
+#changepassword .field-validation-error , #savedetail .field-validation-error, #addressvalidation  .modal-body .input-validation-error {
     color: red;
-    margin-top: 1px;
-    margin-bottom: 5px;
+    margin-top: 1px 0px 5px 0px;
+    padding: 0px !important;
 }
 .mapcontainer{
     background-color: #E1E1E1;

@@ -51,11 +51,14 @@
                             <label for="detailsfname" class="detailslabel">First Name</label>
                             <input type="text" class="mydetailsdob w-100 mx-0 d-block" id="detailsfname"
                                 placeholder="Last Name" asp-for="detailsViewmodel.FirstName">
+                            <span asp-validation-for="detailsViewmodel.FirstName"></span>
                         </div>
                         <div class="col-12 col-md-4">
                             <label for="detailslname" class="detailslabel">Last Name</label>
                             <input type="text" class="mydetailsdob w-100 mx-0 d-block" id="detailslname"
                                 placeholder="Last Name" asp-for="detailsViewmodel.LastName">
+                            <span asp-validation-for="detailsViewmodel.LastName"></span>
+
                         </div>
                         <div class="col-12 col-md-4">
                             <label for="detailsemail" class="detailslabel">Email Address</label>
@@ -71,6 +74,8 @@
                                 <input type="text" class="col-10 rounded-end mx-0 d-block" id="detailsmono"
                                     asp-for="detailsViewmodel.PhoneNumber">
                             </div>
+                            <span asp-validation-for="detailsViewmodel.PhoneNumber"></span>
+
                         </div>
                         <div class="col-12 col-md-4">
 
@@ -203,45 +208,50 @@
                                 <label for="RNTS" class="genderlabel">Rather not to say</label>
                             </div>
                         </div>
+                        <span asp-validation-for="detailsViewmodel.Gender"></span>
+
                     </div>
-                    <div class="row g-2 fnlnea mb-1 avatar">
-                        <p class="col-12 gendertag mt-3">Avatar</p>
-                        <div class="col-2 col-md-1 d-flex align-items-center">
-                            <input type="radio" id="car" value="avatar-car.png" hidden
-                                asp-for="detailsViewmodel.ProfilePicture">
-                            <label for="car" class="genderlabel"><img src="~/images/avatar-car.png" alt=""
-                                    class="img-fluid"></label>
+                    <div class="d-flex flex-column">
+                        <div class="row g-2 fnlnea mb-1 avatar">
+                            <p class="col-12 gendertag mt-3">Avatar</p>
+                            <div class="col-2 col-md-1 d-flex align-items-center">
+                                <input type="radio" id="car" value="avatar-car.png" hidden
+                                    asp-for="detailsViewmodel.ProfilePicture">
+                                <label for="car" class="genderlabel"><img src="~/images/avatar-car.png" alt=""
+                                        class="img-fluid"></label>
+                            </div>
+                            <div class="col-2 col-md-1 d-flex align-items-center">
+                                <input type="radio" id="female" value="avatar-female.png" hidden
+                                    asp-for="detailsViewmodel.ProfilePicture">
+                                <label for="female" class="genderlabel"><img src="~/images/avatar-female.png" alt=""
+                                        class="img-fluid" style="cursor: pointer;"></label>
+                            </div>
+                            <div class="col-2 col-md-1 d-flex align-items-center">
+                                <input type="radio" id="hat" value="avatar-hat.png" hidden
+                                    asp-for="detailsViewmodel.ProfilePicture">
+                                <label for="hat" class="genderlabel"><img src="~/images/avatar-hat.png" alt=""
+                                        class="img-fluid" style="cursor: pointer;"></label>
+                            </div>
+                            <div class="col-2 col-md-1 d-flex align-items-center">
+                                <input type="radio" id="iron" value="avatar-iron.png" hidden
+                                    asp-for="detailsViewmodel.ProfilePicture">
+                                <label for="iron" class="genderlabel"><img src="~/images/avatar-iron.png" alt=""
+                                        class="img-fluid" style="cursor: pointer;"></label>
+                            </div>
+                            <div class="col-2 col-md-1 d-flex align-items-center">
+                                <input type="radio" id="male" value="avatar-male.png" hidden
+                                    asp-for="detailsViewmodel.ProfilePicture">
+                                <label for="male" class="genderlabel"><img src="~/images/avatar-male.png" alt=""
+                                        class="img-fluid" style="cursor: pointer;"></label>
+                            </div>
+                            <div class="col-2 col-md-1 d-flex align-items-center">
+                                <input type="radio" id="ship" value="avatar-ship.png" hidden
+                                    asp-for="detailsViewmodel.ProfilePicture">
+                                <label for="ship" class="genderlabel"><img src="~/images/avatar-ship.png" alt=""
+                                        class="img-fluid" style="cursor: pointer;"></label>
+                            </div>
                         </div>
-                        <div class="col-2 col-md-1 d-flex align-items-center">
-                            <input type="radio" id="female" value="avatar-female.png" hidden
-                                asp-for="detailsViewmodel.ProfilePicture">
-                            <label for="female" class="genderlabel"><img src="~/images/avatar-female.png" alt=""
-                                    class="img-fluid" style="cursor: pointer;"></label>
-                        </div>
-                        <div class="col-2 col-md-1 d-flex align-items-center">
-                            <input type="radio" id="hat" value="avatar-hat.png" hidden
-                                asp-for="detailsViewmodel.ProfilePicture">
-                            <label for="hat" class="genderlabel"><img src="~/images/avatar-hat.png" alt=""
-                                    class="img-fluid" style="cursor: pointer;"></label>
-                        </div>
-                        <div class="col-2 col-md-1 d-flex align-items-center">
-                            <input type="radio" id="iron" value="avatar-iron.png" hidden
-                                asp-for="detailsViewmodel.ProfilePicture">
-                            <label for="iron" class="genderlabel"><img src="~/images/avatar-iron.png" alt=""
-                                    class="img-fluid" style="cursor: pointer;"></label>
-                        </div>
-                        <div class="col-2 col-md-1 d-flex align-items-center">
-                            <input type="radio" id="male" value="avatar-male.png" hidden
-                                asp-for="detailsViewmodel.ProfilePicture">
-                            <label for="male" class="genderlabel"><img src="~/images/avatar-male.png" alt=""
-                                    class="img-fluid" style="cursor: pointer;"></label>
-                        </div>
-                        <div class="col-2 col-md-1 d-flex align-items-center">
-                            <input type="radio" id="ship" value="avatar-ship.png" hidden
-                                asp-for="detailsViewmodel.ProfilePicture">
-                            <label for="ship" class="genderlabel"><img src="~/images/avatar-ship.png" alt=""
-                                    class="img-fluid" style="cursor: pointer;"></label>
-                        </div>
+                        <span asp-validation-for="detailsViewmodel.ProfilePicture"></span>
                     </div>
 
                     <div class="row g-2 fnlnea mb-1">
@@ -251,16 +261,22 @@
                             <label for="detailsstreetname" class="detailslabel">Street Name</label>
                             <input type="text" class="mydetailsdob w-100 mx-0 d-block" id="detailsstreetname"
                                 placeholder="Street Name" asp-for="detailsViewmodel.StreetName">
+                            <span asp-validation-for="detailsViewmodel.StreetName"></span>
+
                         </div>
                         <div class="col-12 col-md-4">
                             <label for="detailshousenumber" class="detailslabel">House Number</label>
                             <input type="text" class="mydetailsdob w-100 mx-0 d-block" id="detailshousenumber"
                                 placeholder="House Number" asp-for="detailsViewmodel.HouseNumber">
+                            <span asp-validation-for="detailsViewmodel.HouseNumber"></span>
+
                         </div>
                         <div class="col-12 col-md-4">
                             <label for="detailpostalcode" class="detailslabel">Postal Code</label>
                             <input type="text" class="mydetailsdob w-100 mx-0 d-block" id="detailspostalcode"
                                 placeholder="Postal Code" asp-for="detailsViewmodel.PostalCode">
+                            <span asp-validation-for="detailsViewmodel.PostalCode"></span>
+
                         </div>
                     </div>
                     <div class="row g-2 fnlnea mb-1">
@@ -268,6 +284,8 @@
                             <label for="detailscity" class="detailslabel">City</label>
                             <input type="text" class="mydetailsdob w-100 mx-0 d-block" id="detailscity"
                                 placeholder="City" asp-for="detailsViewmodel.City">
+                            <span asp-validation-for="detailsViewmodel.City"></span>
+
                         </div>
                     </div>
                     <hr>
