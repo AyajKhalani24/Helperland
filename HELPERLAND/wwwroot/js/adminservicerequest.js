@@ -1,5 +1,6 @@
 const dashboard = document.querySelector("#servicerequest");
 const errorspan = document.querySelector(".errorspan");
+const body = document.querySelector("body")
 dashboard.classList.add("currentadmin");
 
 const dt = new DataTable("#ustable", {
@@ -53,6 +54,7 @@ const RStreetName = EditOrRescheduleModalBody.querySelector("#AdminRescheduleVie
 const RHouseNumber = EditOrRescheduleModalBody.querySelector("#AdminRescheduleViewModel_HouseNumber");
 const RReason = EditOrRescheduleModalBody.querySelector("#AdminRescheduleViewModel_RescheduleReason");
 const RSubmit = EditOrRescheduleModalBody.querySelector("button[type='submit']");
+const RescheduleSubmit = EditOrRescheduleModalBody.querySelector(".Reschedule");
 const PostalCode = document.querySelector("#AdminRescheduleViewModel_PostalCode");
 const city = document.querySelector("#AdminRescheduleViewModel_City");
 
@@ -99,13 +101,15 @@ PostalCode.addEventListener("focusout", async () => {
 });
 
 
-RSubmit.addEventListener("click", async (e) => {
+RescheduleSubmit.addEventListener("click", async (e) => {
     try {
         const RescheduleFormValidator = $("#RescheduleForm").validate();
         if (RescheduleFormValidator.form()) {
             e.preventDefault();
             const serviceId = RSubmit.getAttribute("data-service-id");
             if (serviceId) {
+                EditOrRescheduleModal.hide();
+                body.classList.add("loading");
                 const res = await fetch("/Admin/EditOrRescheduleService", {
                     method: "POST",
                     headers: {
@@ -123,8 +127,8 @@ RSubmit.addEventListener("click", async (e) => {
                     }),
                 });
                 if (res.redirected) window.location.href = res.url;
+                body.classList.remove("loading");
                 const data = await res.json();
-                EditOrRescheduleModal.hide();
                 if (data.success) {
                     errorspan.innerHTML = `<div class="alert alert-success alert-dismissible fade show mx-4" role="alert">
                 <strong>Success! </strong>${data.success}
@@ -163,6 +167,7 @@ const adminreset = document.querySelector("#adminreset")
 
 adminsubmit.addEventListener("click", (e) => {
     e.preventDefault();
+    body.classList.add("loading");
     $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
         let serviceId = data[0];
         let serviceDate = data[1]
@@ -178,7 +183,8 @@ adminsubmit.addEventListener("click", (e) => {
         const srdate = new Date(parseInt(dateSplited[2]), parseInt(dateSplited[1]) - 1, parseInt(dateSplited[0]));
         const isDateGreater = fromdate.value ? srdate >= new Date(fromdate.value) : true;
         const isDateSmaller = todate.value ? srdate <= new Date(todate.value) : true;
-        console.log(data)
+        console.log(data);
+        body.classList.remove("loading");
         return isServiceId && isCustomer && isSp && isStatus && isDateGreater && isDateSmaller;
     });
     dt.draw();
@@ -187,3 +193,115 @@ adminreset.addEventListener("click", (e) => {
     $.fn.dataTableExt.afnFiltering.length = 0;
     dt.draw();
 });
+
+const RefundModalHtml = document.querySelector("#RefundModal");
+const RefundModalBody = RefundModalHtml.querySelector(".modal-body");
+const RefundModal = bootstrap.Modal.getOrCreateInstance(RefundModalHtml);
+const paidamount = document.querySelector("#paidamount")
+const refundedamount = document.querySelector("#refundedamount")
+const inbalanceamount = document.querySelector("#inbalanceamount")
+const RefundButton = RefundModalBody.querySelector(".refund");
+// const RefundReason = RefundModalBody.querySelector("#AdminRescheduleViewModel_RescheduleReason");
+const RefundSubmit = RefundModalBody.querySelector("button[type='submit']");
+
+
+async function openRefundModal(serviceId, refundAmount, totalAmount) {
+    // console.log(serviceId, refundAmount, totalAmount);
+    console.log(refundAmount)
+    RefundSubmit.setAttribute("data-service-id", serviceId);
+    paidamount.value = `${parseInt(totalAmount)} $`
+    if (refundAmount == "") {
+        refundedamount.value = `0 $`
+        inbalanceamount.value = `${totalAmount} $`
+    }
+    else {
+        refundedamount.value = `${refundAmount} $`
+        var inbalance = totalAmount - refundAmount;
+        inbalanceamount.value = `${parseInt(inbalance)} $`
+    }
+    RefundModal.show();
+}
+const percfixedamount = document.querySelector("#percfixedamount");
+const optionperfix = document.querySelector("#optionperfix");
+const calculatebutton = document.querySelector("#calculatebutton");
+const calculatedvalue = document.querySelector("#calculatedvalue");
+const refundamounterror = document.querySelector("#refundamounterror");
+
+
+calculatebutton.addEventListener('click', (e) => {
+    e.preventDefault();
+    var amount;
+    if (optionperfix.value == "2") {
+        amount = percfixedamount.value;
+    }
+    else if (optionperfix.value == "1") {
+        amount = Math.round((parseInt(inbalanceamount.value) / 100) * parseInt(percfixedamount.value));
+    }
+    calculatedvalue.innerHTML = `${amount}`
+})
+
+RefundButton.addEventListener('click', async (e) => {
+    try {
+        const RescheduleFormValidator = $("#RefundForm").validate();
+        const serviceId = RefundSubmit.getAttribute("data-service-id");
+        if (RescheduleFormValidator.form()) {
+            e.preventDefault();
+            if (parseInt(calculatedvalue.innerHTML) != "") {
+                if (serviceId) {
+                    RefundModal.hide();
+                    body.classList.add("loading");
+                    if (parseInt(calculatedvalue.innerHTML) <= parseInt(inbalanceamount.value)) {
+
+                        const res = await fetch("/Admin/RefundPayment", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                ServiceId: parseInt(serviceId),
+                                RefundAmount: parseFloat(calculatedvalue.innerHTML),
+                            }),
+                        });
+                        if (res.redirected) window.location.href = res.url;
+                        body.classList.remove("loading");
+                        const data = await res.json();
+                        if (data) {
+                            body.classList.remove("loading");
+                            RefundModal.hide();
+                            errorspan.innerHTML = `<div class="alert alert-success alert-dismissible fade show mx-4" role="alert">
+                <strong>Success! </strong>Refund initiated.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`;
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 3000);
+                        }
+                        else {
+                            body.classList.remove("loading");
+                            RefundModal.hide();
+                            errorspan.innerHTML = `<div class="alert alert-danger alert-dismissible fade show mx-4" role="alert">
+                <strong>Failed! </strong>Internal Server Error.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`;
+                        }
+                    }
+                    else {
+                        body.classList.remove("loading");
+                        RefundModal.hide();
+                        errorspan.innerHTML = `<div class="alert alert-danger alert-dismissible fade show mx-4" role="alert">
+                <strong>Failed! </strong>Refund amount is greater than in balance amount.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`;
+                    }
+                }
+            }
+            else {
+                refundamounterror.innerHTML = "Please Calculate Value First"
+            }
+        }
+    }
+    catch (err) {
+        body.classList.remove("loading");
+        console.log(err.message);
+    }
+})

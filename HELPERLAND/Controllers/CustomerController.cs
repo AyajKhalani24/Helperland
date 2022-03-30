@@ -442,6 +442,65 @@ public class CustomerController : Controller
             return Json(new { err = "Internal Server Error !!" });
         }
     }
+    [HttpGet]
+    public IActionResult FavouriteAndBlocked()
+    {
+        int UserId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var user = context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
+        var result = (
+            from s in context.ServiceRequests
+            join u in context.Users on new { ServiceProviderId = s.ServiceProviderId.ToString() } equals new { ServiceProviderId = u.UserId.ToString() }
+            join fab in context.FavoriteAndBlockeds
+                on new { s.UserId, s.ServiceProviderId }
+                equals new { fab.UserId, ServiceProviderId = fab.TargetUserId.ToString() } into fab_join
+            from fab in fab_join.DefaultIfEmpty()
+            join avgrt in (
+            (
+                from rt in context.Ratings
+                group rt by new { rt.RatingTo } into g
+                select new
+                {
+                    AvgRatings = (decimal?)g.Average(p => p.Ratings),
+                    SPId = g.Key.RatingTo
+                })) on new { ServiceProviderId = s.ServiceProviderId } equals new { ServiceProviderId = avgrt.SPId } into avgrt_join
+            from avgrt in avgrt_join.DefaultIfEmpty()
+            join totalservice in (
+            (
+                from st in context.ServiceRequests
+                where
+                st.Status == 3
+                group st by new
+                {
+                    st.ServiceProviderId
+                } into g
+                select new
+                {
+                    TotalCleaning = g.Count(p => p.ServiceId != 0),
+                    tspid = g.Key.ServiceProviderId
+                })) on new { ServiceProviderId = s.ServiceProviderId } equals new { ServiceProviderId = totalservice.tspid } into totalservice_join
+            from totalservice in totalservice_join.DefaultIfEmpty()
+            where s.Status == 3 && s.UserId == user.UserId
+            select new FavoriteAndBlockedViewmodel
+            {
+                IsBlocked = fab.IsBlocked,
+                TotalCleaning = totalservice.TotalCleaning,
+                IsFavorite = fab.IsFavorite,
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                SPId = s.ServiceProviderId,
+                ProfilePhoto = u.UserProfilePhoto,
+                AvgRatings = avgrt.AvgRatings != null ? (decimal)avgrt.AvgRatings : 0
+            }).Distinct().ToList();
+        foreach (var service in result.ToList())
+        {
+            var blockcust = context.FavoriteAndBlockeds.Where(f => f.UserId == service.SPId && f.TargetUserId == user.UserId && f.IsBlocked == true).FirstOrDefault();
+            if (blockcust != null)
+            {
+                result.Remove(service);
+            }
+        }
+        return View(result);
+    }
 }
 
 

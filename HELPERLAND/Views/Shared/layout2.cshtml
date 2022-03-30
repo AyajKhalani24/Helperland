@@ -75,7 +75,6 @@
 
             <img src="~/images/logo-small.png" alt="">
 
-
             <a href="#"><img src="~/images/icon-notification.png" alt="" id="usnavicon"></a>
 
             <div class="hamburger2">
@@ -112,7 +111,7 @@
                         <a asp-action="Logout" asp-controller="Signup" class="vertnavcont">Logout</a>
                         <span></span>
                         <a asp-controller="Provider" asp-action="UpcomingService" class="vertnavcont">Upcoming Service</a>
-                        <a href="#" class="vertnavcont">Service Schedule</a>
+                        <a asp-controller="Provider" asp-action="ServiceSchedule" class="vertnavcont">Service Schedule</a>
                         <a asp-controller="Provider" asp-action="ServiceHistory" class="vertnavcont">Service History</a>
                         <a asp-controller="Provider" asp-action="MyRatings" class="vertnavcont">My Ratings</a>
                         <a asp-controller="Provider" asp-action="BlockCustomer" class="vertnavcont">Block Customer</a>
@@ -120,7 +119,6 @@
                         <a href="#" class="vertnavcont">Notification</a>
                     }
                 }
-
 
                 <span></span>
 
@@ -165,7 +163,7 @@
                     Service Request</a>
                 <a asp-controller="Provider" asp-action="UpcomingService" class="vertnavcont" id="upcomingservice">Upcoming
                     Service</a>
-                <a href="#" class="vertnavcont">Service Schedule</a>
+                <a asp-controller="Provider" asp-action="ServiceSchedule" class="vertnavcont">Service Schedule</a>
                 <a asp-controller="Provider" asp-action="ServiceHistory" class="vertnavcont" id="servicehistory">Service
                     History</a>
                 <a asp-controller="Provider" asp-action="MyRatings" class="vertnavcont" id="myrating">My Ratings</a>

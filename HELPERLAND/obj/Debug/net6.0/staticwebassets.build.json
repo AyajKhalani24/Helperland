@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WIgdj4jv63raTVlt3ls5+GVYtB1d63EtBCnAesm7o6o=",
+  "Hash": "nuMgs9Jic+g4N9bNXdconWGqnZg7LLqZbp9MFlEEY7k=",
   "Source": "HELPERLAND",
   "BasePath": "_content/HELPERLAND",
   "Mode": "Default",
@@ -1870,6 +1870,23 @@
       "OriginalItemSpec": "wwwroot\\images\\reschedule-icon-small.png"
     },
     {
+      "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\images\\right-arrow-medium.png",
+      "SourceId": "HELPERLAND",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\",
+      "BasePath": "_content/HELPERLAND",
+      "RelativePath": "images/right-arrow-medium.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\right-arrow-medium.png"
+    },
+    {
       "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\images\\right-arrow-rounded.png",
       "SourceId": "HELPERLAND",
       "SourceType": "Discovered",
@@ -2548,6 +2565,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\servicehistory.js"
+    },
+    {
+      "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\js\\serviceschedule.js",
+      "SourceId": "HELPERLAND",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\",
+      "BasePath": "_content/HELPERLAND",
+      "RelativePath": "js/serviceschedule.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\serviceschedule.js"
     },
     {
       "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\js\\setupservice.js",

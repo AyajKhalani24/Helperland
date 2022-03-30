@@ -558,3 +558,76 @@ textarea.form-control {
 	top: 12px;
 	left: 12px;
 }
+.loaderContainer {
+	z-index: 1000000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	overflow: hidden;
+	width: 100%;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.7);
+}
+body.loading {
+	height: 100vh;
+	overflow: hidden;
+}
+body.loading .loaderContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.loaderContainer .loader {
+	height: 100px;
+	width: 100px;
+	border: 10px solid transparent;
+	border-top-color: #1d7a8c;
+	border-bottom-color: #1d7a8c;
+}
+body.loading .loaderContainer .loader {
+	animation: loaderAnimation linear 1s infinite;
+}
+@keyframes loaderAnimation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.title{
+    margin-bottom: 0px;
+    font-weight: bold;
+    color: #646464;
+}
+.deconone{
+    border: 0px;
+    outline: none;
+    color: #646464;
+    font-size: 20px;
+    width: 60%;
+}
+.refundlabel{
+    color: #646464;
+    font-size: 16px;
+}
+.refunddeco{
+    width: 110px;
+    height: 45px;
+    color: #646464;
+    background-color: #f0f0f0;
+    font-size: 16px;
+    border: 1px solid #e1e1e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+#percfixedamount{
+    background-color: #ffffff;
+    padding-left: 10px;
+}
+#calculatebutton:hover{
+    background-color: #dbdbdb;
+}

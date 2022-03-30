@@ -12,12 +12,13 @@ namespace HELPERLAND.Controllers;
 public class BookserviceController : Controller
 {
     private readonly HelperlandContext context;
+    private readonly SendEmail sendEmail;
 
-    public BookserviceController(HelperlandContext context)
+    public BookserviceController(HelperlandContext context, SendEmail sendEmail)
     {
         this.context = context;
+        this.sendEmail = sendEmail;
     }
-
     public IActionResult setupservice()
     {
         if (User.Identity.IsAuthenticated)
@@ -75,7 +76,6 @@ public class BookserviceController : Controller
         return Json(false);
     }
 
-    // [Authorize]
     [HttpPost]
     public IActionResult AddNewAddress([FromBody] AddaddressViewmodel model)
     {
@@ -214,5 +214,40 @@ public class BookserviceController : Controller
             }
         }
         return Json(new { ServiceId = newServiceRequest.ServiceId });
+    }
+    public IActionResult SendMailToProvider(string ZipCode, string serviceId)
+    {
+        int flag = 0;
+        var Provider = context.Users.Where(a => a.ZipCode == ZipCode && a.UserTypeId == 2).ToList();
+
+        int UserId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var user = context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
+
+        var blocked = context.FavoriteAndBlockeds.Where(fab => (fab.UserId == user.UserId || fab.TargetUserId == user.UserId) && fab.IsBlocked == true).ToList();
+        foreach (var s in Provider.ToList())
+        {
+            foreach (var b in blocked)
+            {
+                if ((b.UserId == s.UserId && b.TargetUserId == user.UserId) || (b.UserId == user.UserId && b.TargetUserId == s.UserId))
+                {
+                    Provider.Remove(s);
+                    continue;
+                }
+            }
+        }
+        foreach (var s in Provider)
+        {
+            var email = new EmailViewmodel()
+            {
+                To = s.Email,
+                Subject = "Service Alert",
+                isHTML = true,
+                Body = $"<p>The Service {serviceId} has been assign in your area go and check your dashboard.</p>",
+            };
+            bool result = sendEmail.sendMail(email);
+            flag += 1;
+        }
+        Console.WriteLine(flag);
+        return Json(true);
     }
 }

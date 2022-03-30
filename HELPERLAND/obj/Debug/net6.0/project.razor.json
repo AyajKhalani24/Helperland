@@ -16328,6 +16328,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Provider\\ServiceSchedule.cshtml",
+      "TargetPath": "Views\\Provider\\ServiceSchedule.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Home\\Becomeprovider.cshtml",
       "TargetPath": "Views\\Home\\Becomeprovider.cshtml",
       "FileKind": "mvc"
@@ -16360,6 +16365,11 @@
     {
       "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Provider\\UpcomingService.cshtml",
       "TargetPath": "Views\\Provider\\UpcomingService.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\Views\\Customer\\FavouriteAndBlocked.cshtml",
+      "TargetPath": "Views\\Customer\\FavouriteAndBlocked.cshtml",
       "FileKind": "mvc"
     },
     {

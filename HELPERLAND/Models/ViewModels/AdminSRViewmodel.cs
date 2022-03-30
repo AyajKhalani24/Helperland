@@ -13,6 +13,7 @@ public class AdminSRViewmodel
     public List<string> SP_Names { get; set; }
     public List<string> Cust_Names { get; set; }
     public AdminRescheduleViewModel AdminRescheduleViewModel { get; set; }
+    public AdminRefundViewModel AdminRefundViewModel { get; set; }
     public IEnumerable<AdminSRViewmodel> viewModels { get; set; }
     public int ServiceId { get; set; }
     public DateTime ServiceDate { get; set; }
@@ -25,6 +26,9 @@ public class AdminSRViewmodel
     public string City { get; set; }
     public decimal SP_Avg_Ratings { get; set; }
     public int ServiceStatus { get; set; }
+    public decimal? Refund { get; set; }
+    public decimal Payment { get; set; }
+
 #nullable enable
     public int? SP_Id { get; set; }
     public string? ProfilePhoto { get; set; }

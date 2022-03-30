@@ -12,12 +12,13 @@ namespace HELPERLAND.Controllers;
 public class AdminController : Controller
 {
     private readonly HelperlandContext context;
+    private readonly SendEmail sendEmail;
 
-    public AdminController(HelperlandContext context)
+    public AdminController(HelperlandContext context, SendEmail sendEmail)
     {
         this.context = context;
+        this.sendEmail = sendEmail;
     }
-
     public IActionResult ServiceRequest()
     {
         var result = (
@@ -41,6 +42,8 @@ public class AdminController : Controller
             select new AdminSRViewmodel
             {
                 ServiceId = sa.ServiceRequest.ServiceId,
+                Refund = sa.ServiceRequest.RefundedAmount,
+                Payment = sa.ServiceRequest.TotalCost,
                 User_First_Name = sa.ServiceRequest.User.FirstName,
                 User_Last_Name = sa.ServiceRequest.User.LastName,
                 SP_First_Name = s.FirstName,
@@ -135,10 +138,14 @@ public class AdminController : Controller
     [HttpPost]
     public IActionResult EditOrRescheduleService([FromBody] AdminRescheduleViewModel model)
     {
+        //For who Edited service(ModifiedBy)
         int UserId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
         if (UserId != 0)
         {
             var service = context.ServiceRequests.Where(s => s.ServiceId == model.ServiceId).FirstOrDefault();
+
+            //For sending Mail To Customer
+            var user = context.Users.Where(u => u.UserId == service.UserId).FirstOrDefault();
             if (service != null)
             {
                 DateTime newServiceDate = DateTime.Parse(model.RescheduleDate).AddHours((double)model.RescheduleTime);
@@ -187,10 +194,49 @@ public class AdminController : Controller
                     context.ServiceRequestAddresses.Attach(sa);
                 }
                 else return Json(new { err = "Address Not Found !" });
+
                 context.SaveChanges();
-                return Json(new { success = "Successfully Rescheduled Service !!" });
+                var email = new EmailViewmodel()
+                {
+                    To = user.Email,
+                    Subject = "Reschedule Service",
+                    isHTML = true,
+                    Body = $"<p>The Service {service.ServiceId} that you want to Reschedule is Reschedule by Admin on {service.ServiceStartDate.ToString("MM/dd/yyyy")} at {service.ServiceStartDate.ToString("HH:mm")}</p>",
+                };
+                bool result = sendEmail.sendMail(email);
+                if (result)
+                {
+                    return Json(new { success = "Successfully Rescheduled Service !!" });
+                }
+                else
+                {
+                    return BadRequest(error: "Internal Server Error");
+                }
             }
         }
         return Json(new { err = "Service Not Found !" });
+    }
+
+    public IActionResult RefundPayment([FromBody] AdminRefundViewModel model)
+    {
+        try
+        {
+            var service = context.ServiceRequests.Where(s => s.ServiceId == model.ServiceId).FirstOrDefault();
+            if (service.RefundedAmount == null)
+            {
+                service.RefundedAmount = model.RefundAmount;
+            }
+            else
+            {
+                service.RefundedAmount += model.RefundAmount;
+            }
+            context.ServiceRequests.Attach(service);
+            context.SaveChanges();
+            return Json(true);
+        }
+        catch
+        {
+            return Json(false);
+        }
     }
 }

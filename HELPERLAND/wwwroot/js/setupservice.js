@@ -233,10 +233,6 @@ tab3btnsubmit.addEventListener("click", () => {
     }
 });
 
-
-
-
-
 document.querySelector("#completebooking").addEventListener("click", async () => {
     try {
         const data = {};
@@ -280,6 +276,13 @@ document.querySelector("#completebooking").addEventListener("click", async () =>
             `;
             successModal.show();
             document.querySelector(".bookServiceErr").innerHTML = "";
+
+            const res = await fetch(`/BookService/SendMailToProvider?ZipCode=${Postalcode.value}&serviceId=${jsonData.serviceId}`, { method: "GET" });
+            const data = await res.json();
+            if (data)
+                console.log("Email Send successfully");
+            else
+                console.log("Internal server error")
         } else {
             throw new Error();
         }

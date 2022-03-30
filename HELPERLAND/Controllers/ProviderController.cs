@@ -414,4 +414,70 @@ public class ProviderController : Controller
         }
     }
 
+
+    [HttpGet]
+    public IActionResult ServiceSchedule()
+    {
+        return View();
+    }
+    [HttpGet]
+    public IActionResult GetService()
+    {
+        int ServiceproId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+        var services = (
+            from s in context.ServiceRequests
+            where s.ServiceProviderId == ServiceproId && (s.Status == 2 || s.Status == 3)
+            select new GeteventsViewmodel
+            {
+                id = s.ServiceId,
+                start = s.ServiceStartDate.ToString("yyyy-MM-ddTHH:mm:ss").Replace(".", ":"),
+                title = s.ServiceStartDate.ToString("HH:mm").Replace(".", ":") + " - " + s.ServiceStartDate.AddHours(s.ServiceHours).ToString("HH:mm").Replace(".", ":"),
+                backgroundColor = s.Status == 3 ? "#86858b" : "#1d7a8c",
+                allDay = false,
+            }
+        ).ToArray();
+        return Json(services);
+    }
+
+    [HttpGet]
+    public IActionResult GetServiceDetails(int ServiceId)
+    {
+        try
+        {
+            int ServiceproId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            var service = context.ServiceRequests.Where(s => s.ServiceId == ServiceId).FirstOrDefault();
+            var custDetail = context.Users.Where(u => u.UserId == service.UserId).FirstOrDefault();
+            var custAddress = context.ServiceRequestAddresses.Where(sa => sa.ServiceRequestId == service.ServiceRequestId).FirstOrDefault();
+            if (service != null)
+            {
+                var serviceExtra = context.ServiceRequestExtras.Where(sa => sa.ServiceRequestId == service.ServiceRequestId).Select(sea => sea.ServiceExtraId).ToArray();
+
+                var jsonData = new
+                {
+                    Payment = service.TotalCost,
+                    Extras = serviceExtra,
+                    HasPets = service.HasPets,
+                    Comments = service.Comments,
+                    ServiceStartDate = service.ServiceStartDate.ToString("dd/MM/yyyy").Replace("-", "/"),
+                    ServiceStartTime = service.ServiceStartDate.ToString("HH:mm"),
+                    ServiceEndTime = service.ServiceStartDate.AddHours(service.ServiceHours).ToString("HH:mm"),
+                    ServiceDuration = service.ServiceHours,
+                    CustName = custDetail.FirstName + " " + custDetail.LastName,
+                    Street = custAddress.AddressLine1,
+                    HouseNum = custAddress.AddressLine2,
+                    PostalCode = custAddress.PostalCode,
+                    City = custAddress.City,
+                };
+                return Json(jsonData);
+            }
+            return Json(new { err = "Service Not Found !" });
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return Json(new { err = "Internal Server Error !" });
+        }
+    }
 }
