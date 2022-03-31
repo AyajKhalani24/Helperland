@@ -16,6 +16,7 @@ namespace HELPERLAND.Models.ViewModels
         public float servicehours { get; set; }
         public int AddressId { get; set; }
         public bool HasPets { get; set; }
+        public int? ServiceProId { get; set; }
 
 #nullable enable
         public IEnumerable<int>? ExtraServices { get; set; }

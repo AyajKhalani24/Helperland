@@ -9,7 +9,7 @@ public class FavoriteAndBlockedViewmodel
     public bool? IsFavorite { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public string SPId { get; set; }
+    public int? SPId { get; set; }
     public string ProfilePhoto { get; set; }
     public decimal AvgRatings { get; set; }
 

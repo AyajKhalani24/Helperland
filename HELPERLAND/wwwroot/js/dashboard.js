@@ -290,7 +290,7 @@ const openDetailsModal = async (
 								</svg>
 								<div class="cover position-absolute top-0 end-0 h-100" style="width:${(5 - parseInt(avgRating)) * 20}%"></div>
 							</div>
-							<span class="lh-sm ms-1 avgRating">${avgRating}</span>
+							<span class="lh-sm ms-1 avgRating">${parseFloat(avgRating).toFixed(2)}</span>
 						</div>
 					</div>
 					<div>${parseInt(data.totalCleaning)} cleaning</div>

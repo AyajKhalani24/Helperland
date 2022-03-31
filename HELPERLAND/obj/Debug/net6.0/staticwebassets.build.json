@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nuMgs9Jic+g4N9bNXdconWGqnZg7LLqZbp9MFlEEY7k=",
+  "Hash": "aECvbNyRGgtzsiaLu42aSnW7pEcYK4OOmf6EOvwhkRw=",
   "Source": "HELPERLAND",
   "BasePath": "_content/HELPERLAND",
   "Mode": "Default",
@@ -2429,6 +2429,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Faq.js"
+    },
+    {
+      "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\js\\favouriteandblocked.js",
+      "SourceId": "HELPERLAND",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\",
+      "BasePath": "_content/HELPERLAND",
+      "RelativePath": "js/favouriteandblocked.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\favouriteandblocked.js"
     },
     {
       "Identity": "F:\\Tatvasoft\\Project\\Helperland\\HELPERLAND\\wwwroot\\js\\mysettings.js",

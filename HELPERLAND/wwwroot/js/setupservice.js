@@ -152,6 +152,10 @@ tab2btnsubmit.addEventListener('click', async (e) => {
 
     const res = await fetch(`/Bookservice/GetAddresses?ZipCode=${Postalcode.value}`, { method: "GET" });
     const adds = await res.json();
+    const res2 = await fetch("/Customer/GetFavouriteProviders", { method: "GET" });
+    const sps = await res2.json();
+
+    if (res2.redirected) window.location.href = res2.url;
 
     body.classList.remove("loading");
 
@@ -166,6 +170,20 @@ tab2btnsubmit.addEventListener('click', async (e) => {
         });
     } else {
         addressdiv.innerHTML = "There Are No Addresses.Please Add Some !";
+    }
+    if (sps.length > 0) {
+        const favouriteSpsDiv = document.querySelector(".favouriteSPs");
+        favouriteSpsDiv.innerHTML = "";
+        sps.forEach((sp) => {
+            favouriteSpsDiv.innerHTML += `
+            <div class="favSP col-12 col-md-4 d-flex align-items-center justify-content-evenly flex-column py-4 border border-2 rounded-1 mt-3">
+                <img src="/images/${sp.profilePhoto}" class="img-fluid mb-3"/>
+                <div class="fw-bold mb-3 fs-5">${sp.firstName} ${sp.lastName}</div>
+                <input type="radio" name="favsp" hidden id="${sp.spId}" serviceProvider="${sp.spId}"/>
+                <label for="${sp.spId}" class="favSpLabel"></label>
+            </div>
+            `;
+        });
     }
     tab2Btn.classList.add("completed");
     tab2Btn.removeAttribute("disabled");
@@ -248,13 +266,15 @@ document.querySelector("#completebooking").addEventListener("click", async () =>
             data.Comments = document.querySelector("#bookservicecomments").value;
         }
         data.HasPets = document.querySelector("#petscheck").checked;
-        const addressCheckboxes = document.querySelectorAll("input[name='Address']");
-        for (let i = 0; i < addressCheckboxes.length; i++) {
-            if (addressCheckboxes[i].checked) {
-                data.AddressId = parseInt(addressCheckboxes[i].getAttribute("data-addressid"));
-                break;
-            }
+        
+        const addressCheckboxes = document.querySelector("input[name='Address']:checked");
+        data.AddressId = parseInt(addressCheckboxes.getAttribute("data-addressid"));
+
+        const serviceProvider = document.querySelector("input[name='favsp']:checked");
+        if (serviceProvider) {
+            data.ServiceProId = parseInt(serviceProvider.getAttribute("serviceProvider"));
         }
+
         body.classList.add("loading");
         const res = await fetch("/BookService/Index", {
             method: "POST",

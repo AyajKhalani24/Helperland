@@ -21,7 +21,8 @@
             <div id="ratingmodal">
 
                 <div class="lumwat">
-                    <div class="capimg"><img id="ratingmodalspimg" class="img-fluid" src="~/images/cap.png" alt=""></div>
+                    <div class="capimg"><img id="ratingmodalspimg" class="img-fluid" src="~/images/cap.png" alt="">
+                    </div>
                     <div><span id="serviceProviderName"></span>
                         <div class="d-flex">
                             <div
@@ -153,11 +154,6 @@
     </div>
 </div>
 
-
-
-
-
-
 <div class="upcomingservicestable">
     <span id="errorspan"></span>
     <table id="ustable">
@@ -168,8 +164,8 @@
                 <th class="tac">Service Details</th>
                 <th>Service Provider</th>
                 <th class="tac">Payment</th>
-                <th>status</th>
-                <th>Rate SP</th>
+                <th class="tac">status</th>
+                <th class="tac">Rate SP</th>
             </tr>
         </thead>
         <tbody>
@@ -246,27 +242,32 @@
                         </td>
                         <td class="shcol3 tac" data-title="Payment"><b>&euro;63</b></td>
                         <td data-title="Status" class="tac">
-                            @if (sh.Status == 3)
-                            {
-                                <p class="redgreen" id="green">Completed</p>
-                            }
-                            else
-                            {
-                                <p class="redgreen" id="red">Cancelled</p>
-                            }
+                            <div class="d-flex justify-content-center align-items-center">
+                                @if (sh.Status == 3)
+                                {
+                                    <p class="redgreen" id="green">Completed</p>
+                                }
+                                else
+                                {
+                                    <p class="redgreen" id="red">Cancelled</p>
+                                }
+                            </div>
                         </td>
                         <td data-title="Rate SP" class="tac">
-                            @if (sh.Status == 3)
-                            {
-                                <p class="ratesp ratespcompleted" style="cursor: pointer;"
-                        onclick='ratespfunction("@sh.ServiceId","@sh.ServiceProviderId","@sh.ServiceProviderName","@sh.AvgRating","@sh.ServiceProviderProfilePicture") '>Rate
-                                    SP</p>
-                            }
-                            else
-                            {
-                                <p class="ratesp" style="cursor: not-allowed;">Rate
-                                    SP</p>
-                            }
+                            <div class="d-flex justify-content-center align-items-center">
+                                @if (sh.Status == 3)
+                                {
+                                    <p class="ratesp ratespcompleted" style="cursor: pointer;"
+                            onclick='ratespfunction("@sh.ServiceId","@sh.ServiceProviderId","@sh.ServiceProviderName","@sh.AvgRating","@sh.ServiceProviderProfilePicture") '>
+                                        Rate
+                                        SP</p>
+                                }
+                                else
+                                {
+                                    <p class="ratesp" style="cursor: not-allowed;">Rate
+                                        SP</p>
+                                }
+                            </div>
                         </td>
                     </tr>
                 }

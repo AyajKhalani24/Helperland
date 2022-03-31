@@ -5,6 +5,8 @@ const serviceDetailsModalHtml = document.querySelector("#serviceDetails");
 const serviceDetailsModalBody = serviceDetailsModalHtml.querySelector(".modal-body");
 const serviceDetailsModal = bootstrap.Modal.getOrCreateInstance(serviceDetailsModalHtml);
 const body = document.querySelector("body")
+const dashboard = document.querySelector("#ServiceSchedule");
+dashboard.classList.add("current");
 
 window.addEventListener("load", () => {
     fetch("/Provider/GetService", { method: "GET" })

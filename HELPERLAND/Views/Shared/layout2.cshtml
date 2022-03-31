@@ -152,7 +152,8 @@
                 <a asp-controller="Customer" asp-action="servicehistory" class="vertnavcont" id="servicehistory">Service
                     History</a>
                 <a href="#" class="vertnavcont">Service Schedule</a>
-                <a href="#" class="vertnavcont">Favourite Pros</a>
+                <a asp-controller="Customer" asp-action="FavouriteAndBlocked" class="vertnavcont"
+                id="favouriteandblocked">Favourite Pros</a>
                 <a href="#" class="vertnavcont">Invoices</a>
                 <a href="#" class="vertnavcont">Notification</a>
             }
@@ -163,7 +164,8 @@
                     Service Request</a>
                 <a asp-controller="Provider" asp-action="UpcomingService" class="vertnavcont" id="upcomingservice">Upcoming
                     Service</a>
-                <a asp-controller="Provider" asp-action="ServiceSchedule" class="vertnavcont">Service Schedule</a>
+                <a asp-controller="Provider" asp-action="ServiceSchedule" class="vertnavcont" id="ServiceSchedule">Service
+                    Schedule</a>
                 <a asp-controller="Provider" asp-action="ServiceHistory" class="vertnavcont" id="servicehistory">Service
                     History</a>
                 <a asp-controller="Provider" asp-action="MyRatings" class="vertnavcont" id="myrating">My Ratings</a>

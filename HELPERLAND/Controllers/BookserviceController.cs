@@ -160,6 +160,28 @@ public class BookserviceController : Controller
             RecordVersion = Guid.NewGuid()
         };
 
+        if (model.ServiceProId != null)
+        {
+            newServiceRequest.ServiceProviderId = model.ServiceProId;
+            newServiceRequest.Status = 2;
+            var Provider = context.Users.Where(a => a.UserId == model.ServiceProId).FirstOrDefault();
+            if (Provider == null)
+                Console.WriteLine("No Malyo");
+            else
+                Console.WriteLine("malyo");
+
+            Console.WriteLine(Provider.Email);
+            var email = new EmailViewmodel()
+            {
+                To = Provider.Email,
+                Subject = "Service Alert",
+                isHTML = true,
+                Body = $"<p>The Service {random} has been directly assign to you.</p>",
+            };
+            bool result = sendEmail.sendMail(email);
+            Console.WriteLine(result);
+        }
+
         if (model.ExtraServices != null)
         {
             newServiceRequest.ServiceHours += model.ExtraServices.Count() * 0.5;
@@ -215,39 +237,44 @@ public class BookserviceController : Controller
         }
         return Json(new { ServiceId = newServiceRequest.ServiceId });
     }
+
     public IActionResult SendMailToProvider(string ZipCode, string serviceId)
     {
-        int flag = 0;
-        var Provider = context.Users.Where(a => a.ZipCode == ZipCode && a.UserTypeId == 2).ToList();
-
-        int UserId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-        var user = context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
-
-        var blocked = context.FavoriteAndBlockeds.Where(fab => (fab.UserId == user.UserId || fab.TargetUserId == user.UserId) && fab.IsBlocked == true).ToList();
-        foreach (var s in Provider.ToList())
+        var Service = context.ServiceRequests.Where(a => a.ServiceId == Convert.ToInt32(serviceId) && a.Status == 2).FirstOrDefault();
+        if (Service == null)
         {
-            foreach (var b in blocked)
+            int flag = 0;
+            var Provider = context.Users.Where(a => a.ZipCode == ZipCode && a.UserTypeId == 2).ToList();
+
+            int UserId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var user = context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
+
+            var blocked = context.FavoriteAndBlockeds.Where(fab => (fab.UserId == user.UserId || fab.TargetUserId == user.UserId) && fab.IsBlocked == true).ToList();
+            foreach (var s in Provider.ToList())
             {
-                if ((b.UserId == s.UserId && b.TargetUserId == user.UserId) || (b.UserId == user.UserId && b.TargetUserId == s.UserId))
+                foreach (var b in blocked)
                 {
-                    Provider.Remove(s);
-                    continue;
+                    if ((b.UserId == s.UserId && b.TargetUserId == user.UserId) || (b.UserId == user.UserId && b.TargetUserId == s.UserId))
+                    {
+                        Provider.Remove(s);
+                        continue;
+                    }
                 }
             }
-        }
-        foreach (var s in Provider)
-        {
-            var email = new EmailViewmodel()
+            foreach (var s in Provider)
             {
-                To = s.Email,
-                Subject = "Service Alert",
-                isHTML = true,
-                Body = $"<p>The Service {serviceId} has been assign in your area go and check your dashboard.</p>",
-            };
-            bool result = sendEmail.sendMail(email);
-            flag += 1;
+                var email = new EmailViewmodel()
+                {
+                    To = s.Email,
+                    Subject = "Service Alert",
+                    isHTML = true,
+                    Body = $"<p>The Service {serviceId} has been assign in your area go and check your dashboard.</p>",
+                };
+                bool result = sendEmail.sendMail(email);
+                flag += 1;
+            }
+            return Json(true);
         }
-        Console.WriteLine(flag);
         return Json(true);
     }
 }

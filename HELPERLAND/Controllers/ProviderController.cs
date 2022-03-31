@@ -414,7 +414,6 @@ public class ProviderController : Controller
         }
     }
 
-
     [HttpGet]
     public IActionResult ServiceSchedule()
     {

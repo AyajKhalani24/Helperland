@@ -447,13 +447,15 @@ public class CustomerController : Controller
     {
         int UserId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var user = context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
+
         var result = (
             from s in context.ServiceRequests
             join u in context.Users on new { ServiceProviderId = s.ServiceProviderId.ToString() } equals new { ServiceProviderId = u.UserId.ToString() }
             join fab in context.FavoriteAndBlockeds
-                on new { s.UserId, s.ServiceProviderId }
-                equals new { fab.UserId, ServiceProviderId = fab.TargetUserId.ToString() } into fab_join
+                on new { UserId = s.UserId, ServiceProviderId = s.ServiceProviderId.ToString() }
+                equals new { UserId = fab.UserId, ServiceProviderId = fab.TargetUserId.ToString() } into fab_join
             from fab in fab_join.DefaultIfEmpty()
+
             join avgrt in (
             (
                 from rt in context.Ratings
@@ -462,7 +464,7 @@ public class CustomerController : Controller
                 {
                     AvgRatings = (decimal?)g.Average(p => p.Ratings),
                     SPId = g.Key.RatingTo
-                })) on new { ServiceProviderId = s.ServiceProviderId } equals new { ServiceProviderId = avgrt.SPId } into avgrt_join
+                })) on new { ServiceProviderId = s.ServiceProviderId.ToString() } equals new { ServiceProviderId = avgrt.SPId.ToString() } into avgrt_join
             from avgrt in avgrt_join.DefaultIfEmpty()
             join totalservice in (
             (
@@ -488,7 +490,7 @@ public class CustomerController : Controller
                 FirstName = u.FirstName,
                 LastName = u.LastName,
                 SPId = s.ServiceProviderId,
-                ProfilePhoto = u.UserProfilePhoto,
+                ProfilePhoto = u.UserProfilePicture,
                 AvgRatings = avgrt.AvgRatings != null ? (decimal)avgrt.AvgRatings : 0
             }).Distinct().ToList();
         foreach (var service in result.ToList())
@@ -501,6 +503,97 @@ public class CustomerController : Controller
         }
         return View(result);
     }
-}
 
+    [HttpPost]
+    public IActionResult ChangeBlockOrFavourite([FromBody] ChangeBlockOrFavouriteViewModel model)
+    {
+        try
+        {
+            int UserId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var user = context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
+
+            var fab = context.FavoriteAndBlockeds.Where(fab => fab.UserId == user.UserId && fab.TargetUserId == model.SPId).FirstOrDefault();
+            if (fab != null)
+            {
+                if (fab.IsFavorite && model.IsBlocked)
+                {
+                    return Json(new { err = "You can't block sp who is in your favourite list !" });
+                }
+                if (fab.IsBlocked && model.IsFavourite || model.IsBlocked && model.IsFavourite)
+                {
+                    return Json(new { err = "You can't block sp who is in your favourite list !" });
+                }
+                fab.IsBlocked = model.IsBlocked;
+                fab.IsFavorite = model.IsFavourite;
+                context.Attach(fab);
+            }
+            else
+            {
+                var newFab = new FavoriteAndBlocked()
+                {
+                    UserId = user.UserId,
+                    TargetUserId = model.SPId,
+                    IsBlocked = model.IsBlocked,
+                    IsFavorite = model.IsFavourite,
+                };
+                context.FavoriteAndBlockeds.Add(newFab);
+            }
+            context.SaveChanges();
+            return Json(new { success = "Operation Successful !" });
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return Json(new { err = "Internal Server Error !!" });
+        }
+    }
+    public IActionResult GetFavouriteProviders()
+    {
+        try
+        {
+            int UserId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var user = context.Users.Where(u => u.UserId == UserId).FirstOrDefault();
+
+            var result = (
+                from u in context.Users
+                join fab in context.FavoriteAndBlockeds
+                on u.UserId equals fab.TargetUserId
+                where fab.UserId == user.UserId && fab.IsFavorite
+                select new BookServiceFavSpViewModel
+                {
+                    SPId = fab.TargetUserId,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    ProfilePhoto = u.UserProfilePicture
+                }
+            ).ToList();
+            foreach (var sp in result.ToList())
+            {
+                var blocked = context.FavoriteAndBlockeds.Where(fab => fab.UserId == sp.SPId && fab.TargetUserId == user.UserId && fab.IsBlocked).FirstOrDefault();
+                if (blocked != null) result.Remove(sp);
+            }
+            return Json(result);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return Json(new { err = "Internal Server Error !!" });
+        }
+    }
+}
+public class ChangeBlockOrFavouriteViewModel
+{
+#nullable disable
+    public int SPId { get; set; }
+    public bool IsBlocked { get; set; }
+    public bool IsFavourite { get; set; }
+}
+public class BookServiceFavSpViewModel
+{
+#nullable disable
+    public int SPId { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string ProfilePhoto { get; set; }
+}
 
